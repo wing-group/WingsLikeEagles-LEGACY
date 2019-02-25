@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testy"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wing-group/WingsLikeEagles.git"
   },
   "author": "WingGroup",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/wing-group/WingsLikeEagles/issues"
   },
-  "homepage": "https://github.com/wing-group/WingsLikeEagles#readme"
+  "homepage": "https://github.com/wing-group/WingsLikeEagles#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
 }
