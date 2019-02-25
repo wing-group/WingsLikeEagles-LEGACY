@@ -1,0 +1,19 @@
+{
+  "name": "wingslikeeagles",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wing-group/WingsLikeEagles.git"
+  },
+  "author": "WingGroup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wing-group/WingsLikeEagles/issues"
+  },
+  "homepage": "https://github.com/wing-group/WingsLikeEagles#readme"
+}
