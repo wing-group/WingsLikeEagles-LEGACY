@@ -16,7 +16,9 @@
   },
   "homepage": "https://github.com/wing-group/WingsLikeEagles#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "mongoose": "^5.4.16",
     "pug": "^2.0.3"
   }
 }
