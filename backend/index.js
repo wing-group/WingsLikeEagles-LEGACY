@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 var http = require('http').Server(app);
 var indexRouter = require('./routes');
-var bodyParse = require('body-parser')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,5 +22,5 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB Error: '));
 
 http.listen(8080, function() {
-    console.log("Listening on localhost:8080");
+    console.log("Listening on localhost:3000");
 });
