@@ -8,6 +8,4 @@ router.use('/', function(req, res) {
     res.render('index');
 });
 
-router.use('/books', bookRouter);
-
 module.exports = router;
