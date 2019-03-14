@@ -19,8 +19,8 @@ class PickVerse extends Component {
         return (
             <div>
                 <form action="#" onSubmit={this.handle}>
-                    <input type="text" id="pickVerseInput"></input>
-                    <input type="submit"></input>
+                    <input type="text" id="pickVerseInput" className="round" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: John.3.16 "></input>
+                    <input type="submit" className="round"></input>
                 </form>
             </div>
         );

@@ -4,7 +4,7 @@ import PickBible from './PickBible';
 import PickVerse from './PickVerse';
 
 class SearchByVerse extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             chosenBible: -1,
@@ -14,28 +14,30 @@ class SearchByVerse extends Component {
         this.setVerse = this.setVerse.bind(this);
     }
 
-    setBible(data){
-        this.setState({chosenBible: data});
+    setBible(data) {
+        this.setState({ chosenBible: data });
     }
 
-    setVerse(d){
+    setVerse(d) {
         console.log(d);
-        this.setState({chosenVerse: d});
+        this.setState({ chosenVerse: d });
         $.ajax({
             method: "GET",
             url: "/verses/path/",
-            data: {path: d, bible: this.state.chosenBible},
+            data: { path: d, bible: this.state.chosenBible },
             success: (verse) => {
-                $('#verseOut').html(verse);     
+                $('#verseOut').html(verse);
             }
         });
     }
 
-    render(){
+    render() {
         return (
-            <div>
-                <PickBible callback={this.setBible} selected={this.state.chosenBible}></PickBible>
-                <PickVerse callback={this.setVerse}></PickVerse>
+            <div className="container">
+                <div className="horizontal">
+                    <PickBible callback={this.setBible} selected={this.state.chosenBible}></PickBible>
+                    <PickVerse callback={this.setVerse}></PickVerse>
+                </div>
                 <p id='verseOut'></p>
             </div>
         );

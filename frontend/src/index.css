@@ -1,0 +1,41 @@
+#root {
+    padding: 20px;
+}
+
+.root-container {
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.container {
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.horizontal {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.round {
+    border-radius: 1em;
+    border: 1pt solid #000000;
+}
+
+#verseOut {
+    background: rgb(163, 163, 163);
+    border-radius: 5px;
+}
+
+#pickVerseInput {
+    width: 40vw;
+    padding: 3px;
+}

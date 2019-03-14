@@ -62,7 +62,7 @@ class PickBible extends Component {
         // they are created here with data from the server 
         return (
             <div>               
-                <select id="pickBibleSelect" onChange={this.change} dangerouslySetInnerHTML={{ __html: options }}></select>
+                <select id="pickBibleSelect" className="round" onChange={this.change} dangerouslySetInnerHTML={{ __html: options }}></select>
             </div>
         );
     }
