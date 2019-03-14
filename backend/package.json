@@ -19,7 +19,6 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.16",
-    "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
     "pug": "^2.0.3",
     "request": "^2.88.0"
