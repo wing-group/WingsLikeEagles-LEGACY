@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 const request = require('request');
-var fetch = require('node-fetch');
 
 router.get('/', function (req, res) {
     //res.render('index');
