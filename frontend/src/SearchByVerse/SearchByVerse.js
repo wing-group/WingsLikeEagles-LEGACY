@@ -20,11 +20,12 @@ class SearchByVerse extends Component {
 
     setVerse(d) {
         console.log(d);
+        console.log(this.state.chosenBible);
         this.setState({ chosenVerse: d });
         $.ajax({
             method: "GET",
             url: "/verses/path/",
-            data: { path: d, bible: this.state.chosenBible },
+            data: { path: d, bible: this.state.chosenBible.id },
             success: (verse) => {
                 $('#verseOut').html(verse);
             }

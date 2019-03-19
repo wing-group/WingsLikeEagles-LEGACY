@@ -7,18 +7,19 @@ class PickVerse extends Component {
         this.handle = this.handle.bind(this);
     }
 
-    handle() {
+    handle(event) {
         let str = $("#pickVerseInput").val();
         console.log(str);
         //handle data here
         this.props.callback(str);
+        event.preventDefault();
         return false;
     }
 
     render() {
         return (
             <div>
-                <form action="#" onSubmit={this.handle}>
+                <form onSubmit={this.handle}>
                     <input type="text" id="pickVerseInput" className="round" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: Matt.1.1 "></input>
                     <input type="submit" className="round"></input>
                 </form>
