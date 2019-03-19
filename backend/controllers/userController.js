@@ -24,17 +24,17 @@ exports.delete_user = function(req, res) {
     User.findOne({ username: req.query.id}, function(err, user) {
         if(user == null) {
             res.send('{ error: "USER_NOT_FOUND" }');
-            break;
+            return;
         }
 
         if(err) {
             res.send('{ error: "ERROR_GETTING_USER" }');
-            break;
+            return;
         }
         user.remove(function(err){
             if(err) {
                 res.send('{ error: "ERROR_DELETING_USER" }')
-                break;
+                return;
             }
             res.send('{ error: null }')
         });
