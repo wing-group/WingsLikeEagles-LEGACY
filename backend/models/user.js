@@ -20,7 +20,7 @@ var userSchema = new Schema({
         type: String,
         required: true,
         },
-    password_hash: {
+    password: {
         type: String,
         required: true
         },
@@ -30,7 +30,7 @@ var userSchema = new Schema({
         },
     reputation: {
         type: Number,
-        required: true
+        default: 0
         },
     account_status: {
         type: String,

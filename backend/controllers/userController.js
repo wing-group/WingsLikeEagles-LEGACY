@@ -12,11 +12,35 @@ exports.create_user = function(req, res) {
         last_name: req.body.last_name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password 
-        //TODO Need to add more fields to match schema and update API Docs
+        password: req.body.password,
+        denomination: req.body.denomination,
+        account_status: "ACTIVATED"
     });
+
+    user.save();
 }
 
 exports.delete_user = function(req, res) {
+    User.findOne({ username: req.query.id}, function(err, user) {
+        if(user == null) {
+            res.send('{ error: "USER_NOT_FOUND" }');
+            break;
+        }
+
+        if(err) {
+            res.send('{ error: "ERROR_GETTING_USER" }');
+            break;
+        }
+        user.remove(function(err){
+            if(err) {
+                res.send('{ error: "ERROR_DELETING_USER" }')
+                break;
+            }
+            res.send('{ error: null }')
+        });
+    });
+}
+
+exports.get_user = function(req, res) {
     res.send('{ error: "NOT_IMPLEMENTED" }');
 }
