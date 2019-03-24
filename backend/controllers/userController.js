@@ -3,7 +3,11 @@
 var User = require('../models/user');
 
 exports.list_users = function(req, res) {
-    res.send('{ error: "NOT_IMPLEMENTED" }');
+    User.find({}, function(err, users) {
+        if(err) {
+            res.send()
+        }
+    });
 }
 
 exports.create_user = function(req, res) {
