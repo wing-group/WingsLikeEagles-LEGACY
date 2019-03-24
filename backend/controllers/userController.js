@@ -5,8 +5,11 @@ var User = require('../models/user');
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            res.send()
+            res.send('{ error: "ERROR_GETTING_USERS"');
+            return
         }
+
+        res.send(users);
     });
 }
 
@@ -22,10 +25,12 @@ exports.create_user = function(req, res) {
     });
 
     user.save();
+
+    res.send('{ error: null }')
 }
 
 exports.delete_user = function(req, res) {
-    User.findOne({ username: req.query.id}, function(err, user) {
+    User.findOne({ username: req.params.id}, function(err, user) {
         if(user == null) {
             res.send('{ error: "USER_NOT_FOUND" }');
             return;
