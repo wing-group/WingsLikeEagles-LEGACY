@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 const request = require('request');
 
+var FormatVerse = require('./FormatVerse');
+
 router.get('/', function (req, res) {
     //res.render('index');
     res.write("Hello World!");
@@ -26,7 +28,7 @@ router.get('/searchBibles', function (req, res) {
 });
 
 router.get('/verses/path/', function (req, res) {
-    var path = req.query.path;
+    var path = FormatVerse.formatVerse(req.query.path);
     var bible = req.query.bible;
     //console.log("https://P8w2yM8qwNKG80ITE89YTQQdmm6id8khLgHLD8lY:X@bibles.org/v2/verses/" + bible.id + ":" + path + ".js");
     
