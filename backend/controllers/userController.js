@@ -56,7 +56,7 @@ exports.get_user = function(req, res) {
             res.send('{ error: "USER_NOT_FOUND" }');
         } else 
         if(err) {
-            res.send('{ error: "USER_NOT_FOUND" }')
+            res.send('{ error: "ERROR_GETTING_USER" }')
         } else {
             res.send(user);
         }
