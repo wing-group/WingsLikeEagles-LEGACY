@@ -51,5 +51,15 @@ exports.delete_user = function(req, res) {
 }
 
 exports.get_user = function(req, res) {
-    res.send('{ error: "NOT_IMPLEMENTED" }');
+    User.findOne({ username: req.params.id}, function(err, user) {
+        if(user == null) {
+            res.send('{ error: "USER_NOT_FOUND" }');
+        } else 
+        if(err) {
+            res.send('{ error: "USER_NOT_FOUND" }')
+        } else {
+            res.send(user);
+        }
+
+    });
 }
