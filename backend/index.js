@@ -22,5 +22,5 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB Error: '));
 
 http.listen(8080, function() {
-    console.log("Listening on localhost:3000");
+    console.log("Listening on localhost:8080");
 });
