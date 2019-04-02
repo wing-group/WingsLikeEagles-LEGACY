@@ -2,10 +2,12 @@
 
 var express = require('express');
 var router = express.Router();
+var userRouter = require('./users');
 const request = require('request');
 
-router.get('/', function (req, res) {
-    //res.render('index');
+// / Endpoint
+router.get('/', function(req, res) {
+    res.render('index');
     res.write("Hello World!");
     res.send();
 });
@@ -29,7 +31,7 @@ router.get('/verses/path/', function (req, res) {
     var path = req.query.path;
     var bible = req.query.bible;
     //console.log("https://P8w2yM8qwNKG80ITE89YTQQdmm6id8khLgHLD8lY:X@bibles.org/v2/verses/" + bible.id + ":" + path + ".js");
-    
+
     // make request for single verse
     request("https://P8w2yM8qwNKG80ITE89YTQQdmm6id8khLgHLD8lY:X@bibles.org/v2/verses/" + bible + ":" + path + ".js", (error, response, body) => {
         if(error){
@@ -40,5 +42,8 @@ router.get('/verses/path/', function (req, res) {
         }
     });
 });
+
+// /users/ Endpoint
+router.use('/users', userRouter)
 
 module.exports = router;
