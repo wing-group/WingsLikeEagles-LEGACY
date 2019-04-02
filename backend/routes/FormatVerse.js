@@ -1,44 +1,44 @@
-function isAlphanumeric(code)
-{
-    return ((code > 47 && code < 58) || (code > 64 && code < 91) || (code > 96 && code < 123));
+var regex = /\W+|_+/;
+var regex2 = /(\d+)/;
+var regex3 = /\s+/;
+var regex4 = /(\d+)\.([a-z]+)\.(\d+)\.(\d+)/;
+var defaultVerse = "0.gen.1.1";
+
+function cleanRawVerse(rawVerse) {
+    if (rawVerse == null) return defaultVerse;
+
+    // remove junk
+    var verse = rawVerse.trim().toLowerCase();
+    verse = verse.split(regex);
+    verse = verse.join(" ");
+
+    // split alpa and numberic
+    verse = "0" + verse;
+    verse = verse.split(regex2);
+    verse = verse.join(" ");
+
+    // clean up
+    verse = verse.trim();
+    verse = verse.split(regex3);
+    verse = verse.join(".");
+
+    // pick out correct format
+    verse = verse.match(regex4);
+    return verse != null ? verse[0] : defaultVerse;
 }
 
-function isNumeric(code)
-{
-    return (code > 47 && code < 58);
+function getBookAbbr(numPrefix, rawBook) {
+    return rawBook.toUpperCase().charAt(0) + rawBook.slice(1);
+}
+
+function finalFormat(cleanedRaw) {
+    var parts = cleanedRaw.split(/\./);
+    return [getBookAbbr(parts[0], parts[1]), parts[2], parts[3]].join('.');
 }
 
 module.exports = {
     formatVerse: function (rawVerse) {
-        rawVerse = rawVerse.trim();
-
-        // get the raw book substring
-        var start = 0;
-        var end = start;
-        for (end; end < rawVerse.length && isAlphanumeric(rawVerse.charCodeAt(end)); end++) {}
-        var book = rawVerse.slice(start, end);
-        
-        // get the chapter substring
-        for (end; end < rawVerse.length && !isNumeric(rawVerse.charCodeAt(end)); end++) {}
-        start = end;
-        for (end; end < rawVerse.length && isNumeric(rawVerse.charCodeAt(end)); end++) {}
-        var chapter = rawVerse.slice(start, end);
-        
-        // get the verse substring
-        for (end; end < rawVerse.length && !isNumeric(rawVerse.charCodeAt(end)); end++) {}
-        start = end;
-        for (end; end < rawVerse.length && isNumeric(rawVerse.charCodeAt(end)); end++) {}
-        var verse = rawVerse.slice(start, end);
-
-        // some protection against mangled input
-        if (chapter == "") {
-            chapter = "1";
-        }
-        if (verse == "") {
-            verse = "1";
-        }
-
-        // rebuild the string to proper format
-        return book + '.' + chapter + '.' + verse;
+        var verse = cleanRawVerse(rawVerse);
+        return finalFormat(verse);
     }
 };
