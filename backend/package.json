@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=3001 nodemon index.js"
+    "start": "cross-env PORT=3001 nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
     "mongoose": "^5.4.16",
     "nodemon": "^1.18.10",
     "pug": "^2.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "string-similarity": "^3.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
