@@ -52,4 +52,10 @@ var userSchema = new Schema({
         }
 });
 
+userSchema.statics.comparePassword = function(callback) {
+    bcrypt.compare(password, user.password, function (err, result) {
+        return callback(err, result)
+    });
+}
+
 module.exports = mongoose.model('User', userSchema);
