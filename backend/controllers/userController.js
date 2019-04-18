@@ -2,6 +2,7 @@
 
 var User = require('../models/user');
 
+//Returns a list of all users
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
@@ -13,6 +14,7 @@ exports.list_users = function(req, res) {
     });
 }
 
+//Creates a new user
 exports.create_user = function(req, res) {
     var user = new User({
         first_name: req.body.first_name,
@@ -29,6 +31,7 @@ exports.create_user = function(req, res) {
     res.send('{ error: null }')
 }
 
+//Deletes a user
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) {
         if(user == null) {
@@ -42,7 +45,7 @@ exports.delete_user = function(req, res) {
         }
         user.remove(function(err){
             if(err) {
-                res.send('{ error: "ERROR_DELETING_USER" }')
+                res.send(new Error('ERROR_DELETING_USER'))
                 return;
             }
             res.send('{ error: null }')
@@ -50,16 +53,27 @@ exports.delete_user = function(req, res) {
     });
 }
 
+//Gets a specific user by username
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) {
-        if(user == null) {
-            res.send('{ error: "USER_NOT_FOUND" }');
-        } else 
-        if(err) {
-            res.send('{ error: "ERROR_GETTING_USER" }')
+        if(user == null || err) {
+            res.status(500).send();
         } else {
             res.send(user);
         }
 
     });
+}
+
+exports.login_user = function(req, res) {
+    User.findOne({username : req.body.email}, function(err, user) {
+        if(user) {
+            if(req.body.password == user.password) {
+                req.session.authed = true;
+                req.session.save();
+            }
+        } else {
+            res.status(500).send();
+        }
+    })
 }

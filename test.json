@@ -1,0 +1,47 @@
+{
+    "response": {
+        "verses": [
+            {
+                "auditid": "0",
+                "verse": "1",
+                "lastverse": "1",
+                "id": "eng-KJV:1Cor.1.1",
+                "osis_end": "eng-KJV:1Cor.1.1",
+                "label": "",
+                "reference": "1 Corinthians 1:1",
+                "prev_osis_id": "Rom.016.027,eng-KJV",
+                "next_osis_id": "1Cor.001.002,eng-KJV",
+                "text": "<p class=\"p\"><sup id=\"1Cor.1.1\" class=\"v\">1<\/sup>Paul, called <span class=\"add\">to be<\/span> an apostle of Jesus Christ through the will of God, and Sosthenes <span class=\"add\">our<\/span> brother,<\/p>",
+                "parent": {
+                    "chapter": {
+                        "path": "\/chapters\/eng-KJV:1Cor.1",
+                        "name": "1 Corinthians 1",
+                        "id": "eng-KJV:1Cor.1"
+                    }
+                },
+                "next": {
+                    "verse": {
+                        "path": "\/verses\/eng-KJV:1Cor.1.2",
+                        "name": "1 Corinthians 1:2",
+                        "id": "eng-KJV:1Cor.1.2"
+                    }
+                },
+                "previous": {
+                    "verse": {
+                        "path": "\/verses\/eng-KJV:Rom.16.27",
+                        "name": "Romans 16:27",
+                        "id": "eng-KJV:Rom.16.27"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            }
+        ],
+        "meta": {
+            "fums": "<script>\nvar _BAPI=_BAPI||{};\nif(typeof(_BAPI.t)==='undefined'){\ndocument.write('\\x3Cscript src=\"'+document.location.protocol+'\/\/d2ue49q0mum86x.cloudfront.net\/include\/fums.c.js\"\\x3E\\x3C\/script\\x3E');}\ndocument.write(\"\\x3Cscript\\x3E_BAPI.t('5c895775537929.75802362');\\x3C\/script\\x3E\");\n<\/script><noscript><img src=\"https:\/\/d3a2okcloueqyx.cloudfront.net\/nf1?t=5c895775537929.75802362\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" \/><\/noscript>",
+            "fums_tid": "5c895775537929.75802362",
+            "fums_js_include": "d2ue49q0mum86x.cloudfront.net\/include\/fums.c.js",
+            "fums_js": "var _BAPI=_BAPI||{};if(typeof(_BAPI.t)!='undefined'){ _BAPI.t('5c895775537929.75802362'); }",
+            "fums_noscript": "<img src=\"https:\/\/d3a2okcloueqyx.cloudfront.net\/nf1?t=5c895775537929.75802362\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" \/>"
+        }
+    }
+}

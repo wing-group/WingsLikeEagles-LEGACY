@@ -24,12 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-/*
+
 mongoose.connect('mongodb://localhost:27017/devDB', { useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB Error: '));
-*/
 
-http.listen(process.env.PORT, function() {
-    console.log(`Listening on localhost:${process.env.PORT}`);
+
+http.listen(process.env.PORT || 3001, function() {
+    console.log(`Listening on localhost:${process.env.PORT || 3001}`);
 });
