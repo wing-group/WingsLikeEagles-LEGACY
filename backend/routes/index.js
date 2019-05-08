@@ -15,9 +15,9 @@ router.get('/', function(req, res) {
 router.use('/users', userRouter);
 
 // /auth/ Endpoint
-router.use('/users', authRouter);
+router.use('/auth', authRouter);
 
 // /bibles/ Endpoint
-router.use('/users', bibleRouter);
+router.use('/bibles', biblesRouter);
 
 module.exports = router;
