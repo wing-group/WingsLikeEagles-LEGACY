@@ -1,12 +1,19 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Controller for updating and retreiving data relating to the User model.
+ */
 
 var User = require('../models/user');
+var Utils = require('../util')
 
-//Returns a list of all users
+/**
+ * Responds with a list of all users
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            res.send('{ error: "ERROR_GETTING_USERS"');
+            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USERS, res);
             return
         }
 
@@ -14,7 +21,11 @@ exports.list_users = function(req, res) {
     });
 }
 
-//Creates a new user
+/**
+ * Creates a new user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.create_user = function(req, res) {
     var user = new User({
         first_name: req.body.first_name,
@@ -31,21 +42,21 @@ exports.create_user = function(req, res) {
     res.send('{ error: null }')
 }
 
-//Deletes a user
+/**
+ * Deletes a user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) {
         if(user == null) {
-            res.send('{ error: "USER_NOT_FOUND" }');
-            return;
-        }
-
-        if(err) {
-            res.send('{ error: "ERROR_GETTING_USER" }');
-            return;
+            Utils.sendAPIError(Utils.ERRORS.USER_NOT_FOUND);
+        } else if(err) {
+            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USER);
         }
         user.remove(function(err){
             if(err) {
-                res.send(new Error('ERROR_DELETING_USER'))
+                Utils.sendAPIError(Utils.ERRORS.ERROR_DELETING_USER);
                 return;
             }
             res.send('{ error: null }')
@@ -53,11 +64,17 @@ exports.delete_user = function(req, res) {
     });
 }
 
-//Gets a specific user by username
+/**
+ * Gets a specific user by username
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) {
-        if(user == null || err) {
-            res.status(500).send();
+        if(user == null) {
+            Utils.sendAPIError(Utils.ERRORS.USER_NOT_FOUND, res);
+        } else if (err) {
+            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USER, res);
         } else {
             res.send(user);
         }
@@ -65,6 +82,11 @@ exports.get_user = function(req, res) {
     });
 }
 
+/**
+ * Authenticates a login request
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.login_user = function(req, res) {
     User.findOne({username : req.body.email}, function(err, user) {
         if(user) {
@@ -73,7 +95,7 @@ exports.login_user = function(req, res) {
                 req.session.save();
             }
         } else {
-            res.status(500).send();
+            Utils.sendAPIError(Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD, res);
         }
     })
 }
