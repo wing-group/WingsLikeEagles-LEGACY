@@ -1,4 +1,6 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Index router, handles routing for all endpoints
+ */
 
 var express = require('express');
 var router = express.Router();

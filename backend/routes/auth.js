@@ -1,4 +1,6 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Handles routing for all /auth endpoints
+ */
 
 var express = require('express');
 var router = express.Router();

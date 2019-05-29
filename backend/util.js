@@ -5,7 +5,7 @@
 /**
  * Handles sending error responses to the client application
  * @param {Object} err The APIError to send
- * @param {Object} res The Express response to use to send the error
+ * @param {Object} res The response object to use to send the error
  */
 module.exports.sendAPIError = function(err, res) {
     let errCpy = {
@@ -30,12 +30,23 @@ module.exports.APIError = function(httpStatus, errCode, errMsg) {
 }
 
 /**
- * Object used for storing error types
+ * Object (Enum) used for storing error types
  */
 module.exports.ERRORS = {
-    USER_NOT_FOUND: new APIError(404, 0, "Couldn't find requested user"),
-    ERROR_GETTING_USER: new APIError(500, 1, "Error while trying to get user"),
-    INVALID_EMAIL_OR_PASSWORD: new APIError(403, 2, "Email or password were invalid"),
-    ERROR_DELETING_USER: new APIError(500, 3, "Error while trying to delete user"),
-    ERROR_GETTING_USERS: new APIError(500, 4, "Error getting a list of users")
+    USER_NOT_FOUND: new this.APIError(404, 0, "Couldn't find requested user"),
+    ERROR_GETTING_USER: new this.APIError(500, 1, "Error while trying to get user"),
+    INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password were invalid"),
+    ERROR_CREATING_USER: new this.APIError(500, 4, "Error while trying to create user"),
+    ERROR_DELETING_USER: new this.APIError(500, 3, "Error while trying to delete user"),
+    ERROR_GETTING_USERS: new this.APIError(500, 4, "Error getting a list of users")
+}
+
+/**
+ * Object (Enum) used for storing account status options
+ */
+module.exports.ACCOUNT_STATUS = {
+    ACTIVATED: 1,
+    UNACTIVATED: 2,
+    BANNED: 3,
+    DISABLED: 4
 }
