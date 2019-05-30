@@ -35,10 +35,10 @@ module.exports.APIError = function(httpStatus, errCode, errMsg) {
 module.exports.ERRORS = {
     USER_NOT_FOUND: new this.APIError(404, 0, "Couldn't find requested user"),
     ERROR_GETTING_USER: new this.APIError(500, 1, "Error while trying to get user"),
-    INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password were invalid"),
-    ERROR_CREATING_USER: new this.APIError(500, 4, "Error while trying to create user"),
-    ERROR_DELETING_USER: new this.APIError(500, 3, "Error while trying to delete user"),
-    ERROR_GETTING_USERS: new this.APIError(500, 4, "Error getting a list of users")
+    INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password was invalid"),
+    ERROR_CREATING_USER: new this.APIError(500, 3, "Error while trying to create user"),
+    ERROR_DELETING_USER: new this.APIError(500, 4, "Error while trying to delete user"),
+    ERROR_GETTING_USERS: new this.APIError(500, 5, "Error getting a list of users")
 }
 
 /**
