@@ -17,9 +17,9 @@ module.exports.sendAPIError = function(err, res) {
 
 /**
  * Handles sending error responses to the client application
+ * @param {Object} res The response object to use to send the error
  * @param {Object} content The body of the API response
  * @param {Object} err The APIError to send
- * @param {Object} res The response object to use to send the error
  */
 module.exports.sendAPIResponse = function(res, content, err) {
     let APIResponse = {

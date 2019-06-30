@@ -13,11 +13,10 @@ var Utils = require('../util')
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USERS, res);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USERS);
             return;
         }
-
-        res.send(users);
+        Utils.sendAPIResponse(res, users, null);
     });
 }
 
@@ -39,9 +38,9 @@ exports.create_user = function(req, res) {
 
     user.save(function(err) {
         if(err) {
-            Utils.sendAPIError(Utils.ERRORS.ERROR_CREATING_USER);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_CREATING_USER);
         } else {
-            res.send();
+            Utils.sendAPIResponse(res, null, null);
         }
     });
 }
@@ -54,18 +53,18 @@ exports.create_user = function(req, res) {
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Utils.sendAPIError(Utils.ERRORS.USER_NOT_FOUND);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND)
             return;
         } else if(err) {
-            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USER);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
             return;
         }
         user.remove(function(err){ 
             if(err) {
-                Utils.sendAPIError(Utils.ERRORS.ERROR_DELETING_USER);
+                Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_DELETING_USER);
                 return;
             }
-            res.send();
+            Utils.sendAPIResponse(res, null, null);
         });
     });
 }
@@ -78,11 +77,11 @@ exports.delete_user = function(req, res) {
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Utils.sendAPIError(Utils.ERRORS.USER_NOT_FOUND, res);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND);
         } else if (err) {
-            Utils.sendAPIError(Utils.ERRORS.ERROR_GETTING_USER, res);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
         } else {
-            res.send(user);
+            Utils.sendAPIResponse(res, user, null);
         }
 
     });
@@ -102,11 +101,11 @@ exports.login_user = function(req, res) {
                     req.session.user = user; //Save user object to session for easier access later
                     req.session.save();
                 } else {
-                    Utils.sendAPIError(Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD, res);
+                    Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
                 }
             });
         } else {
-            Utils.sendAPIError(Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD, res);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
         }
     });
 }
@@ -120,8 +119,8 @@ exports.logout_user = function(req, res) {
     if(req.session.user) {
         req.session = null;
         req.session.destroy();
-        res.send();
+        Utils.sendAPIResponse(res, null, null);
     } else {
-        Utils.sendAPIError(Utils.ERRORS.NOT_LOGGED_IN, res);
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
     }
 }
