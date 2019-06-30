@@ -110,3 +110,18 @@ exports.login_user = function(req, res) {
         }
     });
 }
+
+/**
+ * Deauthenticates a logged in user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+exports.logout_user = function(req, res) {
+    if(req.session.user) {
+        req.session = null;
+        req.session.destroy();
+        res.send();
+    } else {
+        Utils.sendAPIError(Utils.ERRORS.NOT_LOGGED_IN, res);
+    }
+}

@@ -1,5 +1,6 @@
 // Copyright (c) 2019 WingGroup
 
+var session = require('express-session')
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -10,6 +11,13 @@ var mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+  key: 'user_sid',
+  secret: 'wing',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {}
+}));
 
 // Allow CORS
 app.use(function(req, res, next) {

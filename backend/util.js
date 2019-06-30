@@ -12,8 +12,21 @@ module.exports.sendAPIError = function(err, res) {
         error_code: err.errCode,
         message: err.errMsg
     }
-    res.statusMessage = JSON.stringify(errCpy);
-    res.status().send();
+    res.status(err.httpStatus).send(errCpy);
+}
+
+/**
+ * Handles sending error responses to the client application
+ * @param {Object} content The body of the API response
+ * @param {Object} err The APIError to send
+ * @param {Object} res The response object to use to send the error
+ */
+module.exports.sendAPIResponse = function(res, content, err) {
+    let APIResponse = {
+        content: content,
+        error: err
+    }
+    res.status(err.httpStatus).send(errCpy);
 }
 
 /**
@@ -38,7 +51,8 @@ module.exports.ERRORS = {
     INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password was invalid"),
     ERROR_CREATING_USER: new this.APIError(500, 3, "Error while trying to create user"),
     ERROR_DELETING_USER: new this.APIError(500, 4, "Error while trying to delete user"),
-    ERROR_GETTING_USERS: new this.APIError(500, 5, "Error getting a list of users")
+    ERROR_GETTING_USERS: new this.APIError(500, 5, "Error getting a list of users"),
+    NOT_LOGGED_IN: new this.APIError(403, 6, "You need to be logged in to do that")
 }
 
 /**
