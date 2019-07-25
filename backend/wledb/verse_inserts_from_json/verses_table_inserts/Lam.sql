@@ -1,0 +1,185 @@
+DECLARE @chap int;
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Lamentations' AND chapter = 1;
+
+INSERT INTO verses
+VALUES 
+	('lamen.1.1', @chap, 1),
+	('lamen.1.2', @chap, 2),
+	('lamen.1.3', @chap, 3),
+	('lamen.1.4', @chap, 4),
+	('lamen.1.5', @chap, 5),
+	('lamen.1.6', @chap, 6),
+	('lamen.1.7', @chap, 7),
+	('lamen.1.8', @chap, 8),
+	('lamen.1.9', @chap, 9),
+	('lamen.1.10', @chap, 10),
+	('lamen.1.11', @chap, 11),
+	('lamen.1.12', @chap, 12),
+	('lamen.1.13', @chap, 13),
+	('lamen.1.14', @chap, 14),
+	('lamen.1.15', @chap, 15),
+	('lamen.1.16', @chap, 16),
+	('lamen.1.17', @chap, 17),
+	('lamen.1.18', @chap, 18),
+	('lamen.1.19', @chap, 19),
+	('lamen.1.20', @chap, 20),
+	('lamen.1.21', @chap, 21),
+	('lamen.1.22', @chap, 22);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Lamentations' AND chapter = 2;
+
+INSERT INTO verses
+VALUES 
+	('lamen.2.1', @chap, 1),
+	('lamen.2.2', @chap, 2),
+	('lamen.2.3', @chap, 3),
+	('lamen.2.4', @chap, 4),
+	('lamen.2.5', @chap, 5),
+	('lamen.2.6', @chap, 6),
+	('lamen.2.7', @chap, 7),
+	('lamen.2.8', @chap, 8),
+	('lamen.2.9', @chap, 9),
+	('lamen.2.10', @chap, 10),
+	('lamen.2.11', @chap, 11),
+	('lamen.2.12', @chap, 12),
+	('lamen.2.13', @chap, 13),
+	('lamen.2.14', @chap, 14),
+	('lamen.2.15', @chap, 15),
+	('lamen.2.16', @chap, 16),
+	('lamen.2.17', @chap, 17),
+	('lamen.2.18', @chap, 18),
+	('lamen.2.19', @chap, 19),
+	('lamen.2.20', @chap, 20),
+	('lamen.2.21', @chap, 21),
+	('lamen.2.22', @chap, 22);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Lamentations' AND chapter = 3;
+
+INSERT INTO verses
+VALUES 
+	('lamen.3.1', @chap, 1),
+	('lamen.3.2', @chap, 2),
+	('lamen.3.3', @chap, 3),
+	('lamen.3.4', @chap, 4),
+	('lamen.3.5', @chap, 5),
+	('lamen.3.6', @chap, 6),
+	('lamen.3.7', @chap, 7),
+	('lamen.3.8', @chap, 8),
+	('lamen.3.9', @chap, 9),
+	('lamen.3.10', @chap, 10),
+	('lamen.3.11', @chap, 11),
+	('lamen.3.12', @chap, 12),
+	('lamen.3.13', @chap, 13),
+	('lamen.3.14', @chap, 14),
+	('lamen.3.15', @chap, 15),
+	('lamen.3.16', @chap, 16),
+	('lamen.3.17', @chap, 17),
+	('lamen.3.18', @chap, 18),
+	('lamen.3.19', @chap, 19),
+	('lamen.3.20', @chap, 20),
+	('lamen.3.21', @chap, 21),
+	('lamen.3.22', @chap, 22),
+	('lamen.3.23', @chap, 23),
+	('lamen.3.24', @chap, 24),
+	('lamen.3.25', @chap, 25),
+	('lamen.3.26', @chap, 26),
+	('lamen.3.27', @chap, 27),
+	('lamen.3.28', @chap, 28),
+	('lamen.3.29', @chap, 29),
+	('lamen.3.30', @chap, 30),
+	('lamen.3.31', @chap, 31),
+	('lamen.3.32', @chap, 32),
+	('lamen.3.33', @chap, 33),
+	('lamen.3.34', @chap, 34),
+	('lamen.3.35', @chap, 35),
+	('lamen.3.36', @chap, 36),
+	('lamen.3.37', @chap, 37),
+	('lamen.3.38', @chap, 38),
+	('lamen.3.39', @chap, 39),
+	('lamen.3.40', @chap, 40),
+	('lamen.3.41', @chap, 41),
+	('lamen.3.42', @chap, 42),
+	('lamen.3.43', @chap, 43),
+	('lamen.3.44', @chap, 44),
+	('lamen.3.45', @chap, 45),
+	('lamen.3.46', @chap, 46),
+	('lamen.3.47', @chap, 47),
+	('lamen.3.48', @chap, 48),
+	('lamen.3.49', @chap, 49),
+	('lamen.3.50', @chap, 50),
+	('lamen.3.51', @chap, 51),
+	('lamen.3.52', @chap, 52),
+	('lamen.3.53', @chap, 53),
+	('lamen.3.54', @chap, 54),
+	('lamen.3.55', @chap, 55),
+	('lamen.3.56', @chap, 56),
+	('lamen.3.57', @chap, 57),
+	('lamen.3.58', @chap, 58),
+	('lamen.3.59', @chap, 59),
+	('lamen.3.60', @chap, 60),
+	('lamen.3.61', @chap, 61),
+	('lamen.3.62', @chap, 62),
+	('lamen.3.63', @chap, 63),
+	('lamen.3.64', @chap, 64),
+	('lamen.3.65', @chap, 65),
+	('lamen.3.66', @chap, 66);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Lamentations' AND chapter = 4;
+
+INSERT INTO verses
+VALUES 
+	('lamen.4.1', @chap, 1),
+	('lamen.4.2', @chap, 2),
+	('lamen.4.3', @chap, 3),
+	('lamen.4.4', @chap, 4),
+	('lamen.4.5', @chap, 5),
+	('lamen.4.6', @chap, 6),
+	('lamen.4.7', @chap, 7),
+	('lamen.4.8', @chap, 8),
+	('lamen.4.9', @chap, 9),
+	('lamen.4.10', @chap, 10),
+	('lamen.4.11', @chap, 11),
+	('lamen.4.12', @chap, 12),
+	('lamen.4.13', @chap, 13),
+	('lamen.4.14', @chap, 14),
+	('lamen.4.15', @chap, 15),
+	('lamen.4.16', @chap, 16),
+	('lamen.4.17', @chap, 17),
+	('lamen.4.18', @chap, 18),
+	('lamen.4.19', @chap, 19),
+	('lamen.4.20', @chap, 20),
+	('lamen.4.21', @chap, 21),
+	('lamen.4.22', @chap, 22);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Lamentations' AND chapter = 5;
+
+INSERT INTO verses
+VALUES 
+	('lamen.5.1', @chap, 1),
+	('lamen.5.2', @chap, 2),
+	('lamen.5.3', @chap, 3),
+	('lamen.5.4', @chap, 4),
+	('lamen.5.5', @chap, 5),
+	('lamen.5.6', @chap, 6),
+	('lamen.5.7', @chap, 7),
+	('lamen.5.8', @chap, 8),
+	('lamen.5.9', @chap, 9),
+	('lamen.5.10', @chap, 10),
+	('lamen.5.11', @chap, 11),
+	('lamen.5.12', @chap, 12),
+	('lamen.5.13', @chap, 13),
+	('lamen.5.14', @chap, 14),
+	('lamen.5.15', @chap, 15),
+	('lamen.5.16', @chap, 16),
+	('lamen.5.17', @chap, 17),
+	('lamen.5.18', @chap, 18),
+	('lamen.5.19', @chap, 19),
+	('lamen.5.20', @chap, 20),
+	('lamen.5.21', @chap, 21),
+	('lamen.5.22', @chap, 22);

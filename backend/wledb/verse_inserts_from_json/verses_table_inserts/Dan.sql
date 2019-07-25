@@ -1,0 +1,430 @@
+DECLARE @chap int;
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 1;
+
+INSERT INTO verses
+VALUES 
+	('danie.1.1', @chap, 1),
+	('danie.1.2', @chap, 2),
+	('danie.1.3', @chap, 3),
+	('danie.1.4', @chap, 4),
+	('danie.1.5', @chap, 5),
+	('danie.1.6', @chap, 6),
+	('danie.1.7', @chap, 7),
+	('danie.1.8', @chap, 8),
+	('danie.1.9', @chap, 9),
+	('danie.1.10', @chap, 10),
+	('danie.1.11', @chap, 11),
+	('danie.1.12', @chap, 12),
+	('danie.1.13', @chap, 13),
+	('danie.1.14', @chap, 14),
+	('danie.1.15', @chap, 15),
+	('danie.1.16', @chap, 16),
+	('danie.1.17', @chap, 17),
+	('danie.1.18', @chap, 18),
+	('danie.1.19', @chap, 19),
+	('danie.1.20', @chap, 20),
+	('danie.1.21', @chap, 21);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 2;
+
+INSERT INTO verses
+VALUES 
+	('danie.2.1', @chap, 1),
+	('danie.2.2', @chap, 2),
+	('danie.2.3', @chap, 3),
+	('danie.2.4', @chap, 4),
+	('danie.2.5', @chap, 5),
+	('danie.2.6', @chap, 6),
+	('danie.2.7', @chap, 7),
+	('danie.2.8', @chap, 8),
+	('danie.2.9', @chap, 9),
+	('danie.2.10', @chap, 10),
+	('danie.2.11', @chap, 11),
+	('danie.2.12', @chap, 12),
+	('danie.2.13', @chap, 13),
+	('danie.2.14', @chap, 14),
+	('danie.2.15', @chap, 15),
+	('danie.2.16', @chap, 16),
+	('danie.2.17', @chap, 17),
+	('danie.2.18', @chap, 18),
+	('danie.2.19', @chap, 19),
+	('danie.2.20', @chap, 20),
+	('danie.2.21', @chap, 21),
+	('danie.2.22', @chap, 22),
+	('danie.2.23', @chap, 23),
+	('danie.2.24', @chap, 24),
+	('danie.2.25', @chap, 25),
+	('danie.2.26', @chap, 26),
+	('danie.2.27', @chap, 27),
+	('danie.2.28', @chap, 28),
+	('danie.2.29', @chap, 29),
+	('danie.2.30', @chap, 30),
+	('danie.2.31', @chap, 31),
+	('danie.2.32', @chap, 32),
+	('danie.2.33', @chap, 33),
+	('danie.2.34', @chap, 34),
+	('danie.2.35', @chap, 35),
+	('danie.2.36', @chap, 36),
+	('danie.2.37', @chap, 37),
+	('danie.2.38', @chap, 38),
+	('danie.2.39', @chap, 39),
+	('danie.2.40', @chap, 40),
+	('danie.2.41', @chap, 41),
+	('danie.2.42', @chap, 42),
+	('danie.2.43', @chap, 43),
+	('danie.2.44', @chap, 44),
+	('danie.2.45', @chap, 45),
+	('danie.2.46', @chap, 46),
+	('danie.2.47', @chap, 47),
+	('danie.2.48', @chap, 48),
+	('danie.2.49', @chap, 49);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 3;
+
+INSERT INTO verses
+VALUES 
+	('danie.3.1', @chap, 1),
+	('danie.3.2', @chap, 2),
+	('danie.3.3', @chap, 3),
+	('danie.3.4', @chap, 4),
+	('danie.3.5', @chap, 5),
+	('danie.3.6', @chap, 6),
+	('danie.3.7', @chap, 7),
+	('danie.3.8', @chap, 8),
+	('danie.3.9', @chap, 9),
+	('danie.3.10', @chap, 10),
+	('danie.3.11', @chap, 11),
+	('danie.3.12', @chap, 12),
+	('danie.3.13', @chap, 13),
+	('danie.3.14', @chap, 14),
+	('danie.3.15', @chap, 15),
+	('danie.3.16', @chap, 16),
+	('danie.3.17', @chap, 17),
+	('danie.3.18', @chap, 18),
+	('danie.3.19', @chap, 19),
+	('danie.3.20', @chap, 20),
+	('danie.3.21', @chap, 21),
+	('danie.3.22', @chap, 22),
+	('danie.3.23', @chap, 23),
+	('danie.3.24', @chap, 24),
+	('danie.3.25', @chap, 25),
+	('danie.3.26', @chap, 26),
+	('danie.3.27', @chap, 27),
+	('danie.3.28', @chap, 28),
+	('danie.3.29', @chap, 29),
+	('danie.3.30', @chap, 30);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 4;
+
+INSERT INTO verses
+VALUES 
+	('danie.4.1', @chap, 1),
+	('danie.4.2', @chap, 2),
+	('danie.4.3', @chap, 3),
+	('danie.4.4', @chap, 4),
+	('danie.4.5', @chap, 5),
+	('danie.4.6', @chap, 6),
+	('danie.4.7', @chap, 7),
+	('danie.4.8', @chap, 8),
+	('danie.4.9', @chap, 9),
+	('danie.4.10', @chap, 10),
+	('danie.4.11', @chap, 11),
+	('danie.4.12', @chap, 12),
+	('danie.4.13', @chap, 13),
+	('danie.4.14', @chap, 14),
+	('danie.4.15', @chap, 15),
+	('danie.4.16', @chap, 16),
+	('danie.4.17', @chap, 17),
+	('danie.4.18', @chap, 18),
+	('danie.4.19', @chap, 19),
+	('danie.4.20', @chap, 20),
+	('danie.4.21', @chap, 21),
+	('danie.4.22', @chap, 22),
+	('danie.4.23', @chap, 23),
+	('danie.4.24', @chap, 24),
+	('danie.4.25', @chap, 25),
+	('danie.4.26', @chap, 26),
+	('danie.4.27', @chap, 27),
+	('danie.4.28', @chap, 28),
+	('danie.4.29', @chap, 29),
+	('danie.4.30', @chap, 30),
+	('danie.4.31', @chap, 31),
+	('danie.4.32', @chap, 32),
+	('danie.4.33', @chap, 33),
+	('danie.4.34', @chap, 34),
+	('danie.4.35', @chap, 35),
+	('danie.4.36', @chap, 36),
+	('danie.4.37', @chap, 37);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 5;
+
+INSERT INTO verses
+VALUES 
+	('danie.5.1', @chap, 1),
+	('danie.5.2', @chap, 2),
+	('danie.5.3', @chap, 3),
+	('danie.5.4', @chap, 4),
+	('danie.5.5', @chap, 5),
+	('danie.5.6', @chap, 6),
+	('danie.5.7', @chap, 7),
+	('danie.5.8', @chap, 8),
+	('danie.5.9', @chap, 9),
+	('danie.5.10', @chap, 10),
+	('danie.5.11', @chap, 11),
+	('danie.5.12', @chap, 12),
+	('danie.5.13', @chap, 13),
+	('danie.5.14', @chap, 14),
+	('danie.5.15', @chap, 15),
+	('danie.5.16', @chap, 16),
+	('danie.5.17', @chap, 17),
+	('danie.5.18', @chap, 18),
+	('danie.5.19', @chap, 19),
+	('danie.5.20', @chap, 20),
+	('danie.5.21', @chap, 21),
+	('danie.5.22', @chap, 22),
+	('danie.5.23', @chap, 23),
+	('danie.5.24', @chap, 24),
+	('danie.5.25', @chap, 25),
+	('danie.5.26', @chap, 26),
+	('danie.5.27', @chap, 27),
+	('danie.5.28', @chap, 28),
+	('danie.5.29', @chap, 29),
+	('danie.5.30', @chap, 30),
+	('danie.5.31', @chap, 31);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 6;
+
+INSERT INTO verses
+VALUES 
+	('danie.6.1', @chap, 1),
+	('danie.6.2', @chap, 2),
+	('danie.6.3', @chap, 3),
+	('danie.6.4', @chap, 4),
+	('danie.6.5', @chap, 5),
+	('danie.6.6', @chap, 6),
+	('danie.6.7', @chap, 7),
+	('danie.6.8', @chap, 8),
+	('danie.6.9', @chap, 9),
+	('danie.6.10', @chap, 10),
+	('danie.6.11', @chap, 11),
+	('danie.6.12', @chap, 12),
+	('danie.6.13', @chap, 13),
+	('danie.6.14', @chap, 14),
+	('danie.6.15', @chap, 15),
+	('danie.6.16', @chap, 16),
+	('danie.6.17', @chap, 17),
+	('danie.6.18', @chap, 18),
+	('danie.6.19', @chap, 19),
+	('danie.6.20', @chap, 20),
+	('danie.6.21', @chap, 21),
+	('danie.6.22', @chap, 22),
+	('danie.6.23', @chap, 23),
+	('danie.6.24', @chap, 24),
+	('danie.6.25', @chap, 25),
+	('danie.6.26', @chap, 26),
+	('danie.6.27', @chap, 27),
+	('danie.6.28', @chap, 28);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 7;
+
+INSERT INTO verses
+VALUES 
+	('danie.7.1', @chap, 1),
+	('danie.7.2', @chap, 2),
+	('danie.7.3', @chap, 3),
+	('danie.7.4', @chap, 4),
+	('danie.7.5', @chap, 5),
+	('danie.7.6', @chap, 6),
+	('danie.7.7', @chap, 7),
+	('danie.7.8', @chap, 8),
+	('danie.7.9', @chap, 9),
+	('danie.7.10', @chap, 10),
+	('danie.7.11', @chap, 11),
+	('danie.7.12', @chap, 12),
+	('danie.7.13', @chap, 13),
+	('danie.7.14', @chap, 14),
+	('danie.7.15', @chap, 15),
+	('danie.7.16', @chap, 16),
+	('danie.7.17', @chap, 17),
+	('danie.7.18', @chap, 18),
+	('danie.7.19', @chap, 19),
+	('danie.7.20', @chap, 20),
+	('danie.7.21', @chap, 21),
+	('danie.7.22', @chap, 22),
+	('danie.7.23', @chap, 23),
+	('danie.7.24', @chap, 24),
+	('danie.7.25', @chap, 25),
+	('danie.7.26', @chap, 26),
+	('danie.7.27', @chap, 27),
+	('danie.7.28', @chap, 28);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 8;
+
+INSERT INTO verses
+VALUES 
+	('danie.8.1', @chap, 1),
+	('danie.8.2', @chap, 2),
+	('danie.8.3', @chap, 3),
+	('danie.8.4', @chap, 4),
+	('danie.8.5', @chap, 5),
+	('danie.8.6', @chap, 6),
+	('danie.8.7', @chap, 7),
+	('danie.8.8', @chap, 8),
+	('danie.8.9', @chap, 9),
+	('danie.8.10', @chap, 10),
+	('danie.8.11', @chap, 11),
+	('danie.8.12', @chap, 12),
+	('danie.8.13', @chap, 13),
+	('danie.8.14', @chap, 14),
+	('danie.8.15', @chap, 15),
+	('danie.8.16', @chap, 16),
+	('danie.8.17', @chap, 17),
+	('danie.8.18', @chap, 18),
+	('danie.8.19', @chap, 19),
+	('danie.8.20', @chap, 20),
+	('danie.8.21', @chap, 21),
+	('danie.8.22', @chap, 22),
+	('danie.8.23', @chap, 23),
+	('danie.8.24', @chap, 24),
+	('danie.8.25', @chap, 25),
+	('danie.8.26', @chap, 26),
+	('danie.8.27', @chap, 27);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 9;
+
+INSERT INTO verses
+VALUES 
+	('danie.9.1', @chap, 1),
+	('danie.9.2', @chap, 2),
+	('danie.9.3', @chap, 3),
+	('danie.9.4', @chap, 4),
+	('danie.9.5', @chap, 5),
+	('danie.9.6', @chap, 6),
+	('danie.9.7', @chap, 7),
+	('danie.9.8', @chap, 8),
+	('danie.9.9', @chap, 9),
+	('danie.9.10', @chap, 10),
+	('danie.9.11', @chap, 11),
+	('danie.9.12', @chap, 12),
+	('danie.9.13', @chap, 13),
+	('danie.9.14', @chap, 14),
+	('danie.9.15', @chap, 15),
+	('danie.9.16', @chap, 16),
+	('danie.9.17', @chap, 17),
+	('danie.9.18', @chap, 18),
+	('danie.9.19', @chap, 19),
+	('danie.9.20', @chap, 20),
+	('danie.9.21', @chap, 21),
+	('danie.9.22', @chap, 22),
+	('danie.9.23', @chap, 23),
+	('danie.9.24', @chap, 24),
+	('danie.9.25', @chap, 25),
+	('danie.9.26', @chap, 26),
+	('danie.9.27', @chap, 27);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 10;
+
+INSERT INTO verses
+VALUES 
+	('danie.10.1', @chap, 1),
+	('danie.10.2', @chap, 2),
+	('danie.10.3', @chap, 3),
+	('danie.10.4', @chap, 4),
+	('danie.10.5', @chap, 5),
+	('danie.10.6', @chap, 6),
+	('danie.10.7', @chap, 7),
+	('danie.10.8', @chap, 8),
+	('danie.10.9', @chap, 9),
+	('danie.10.10', @chap, 10),
+	('danie.10.11', @chap, 11),
+	('danie.10.12', @chap, 12),
+	('danie.10.13', @chap, 13),
+	('danie.10.14', @chap, 14),
+	('danie.10.15', @chap, 15),
+	('danie.10.16', @chap, 16),
+	('danie.10.17', @chap, 17),
+	('danie.10.18', @chap, 18),
+	('danie.10.19', @chap, 19),
+	('danie.10.20', @chap, 20),
+	('danie.10.21', @chap, 21);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 11;
+
+INSERT INTO verses
+VALUES 
+	('danie.11.1', @chap, 1),
+	('danie.11.2', @chap, 2),
+	('danie.11.3', @chap, 3),
+	('danie.11.4', @chap, 4),
+	('danie.11.5', @chap, 5),
+	('danie.11.6', @chap, 6),
+	('danie.11.7', @chap, 7),
+	('danie.11.8', @chap, 8),
+	('danie.11.9', @chap, 9),
+	('danie.11.10', @chap, 10),
+	('danie.11.11', @chap, 11),
+	('danie.11.12', @chap, 12),
+	('danie.11.13', @chap, 13),
+	('danie.11.14', @chap, 14),
+	('danie.11.15', @chap, 15),
+	('danie.11.16', @chap, 16),
+	('danie.11.17', @chap, 17),
+	('danie.11.18', @chap, 18),
+	('danie.11.19', @chap, 19),
+	('danie.11.20', @chap, 20),
+	('danie.11.21', @chap, 21),
+	('danie.11.22', @chap, 22),
+	('danie.11.23', @chap, 23),
+	('danie.11.24', @chap, 24),
+	('danie.11.25', @chap, 25),
+	('danie.11.26', @chap, 26),
+	('danie.11.27', @chap, 27),
+	('danie.11.28', @chap, 28),
+	('danie.11.29', @chap, 29),
+	('danie.11.30', @chap, 30),
+	('danie.11.31', @chap, 31),
+	('danie.11.32', @chap, 32),
+	('danie.11.33', @chap, 33),
+	('danie.11.34', @chap, 34),
+	('danie.11.35', @chap, 35),
+	('danie.11.36', @chap, 36),
+	('danie.11.37', @chap, 37),
+	('danie.11.38', @chap, 38),
+	('danie.11.39', @chap, 39),
+	('danie.11.40', @chap, 40),
+	('danie.11.41', @chap, 41),
+	('danie.11.42', @chap, 42),
+	('danie.11.43', @chap, 43),
+	('danie.11.44', @chap, 44),
+	('danie.11.45', @chap, 45);
+
+
+SELECT cid INTO @chap FROM chapters WHERE book = 'Daniel' AND chapter = 12;
+
+INSERT INTO verses
+VALUES 
+	('danie.12.1', @chap, 1),
+	('danie.12.2', @chap, 2),
+	('danie.12.3', @chap, 3),
+	('danie.12.4', @chap, 4),
+	('danie.12.5', @chap, 5),
+	('danie.12.6', @chap, 6),
+	('danie.12.7', @chap, 7),
+	('danie.12.8', @chap, 8),
+	('danie.12.9', @chap, 9),
+	('danie.12.10', @chap, 10),
+	('danie.12.11', @chap, 11),
+	('danie.12.12', @chap, 12),
+	('danie.12.13', @chap, 13);
