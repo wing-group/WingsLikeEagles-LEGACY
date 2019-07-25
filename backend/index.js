@@ -22,13 +22,13 @@ mongoose.connect('mongodb://localhost:27017/devDB', { useNewUrlParser: true});
 var mongodb = mongoose.connection;
 mongodb.on('error', console.error.bind(console, 'MongoDB Error: '));
 
-var mydb = mysql.createConnection({
+var wledb = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "secret",
     database: "mydb"
 });
-mydb.connect(function(err) {
+wledb.connect(function(err) {
     if(err) {
         throw err;
     }
