@@ -25,14 +25,14 @@ mongodb.on('error', console.error.bind(console, 'MongoDB Error: '));
 var wledb = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "secret",
-    database: "mydb"
+    password: "", //TODO: Secure MySQL connection
+    database: "wledb"
 });
 wledb.connect(function(err) {
     if(err) {
         throw err;
     }
-    console.log("Mysql connected...")
+    console.log("Mysql connected")
 });
 
 http.listen(8080, function() {
