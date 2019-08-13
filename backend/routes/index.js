@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var userRouter = require('./users');
+var verseRouter = require('./verses');
 
 // / Endpoint
 router.get('/', function(req, res) {
@@ -10,6 +11,9 @@ router.get('/', function(req, res) {
 });
 
 // /users/ Endpoint
-router.use('/users', userRouter)
+router.use('/users', userRouter);
+
+// /verses/ endpoint
+router.use('/verses', verseRouter);
 
 module.exports = router;

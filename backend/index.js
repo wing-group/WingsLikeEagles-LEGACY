@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 mongoose.connect('mongodb://localhost:27017/devDB', { useNewUrlParser: true});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB Error: '));
+var mongodb = mongoose.connection;
+mongodb.on('error', console.error.bind(console, 'MongoDB Error: '));
 
 http.listen(8080, function() {
     console.log("Listening on localhost:8080");
