@@ -5,8 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var userRouter = require('./users');
-var authRouter = require('./auth')
-var biblesRouter = require('./bibles')
+var verseRouter = require('./verses');
 
 // / Endpoint
 router.get('/', function(req, res) {
@@ -16,10 +15,7 @@ router.get('/', function(req, res) {
 // /users/ Endpoint
 router.use('/users', userRouter);
 
-// /auth/ Endpoint
-router.use('/auth', authRouter);
-
-// /bibles/ Endpoint
-router.use('/bibles', biblesRouter);
+// /verses/ endpoint
+router.use('/verses', verseRouter);
 
 module.exports = router;
