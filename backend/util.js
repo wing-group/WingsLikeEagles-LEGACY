@@ -26,7 +26,7 @@ module.exports.sendAPIResponse = function(res, content, err) {
         content: content,
         error: err
     }
-    res.status(err.httpStatus).send(errCpy);
+    res.status(err.httpStatus).send(err);
 }
 
 /**
@@ -46,6 +46,7 @@ module.exports.APIError = function(httpStatus, errCode, errMsg) {
  * Object (Enum) used for storing error types
  */
 module.exports.ERRORS = {
+    NONE: new this.APIError(200, -1, "Success"),
     USER_NOT_FOUND: new this.APIError(404, 0, "Couldn't find requested user"),
     ERROR_GETTING_USER: new this.APIError(500, 1, "Error while trying to get user"),
     INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password was invalid"),

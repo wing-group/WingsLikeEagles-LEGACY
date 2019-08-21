@@ -16,7 +16,7 @@ exports.list_users = function(req, res) {
             Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USERS);
             return;
         }
-        Utils.sendAPIResponse(res, users, null);
+        Utils.sendAPIResponse(res, users, Utils.ERRORS.NONE);
     });
 }
 
