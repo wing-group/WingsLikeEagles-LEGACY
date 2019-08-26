@@ -9,4 +9,7 @@ var userController = require('../controllers/userController');1
 // POST /auth/
 router.post('/', userController.login_user);
 
+// DELETE /auth/
+router.delete('/', userController.logout_user);
+
 module.exports = router;

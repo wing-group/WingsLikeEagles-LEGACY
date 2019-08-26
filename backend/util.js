@@ -26,7 +26,7 @@ module.exports.sendAPIResponse = function(res, content, err) {
         content: content,
         error: err
     }
-    res.status(err.httpStatus).send(err);
+    res.status(err.httpStatus).send(APIResponse);
 }
 
 /**

@@ -18,7 +18,7 @@ exports.list_users = function(req, res) {
         }
         Utils.sendAPIResponse(res, users, Utils.ERRORS.NONE);
     });
-}
+} 
 
 /**
  * Creates a new user
@@ -40,7 +40,7 @@ exports.create_user = function(req, res) {
         if(err) {
             Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_CREATING_USER);
         } else {
-            Utils.sendAPIResponse(res, null, null);
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
         }
     });
 }
@@ -64,7 +64,7 @@ exports.delete_user = function(req, res) {
                 Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_DELETING_USER);
                 return;
             }
-            Utils.sendAPIResponse(res, null, null);
+            Utils.sendAPIResponse(res, null, ERRORS.NONE);
         });
     });
 }
@@ -81,7 +81,7 @@ exports.get_user = function(req, res) {
         } else if (err) {
             Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
         } else {
-            Utils.sendAPIResponse(res, user, null);
+            Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
         }
 
     });
@@ -100,6 +100,7 @@ exports.login_user = function(req, res) {
                     req.session.authed = true; //Used in the future to check if a user has been authenticated
                     req.session.user = user; //Save user object to session for easier access later
                     req.session.save();
+                    Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE)
                 } else {
                     Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
                 }
@@ -119,7 +120,7 @@ exports.logout_user = function(req, res) {
     if(req.session.user) {
         req.session = null;
         req.session.destroy();
-        Utils.sendAPIResponse(res, null, null);
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
     } else {
         Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
     }

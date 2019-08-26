@@ -58,6 +58,26 @@ var userSchema = new Schema({
 });
 
 /**
+ * Uses bcrypt to hash the user's password before it's stored in the database
+ */
+userSchema.pre('save', function(next) {
+    var user = this;
+
+    if(!user.isModified('password')) return next();
+
+    bcrypt.genSalt(4, function(err, salt) {
+        if (err) return next(err);
+
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+
+            user.password = hash;
+            next();
+        });
+    });
+});
+
+/**
  * @callback comparePasswordCallback
  * @param {Error} err Any errors encountered while checking the 
  * @param {Boolean} isMatch Whether or not the passwords match 
