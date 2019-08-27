@@ -4,19 +4,6 @@
 
 /**
  * Handles sending error responses to the client application
- * @param {Object} err The APIError to send
- * @param {Object} res The response object to use to send the error
- */
-module.exports.sendAPIError = function(err, res) {
-    let errCpy = {
-        error_code: err.errCode,
-        message: err.errMsg
-    }
-    res.status(err.httpStatus).send(errCpy);
-}
-
-/**
- * Handles sending error responses to the client application
  * @param {Object} res The response object to use to send the error
  * @param {Object} content The body of the API response
  * @param {Object} err The APIError to send
