@@ -97,7 +97,6 @@ exports.login_user = function(req, res) {
         if(user) {
             user.comparePassword(req.body.password, function(err, isMatch) {
                 if(isMatch) {
-                    req.session.authed = true; //Used in the future to check if a user has been authenticated
                     req.session.user = user; //Save user object to session for easier access later
                     req.session.save();
                     Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE)

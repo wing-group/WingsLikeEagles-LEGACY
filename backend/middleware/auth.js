@@ -1,4 +1,21 @@
 // Copyright (c) 2019 WingGroup
 
 //USED FOR USER SESSION AUTHENTICATION
-//TODO: Setup middleware function for checking whether or not the current user is authenticated or not
+
+var Utils = require('../util');
+
+/**
+ * Middleware for endpoints that require login
+ * If a user is logged in then route will continue to the endpoint
+ * If not it will return an error saying a user isn't logged in
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ * @param {Functon} next 
+*/
+exports.requiresLogin = function(req, res, next) {
+    if(req.session.hasOwnProperty('user')) {
+        next();
+    } else {
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
+    }
+}
