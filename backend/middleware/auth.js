@@ -10,7 +10,7 @@ var Utils = require('../util');
  * If not it will return an error saying a user isn't logged in
  * @param {Object} req The expressJS request object
  * @param {Object} res The expressJS response object
- * @param {Functon} next 
+ * @param {Functon} next The route requring user login
 */
 exports.requiresLogin = function(req, res, next) {
     if(req.session.hasOwnProperty('user')) {

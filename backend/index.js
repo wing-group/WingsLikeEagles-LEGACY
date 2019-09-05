@@ -6,11 +6,10 @@ var path = require('path');
 var app = express();
 var http = require('http').Server(app);
 var indexRouter = require('./routes');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.use(session({
   key: 'user_sid',
   secret: 'wing',
