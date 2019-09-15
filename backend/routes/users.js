@@ -1,4 +1,6 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Handles routing for /user endpoints
+ */
 
 var express = require('express');
 var router = express.Router();
@@ -9,6 +11,9 @@ router.get('/', userController.list_users);
 
 // POST /users/
 router.post('/', userController.create_user);
+
+// GET /users/:id
+router.get('/:id', userController.get_user);
 
 // DELETE /users/:id
 router.delete('/:id', userController.delete_user);

@@ -1,0 +1,2111 @@
+{
+    "response": {
+        "books": [
+            {
+                "version_id": "431",
+                "name": "Genesis",
+                "abbr": "Gen",
+                "ord": "1",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Gen",
+                "osis_end": "eng-KJV:Gen.50.26",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Exod",
+                        "name": "Exodus",
+                        "id": "eng-KJV:Exod"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Exodus",
+                "abbr": "Exod",
+                "ord": "2",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Exod",
+                "osis_end": "eng-KJV:Exod.40.38",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Lev",
+                        "name": "Leviticus",
+                        "id": "eng-KJV:Lev"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Gen",
+                        "name": "Genesis",
+                        "id": "eng-KJV:Gen"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Leviticus",
+                "abbr": "Lev",
+                "ord": "3",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Lev",
+                "osis_end": "eng-KJV:Lev.27.34",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Num",
+                        "name": "Numbers",
+                        "id": "eng-KJV:Num"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Exod",
+                        "name": "Exodus",
+                        "id": "eng-KJV:Exod"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Numbers",
+                "abbr": "Num",
+                "ord": "4",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Num",
+                "osis_end": "eng-KJV:Num.36.13",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Deut",
+                        "name": "Deuteronomy",
+                        "id": "eng-KJV:Deut"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Lev",
+                        "name": "Leviticus",
+                        "id": "eng-KJV:Lev"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Deuteronomy",
+                "abbr": "Deut",
+                "ord": "5",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Deut",
+                "osis_end": "eng-KJV:Deut.34.12",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Josh",
+                        "name": "Joshua",
+                        "id": "eng-KJV:Josh"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Num",
+                        "name": "Numbers",
+                        "id": "eng-KJV:Num"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Joshua",
+                "abbr": "Josh",
+                "ord": "6",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Josh",
+                "osis_end": "eng-KJV:Josh.24.33",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Judg",
+                        "name": "Judges",
+                        "id": "eng-KJV:Judg"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Deut",
+                        "name": "Deuteronomy",
+                        "id": "eng-KJV:Deut"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Judges",
+                "abbr": "Judg",
+                "ord": "7",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Judg",
+                "osis_end": "eng-KJV:Judg.21.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ruth",
+                        "name": "Ruth",
+                        "id": "eng-KJV:Ruth"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Josh",
+                        "name": "Joshua",
+                        "id": "eng-KJV:Josh"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Ruth",
+                "abbr": "Ruth",
+                "ord": "8",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Ruth",
+                "osis_end": "eng-KJV:Ruth.4.22",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Sam",
+                        "name": "1 Samuel",
+                        "id": "eng-KJV:1Sam"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Judg",
+                        "name": "Judges",
+                        "id": "eng-KJV:Judg"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Samuel",
+                "abbr": "1Sam",
+                "ord": "9",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:1Sam",
+                "osis_end": "eng-KJV:1Sam.31.13",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Sam",
+                        "name": "2 Samuel",
+                        "id": "eng-KJV:2Sam"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ruth",
+                        "name": "Ruth",
+                        "id": "eng-KJV:Ruth"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Samuel",
+                "abbr": "2Sam",
+                "ord": "10",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:2Sam",
+                "osis_end": "eng-KJV:2Sam.24.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Kgs",
+                        "name": "1 Kings",
+                        "id": "eng-KJV:1Kgs"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Sam",
+                        "name": "1 Samuel",
+                        "id": "eng-KJV:1Sam"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Kings",
+                "abbr": "1Kgs",
+                "ord": "11",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:1Kgs",
+                "osis_end": "eng-KJV:1Kgs.22.53",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Kgs",
+                        "name": "2 Kings",
+                        "id": "eng-KJV:2Kgs"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Sam",
+                        "name": "2 Samuel",
+                        "id": "eng-KJV:2Sam"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Kings",
+                "abbr": "2Kgs",
+                "ord": "12",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:2Kgs",
+                "osis_end": "eng-KJV:2Kgs.25.30",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Chr",
+                        "name": "1 Chronicles",
+                        "id": "eng-KJV:1Chr"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Kgs",
+                        "name": "1 Kings",
+                        "id": "eng-KJV:1Kgs"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Chronicles",
+                "abbr": "1Chr",
+                "ord": "13",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:1Chr",
+                "osis_end": "eng-KJV:1Chr.29.30",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Chr",
+                        "name": "2 Chronicles",
+                        "id": "eng-KJV:2Chr"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Kgs",
+                        "name": "2 Kings",
+                        "id": "eng-KJV:2Kgs"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Chronicles",
+                "abbr": "2Chr",
+                "ord": "14",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:2Chr",
+                "osis_end": "eng-KJV:2Chr.36.23",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ezra",
+                        "name": "Ezra",
+                        "id": "eng-KJV:Ezra"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Chr",
+                        "name": "1 Chronicles",
+                        "id": "eng-KJV:1Chr"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Ezra",
+                "abbr": "Ezra",
+                "ord": "15",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Ezra",
+                "osis_end": "eng-KJV:Ezra.10.44",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Neh",
+                        "name": "Nehemiah",
+                        "id": "eng-KJV:Neh"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Chr",
+                        "name": "2 Chronicles",
+                        "id": "eng-KJV:2Chr"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Nehemiah",
+                "abbr": "Neh",
+                "ord": "16",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Neh",
+                "osis_end": "eng-KJV:Neh.13.31",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Esth",
+                        "name": "Esther",
+                        "id": "eng-KJV:Esth"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ezra",
+                        "name": "Ezra",
+                        "id": "eng-KJV:Ezra"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Esther",
+                "abbr": "Esth",
+                "ord": "17",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Esth",
+                "osis_end": "eng-KJV:Esth.10.3",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Job",
+                        "name": "Job",
+                        "id": "eng-KJV:Job"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Neh",
+                        "name": "Nehemiah",
+                        "id": "eng-KJV:Neh"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Job",
+                "abbr": "Job",
+                "ord": "18",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Job",
+                "osis_end": "eng-KJV:Job.42.17",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ps",
+                        "name": "Psalms",
+                        "id": "eng-KJV:Ps"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Esth",
+                        "name": "Esther",
+                        "id": "eng-KJV:Esth"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Psalms",
+                "abbr": "Ps",
+                "ord": "19",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Ps",
+                "osis_end": "eng-KJV:Ps.150.6",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Prov",
+                        "name": "Proverbs",
+                        "id": "eng-KJV:Prov"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Job",
+                        "name": "Job",
+                        "id": "eng-KJV:Job"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Proverbs",
+                "abbr": "Prov",
+                "ord": "20",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Prov",
+                "osis_end": "eng-KJV:Prov.31.31",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Eccl",
+                        "name": "Ecclesiastes",
+                        "id": "eng-KJV:Eccl"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ps",
+                        "name": "Psalms",
+                        "id": "eng-KJV:Ps"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Ecclesiastes",
+                "abbr": "Eccl",
+                "ord": "21",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Eccl",
+                "osis_end": "eng-KJV:Eccl.12.14",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Song",
+                        "name": "Song of Solomon",
+                        "id": "eng-KJV:Song"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Prov",
+                        "name": "Proverbs",
+                        "id": "eng-KJV:Prov"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Song of Solomon",
+                "abbr": "Song",
+                "ord": "22",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Song",
+                "osis_end": "eng-KJV:Song.8.14",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Isa",
+                        "name": "Isaiah",
+                        "id": "eng-KJV:Isa"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Eccl",
+                        "name": "Ecclesiastes",
+                        "id": "eng-KJV:Eccl"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Isaiah",
+                "abbr": "Isa",
+                "ord": "23",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Isa",
+                "osis_end": "eng-KJV:Isa.66.24",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jer",
+                        "name": "Jeremiah",
+                        "id": "eng-KJV:Jer"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Song",
+                        "name": "Song of Solomon",
+                        "id": "eng-KJV:Song"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Jeremiah",
+                "abbr": "Jer",
+                "ord": "24",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Jer",
+                "osis_end": "eng-KJV:Jer.52.34",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Lam",
+                        "name": "Lamentations",
+                        "id": "eng-KJV:Lam"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Isa",
+                        "name": "Isaiah",
+                        "id": "eng-KJV:Isa"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Lamentations",
+                "abbr": "Lam",
+                "ord": "25",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Lam",
+                "osis_end": "eng-KJV:Lam.5.22",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ezek",
+                        "name": "Ezekiel",
+                        "id": "eng-KJV:Ezek"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jer",
+                        "name": "Jeremiah",
+                        "id": "eng-KJV:Jer"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Ezekiel",
+                "abbr": "Ezek",
+                "ord": "26",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Ezek",
+                "osis_end": "eng-KJV:Ezek.48.35",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Dan",
+                        "name": "Daniel",
+                        "id": "eng-KJV:Dan"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Lam",
+                        "name": "Lamentations",
+                        "id": "eng-KJV:Lam"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Daniel",
+                "abbr": "Dan",
+                "ord": "27",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Dan",
+                "osis_end": "eng-KJV:Dan.12.13",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hos",
+                        "name": "Hosea",
+                        "id": "eng-KJV:Hos"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Ezek",
+                        "name": "Ezekiel",
+                        "id": "eng-KJV:Ezek"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Hosea",
+                "abbr": "Hos",
+                "ord": "28",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Hos",
+                "osis_end": "eng-KJV:Hos.14.9",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Joel",
+                        "name": "Joel",
+                        "id": "eng-KJV:Joel"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Dan",
+                        "name": "Daniel",
+                        "id": "eng-KJV:Dan"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Joel",
+                "abbr": "Joel",
+                "ord": "29",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Joel",
+                "osis_end": "eng-KJV:Joel.3.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Amos",
+                        "name": "Amos",
+                        "id": "eng-KJV:Amos"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hos",
+                        "name": "Hosea",
+                        "id": "eng-KJV:Hos"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Amos",
+                "abbr": "Amos",
+                "ord": "30",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Amos",
+                "osis_end": "eng-KJV:Amos.9.15",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Obad",
+                        "name": "Obadiah",
+                        "id": "eng-KJV:Obad"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Joel",
+                        "name": "Joel",
+                        "id": "eng-KJV:Joel"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Obadiah",
+                "abbr": "Obad",
+                "ord": "31",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Obad",
+                "osis_end": "eng-KJV:Obad.1.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jonah",
+                        "name": "Jonah",
+                        "id": "eng-KJV:Jonah"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Amos",
+                        "name": "Amos",
+                        "id": "eng-KJV:Amos"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Jonah",
+                "abbr": "Jonah",
+                "ord": "32",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Jonah",
+                "osis_end": "eng-KJV:Jonah.4.11",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mic",
+                        "name": "Micah",
+                        "id": "eng-KJV:Mic"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Obad",
+                        "name": "Obadiah",
+                        "id": "eng-KJV:Obad"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Micah",
+                "abbr": "Mic",
+                "ord": "33",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Mic",
+                "osis_end": "eng-KJV:Mic.7.20",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Nah",
+                        "name": "Nahum",
+                        "id": "eng-KJV:Nah"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jonah",
+                        "name": "Jonah",
+                        "id": "eng-KJV:Jonah"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Nahum",
+                "abbr": "Nah",
+                "ord": "34",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Nah",
+                "osis_end": "eng-KJV:Nah.3.19",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hab",
+                        "name": "Habakkuk",
+                        "id": "eng-KJV:Hab"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mic",
+                        "name": "Micah",
+                        "id": "eng-KJV:Mic"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Habakkuk",
+                "abbr": "Hab",
+                "ord": "35",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Hab",
+                "osis_end": "eng-KJV:Hab.3.19",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Zeph",
+                        "name": "Zephaniah",
+                        "id": "eng-KJV:Zeph"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Nah",
+                        "name": "Nahum",
+                        "id": "eng-KJV:Nah"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Zephaniah",
+                "abbr": "Zeph",
+                "ord": "36",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Zeph",
+                "osis_end": "eng-KJV:Zeph.3.20",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hag",
+                        "name": "Haggai",
+                        "id": "eng-KJV:Hag"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hab",
+                        "name": "Habakkuk",
+                        "id": "eng-KJV:Hab"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Haggai",
+                "abbr": "Hag",
+                "ord": "37",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Hag",
+                "osis_end": "eng-KJV:Hag.2.23",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Zech",
+                        "name": "Zechariah",
+                        "id": "eng-KJV:Zech"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Zeph",
+                        "name": "Zephaniah",
+                        "id": "eng-KJV:Zeph"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Zechariah",
+                "abbr": "Zech",
+                "ord": "38",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Zech",
+                "osis_end": "eng-KJV:Zech.14.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mal",
+                        "name": "Malachi",
+                        "id": "eng-KJV:Mal"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Hag",
+                        "name": "Haggai",
+                        "id": "eng-KJV:Hag"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Malachi",
+                "abbr": "Mal",
+                "ord": "39",
+                "book_group_id": "0",
+                "testament": "OT",
+                "id": "eng-KJV:Mal",
+                "osis_end": "eng-KJV:Mal.4.6",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Matt",
+                        "name": "Matthew",
+                        "id": "eng-KJV:Matt"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Zech",
+                        "name": "Zechariah",
+                        "id": "eng-KJV:Zech"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Matthew",
+                "abbr": "Matt",
+                "ord": "40",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Matt",
+                "osis_end": "eng-KJV:Matt.28.20",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mark",
+                        "name": "Mark",
+                        "id": "eng-KJV:Mark"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mal",
+                        "name": "Malachi",
+                        "id": "eng-KJV:Mal"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Mark",
+                "abbr": "Mark",
+                "ord": "41",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Mark",
+                "osis_end": "eng-KJV:Mark.16.20",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Luke",
+                        "name": "Luke",
+                        "id": "eng-KJV:Luke"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Matt",
+                        "name": "Matthew",
+                        "id": "eng-KJV:Matt"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Luke",
+                "abbr": "Luke",
+                "ord": "42",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Luke",
+                "osis_end": "eng-KJV:Luke.24.53",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:John",
+                        "name": "John",
+                        "id": "eng-KJV:John"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Mark",
+                        "name": "Mark",
+                        "id": "eng-KJV:Mark"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "John",
+                "abbr": "John",
+                "ord": "43",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:John",
+                "osis_end": "eng-KJV:John.21.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Acts",
+                        "name": "Acts",
+                        "id": "eng-KJV:Acts"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Luke",
+                        "name": "Luke",
+                        "id": "eng-KJV:Luke"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Acts",
+                "abbr": "Acts",
+                "ord": "44",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Acts",
+                "osis_end": "eng-KJV:Acts.28.31",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Rom",
+                        "name": "Romans",
+                        "id": "eng-KJV:Rom"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:John",
+                        "name": "John",
+                        "id": "eng-KJV:John"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Romans",
+                "abbr": "Rom",
+                "ord": "45",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Rom",
+                "osis_end": "eng-KJV:Rom.16.27",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Cor",
+                        "name": "1 Corinthians",
+                        "id": "eng-KJV:1Cor"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Acts",
+                        "name": "Acts",
+                        "id": "eng-KJV:Acts"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Corinthians",
+                "abbr": "1Cor",
+                "ord": "46",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:1Cor",
+                "osis_end": "eng-KJV:1Cor.16.24",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Cor",
+                        "name": "2 Corinthians",
+                        "id": "eng-KJV:2Cor"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Rom",
+                        "name": "Romans",
+                        "id": "eng-KJV:Rom"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Corinthians",
+                "abbr": "2Cor",
+                "ord": "47",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:2Cor",
+                "osis_end": "eng-KJV:2Cor.13.14",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Gal",
+                        "name": "Galatians",
+                        "id": "eng-KJV:Gal"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Cor",
+                        "name": "1 Corinthians",
+                        "id": "eng-KJV:1Cor"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Galatians",
+                "abbr": "Gal",
+                "ord": "48",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Gal",
+                "osis_end": "eng-KJV:Gal.6.18",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Eph",
+                        "name": "Ephesians",
+                        "id": "eng-KJV:Eph"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Cor",
+                        "name": "2 Corinthians",
+                        "id": "eng-KJV:2Cor"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Ephesians",
+                "abbr": "Eph",
+                "ord": "49",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Eph",
+                "osis_end": "eng-KJV:Eph.6.24",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Phil",
+                        "name": "Philippians",
+                        "id": "eng-KJV:Phil"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Gal",
+                        "name": "Galatians",
+                        "id": "eng-KJV:Gal"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Philippians",
+                "abbr": "Phil",
+                "ord": "50",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Phil",
+                "osis_end": "eng-KJV:Phil.4.23",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Col",
+                        "name": "Colossians",
+                        "id": "eng-KJV:Col"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Eph",
+                        "name": "Ephesians",
+                        "id": "eng-KJV:Eph"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Colossians",
+                "abbr": "Col",
+                "ord": "51",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Col",
+                "osis_end": "eng-KJV:Col.4.18",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Thess",
+                        "name": "1 Thessalonians",
+                        "id": "eng-KJV:1Thess"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Phil",
+                        "name": "Philippians",
+                        "id": "eng-KJV:Phil"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Thessalonians",
+                "abbr": "1Thess",
+                "ord": "52",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:1Thess",
+                "osis_end": "eng-KJV:1Thess.5.28",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Thess",
+                        "name": "2 Thessalonians",
+                        "id": "eng-KJV:2Thess"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Col",
+                        "name": "Colossians",
+                        "id": "eng-KJV:Col"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Thessalonians",
+                "abbr": "2Thess",
+                "ord": "53",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:2Thess",
+                "osis_end": "eng-KJV:2Thess.3.18",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Tim",
+                        "name": "1 Timothy",
+                        "id": "eng-KJV:1Tim"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Thess",
+                        "name": "1 Thessalonians",
+                        "id": "eng-KJV:1Thess"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Timothy",
+                "abbr": "1Tim",
+                "ord": "54",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:1Tim",
+                "osis_end": "eng-KJV:1Tim.6.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Tim",
+                        "name": "2 Timothy",
+                        "id": "eng-KJV:2Tim"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Thess",
+                        "name": "2 Thessalonians",
+                        "id": "eng-KJV:2Thess"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Timothy",
+                "abbr": "2Tim",
+                "ord": "55",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:2Tim",
+                "osis_end": "eng-KJV:2Tim.4.22",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Titus",
+                        "name": "Titus",
+                        "id": "eng-KJV:Titus"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Tim",
+                        "name": "1 Timothy",
+                        "id": "eng-KJV:1Tim"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Titus",
+                "abbr": "Titus",
+                "ord": "56",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Titus",
+                "osis_end": "eng-KJV:Titus.3.15",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Phlm",
+                        "name": "Philemon",
+                        "id": "eng-KJV:Phlm"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Tim",
+                        "name": "2 Timothy",
+                        "id": "eng-KJV:2Tim"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Philemon",
+                "abbr": "Phlm",
+                "ord": "57",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Phlm",
+                "osis_end": "eng-KJV:Phlm.1.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Heb",
+                        "name": "Hebrews",
+                        "id": "eng-KJV:Heb"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Titus",
+                        "name": "Titus",
+                        "id": "eng-KJV:Titus"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Hebrews",
+                "abbr": "Heb",
+                "ord": "58",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Heb",
+                "osis_end": "eng-KJV:Heb.13.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jas",
+                        "name": "James",
+                        "id": "eng-KJV:Jas"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Phlm",
+                        "name": "Philemon",
+                        "id": "eng-KJV:Phlm"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "James",
+                "abbr": "Jas",
+                "ord": "59",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Jas",
+                "osis_end": "eng-KJV:Jas.5.20",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Pet",
+                        "name": "1 Peter",
+                        "id": "eng-KJV:1Pet"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Heb",
+                        "name": "Hebrews",
+                        "id": "eng-KJV:Heb"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 Peter",
+                "abbr": "1Pet",
+                "ord": "60",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:1Pet",
+                "osis_end": "eng-KJV:1Pet.5.14",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Pet",
+                        "name": "2 Peter",
+                        "id": "eng-KJV:2Pet"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jas",
+                        "name": "James",
+                        "id": "eng-KJV:Jas"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 Peter",
+                "abbr": "2Pet",
+                "ord": "61",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:2Pet",
+                "osis_end": "eng-KJV:2Pet.3.18",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1John",
+                        "name": "1 John",
+                        "id": "eng-KJV:1John"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1Pet",
+                        "name": "1 Peter",
+                        "id": "eng-KJV:1Pet"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "1 John",
+                "abbr": "1John",
+                "ord": "62",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:1John",
+                "osis_end": "eng-KJV:1John.5.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2John",
+                        "name": "2 John",
+                        "id": "eng-KJV:2John"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2Pet",
+                        "name": "2 Peter",
+                        "id": "eng-KJV:2Pet"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "2 John",
+                "abbr": "2John",
+                "ord": "63",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:2John",
+                "osis_end": "eng-KJV:2John.1.13",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:3John",
+                        "name": "3 John",
+                        "id": "eng-KJV:3John"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:1John",
+                        "name": "1 John",
+                        "id": "eng-KJV:1John"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "3 John",
+                "abbr": "3John",
+                "ord": "64",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:3John",
+                "osis_end": "eng-KJV:3John.1.14",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jude",
+                        "name": "Jude",
+                        "id": "eng-KJV:Jude"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:2John",
+                        "name": "2 John",
+                        "id": "eng-KJV:2John"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Jude",
+                "abbr": "Jude",
+                "ord": "65",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Jude",
+                "osis_end": "eng-KJV:Jude.1.25",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "next": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Rev",
+                        "name": "Revelation",
+                        "id": "eng-KJV:Rev"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:3John",
+                        "name": "3 John",
+                        "id": "eng-KJV:3John"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            },
+            {
+                "version_id": "431",
+                "name": "Revelation",
+                "abbr": "Rev",
+                "ord": "66",
+                "book_group_id": "0",
+                "testament": "NT",
+                "id": "eng-KJV:Rev",
+                "osis_end": "eng-KJV:Rev.22.21",
+                "parent": {
+                    "version": {
+                        "path": "\/versions\/eng-KJV",
+                        "name": "King James Version",
+                        "id": "eng-KJV"
+                    }
+                },
+                "previous": {
+                    "book": {
+                        "path": "\/books\/eng-KJV:Jude",
+                        "name": "Jude",
+                        "id": "eng-KJV:Jude"
+                    }
+                },
+                "copyright": "<p>King James Version 1611 (Authorized Version). Copyright status: UK English with BFBS additions \u00a9 2011 British and Foreign Bible Society; Crown Copyright in UK<\/p>"
+            }
+        ],
+        "meta": {
+            "fums": "<script>\nvar _BAPI=_BAPI||{};\nif(typeof(_BAPI.t)==='undefined'){\ndocument.write('\\x3Cscript src=\"'+document.location.protocol+'\/\/d2ue49q0mum86x.cloudfront.net\/include\/fums.c.js\"\\x3E\\x3C\/script\\x3E');}\ndocument.write(\"\\x3Cscript\\x3E_BAPI.t('5c89bbc0dc1054.57763579');\\x3C\/script\\x3E\");\n<\/script><noscript><img src=\"https:\/\/d3a2okcloueqyx.cloudfront.net\/nf1?t=5c89bbc0dc1054.57763579\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" \/><\/noscript>",
+            "fums_tid": "5c89bbc0dc1054.57763579",
+            "fums_js_include": "d2ue49q0mum86x.cloudfront.net\/include\/fums.c.js",
+            "fums_js": "var _BAPI=_BAPI||{};if(typeof(_BAPI.t)!='undefined'){ _BAPI.t('5c89bbc0dc1054.57763579'); }",
+            "fums_noscript": "<img src=\"https:\/\/d3a2okcloueqyx.cloudfront.net\/nf1?t=5c89bbc0dc1054.57763579\" height=\"1\" width=\"1\" border=\"0\" alt=\"\" style=\"height: 0; width: 0;\" \/>"
+        }
+    }
+}
