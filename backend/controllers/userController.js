@@ -88,6 +88,28 @@ exports.get_user = function(req, res) {
 }
 
 /**
+ * Gets the currently logged in user's profile information
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+exports.get_current_user = function(req, res) {
+    if(user.session.hasOwnProperty('user')) {
+        var user = {
+            first_name: req.session.first_name,
+            last_name: req.session.last_name,
+            email: req.session.email,
+            username: req.session.username,
+            denomination: req.session.denomination,
+            reputation: req.session.reputation,
+            account_status: req.session.account_status   
+        }
+        Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
+    } else {
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
+    }
+}
+
+/**
  * Authenticates a login request and creates a user session if valid credentials are given
  * @param {Object} req The expressJS request object
  * @param {Object} res The expressJS response object
