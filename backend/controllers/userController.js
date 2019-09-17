@@ -93,7 +93,6 @@ exports.get_user = function(req, res) {
  * @param {Object} res The expressJS response object
  */
 exports.get_current_user = function(req, res) {
-    if(user.session.hasOwnProperty('user')) {
         var user = {
             first_name: req.session.first_name,
             last_name: req.session.last_name,
@@ -104,9 +103,15 @@ exports.get_current_user = function(req, res) {
             account_status: req.session.account_status   
         }
         Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
-    } else {
-        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
-    }
+}
+
+/**
+ * Gets the list of verses the user has tagged and what they tagged them with
+ * @param {Object} req the expressJS request object
+ * @param {Object} res the expressJS response object
+ */
+exports.get_tagged_verses = function(req, res) {
+    Utils.sendAPIResponse(res, req.session.user.tagged_verses, Utils.ERRORS.NONE);
 }
 
 /**
