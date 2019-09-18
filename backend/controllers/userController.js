@@ -1,18 +1,30 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Controller for updating and retreiving data relating to the User model.
+ */
 
 var User = require('../models/user');
+var Utils = require('../util')
 
+/**
+ * Responds with a list of all users
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            res.send('{ error: "ERROR_GETTING_USERS"');
-            return
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USERS);
+            return;
         }
-
-        res.send(users);
+        Utils.sendAPIResponse(res, users, Utils.ERRORS.NONE);
     });
-}
+} 
 
+/**
+ * Creates a new user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.create_user = function(req, res) {
     var user = new User({
         first_name: req.body.first_name,
@@ -21,45 +33,94 @@ exports.create_user = function(req, res) {
         username: req.body.username,
         password: req.body.password,
         denomination: req.body.denomination,
-        account_status: "ACTIVATED"
+        account_status: Utils.ACCOUNT_STATUS.ACTIVATED
     });
 
-    user.save();
-
-    res.send('{ error: null }')
+    user.save(function(err) {
+        if(err) {
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_CREATING_USER);
+        } else {
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
+        }
+    });
 }
 
+/**
+ * Deletes a user by querying the database for a user with the ID specified and removing it
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.delete_user = function(req, res) {
-    User.findOne({ username: req.params.id}, function(err, user) {
+    User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            res.send('{ error: "USER_NOT_FOUND" }');
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND)
+            return;
+        } else if(err) {
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
             return;
         }
-
-        if(err) {
-            res.send('{ error: "ERROR_GETTING_USER" }');
-            return;
-        }
-        user.remove(function(err){
+        user.remove(function(err){ 
             if(err) {
-                res.send('{ error: "ERROR_DELETING_USER" }')
+                Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_DELETING_USER);
                 return;
             }
-            res.send('{ error: null }')
+            Utils.sendAPIResponse(res, null, ERRORS.NONE);
         });
     });
 }
 
+/**
+ * Gets a specific user object by the ID specified
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
 exports.get_user = function(req, res) {
-    User.findOne({ username: req.params.id}, function(err, user) {
+    User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            res.send('{ error: "USER_NOT_FOUND" }');
-        } else 
-        if(err) {
-            res.send('{ error: "ERROR_GETTING_USER" }')
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND);
+        } else if (err) {
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
         } else {
-            res.send(user);
+            Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
         }
 
     });
+}
+
+/**
+ * Authenticates a login request and creates a user session if valid credentials are given
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+exports.login_user = function(req, res) {
+    User.findOne({username : req.body.email}, function(err, user) {
+        if(user) {
+            user.comparePassword(req.body.password, function(err, isMatch) {
+                if(isMatch) {
+                    req.session.user = user; //Save user object to session for easier access later
+                    req.session.save();
+                    Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE)
+                } else {
+                    Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+                }
+            });
+        } else {
+            Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+        }
+    });
+}
+
+/**
+ * Deauthenticates a logged in user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+exports.logout_user = function(req, res) {
+    if(req.session.user) {
+        req.session = null;
+        req.session.destroy();
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
+    } else {
+        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
+    }
 }
