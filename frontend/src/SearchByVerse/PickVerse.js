@@ -9,7 +9,6 @@ class PickVerse extends Component {
 
     handle(event) {
         let str = $("#pickVerseInput").val();
-        console.log(str);
         //handle data here
         this.props.callback(str);
         event.preventDefault();

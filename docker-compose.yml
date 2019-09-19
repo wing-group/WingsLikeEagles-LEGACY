@@ -1,28 +1,67 @@
-version: '3.1'
+version: "3.7"
 
 services:
   frontend:
-    build: .
-    volumes: 
-      - './frontend:/app'
-    ports:
-      - '8081:8080'
-    depends_on:
-      - backend
-  
-  backend:
-    build: .
-    volumes:
-      - './backend:/app'
-    ports:
-      - '3001:3000'
-    depends_on:
-      - wledb
-
-  wledb:
-    image: coryo12345/wledb:version1
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    image: node
+    container_name: "frontend"
+    user: "node"
+    working_dir: /home/node/app
     restart: always
     ports:
-      - '3306:3306'
+      - "3000:3000"
     volumes:
-      - ./docker/data/wledb:/var/lib/mysql
+      - ./frontend:/home/node/app
+      - node_modules_f:/home/node/app/node_modules
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    image: node
+    container_name: "backend"
+    user: "node"
+    working_dir: /home/node/app
+    restart: always
+    #env_file: .env # At somepoint we should put passwords and such in a .env file, no in the repo
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/home/node/app
+      - node_modules_b:/home/node/app/node_modules
+    depends_on:
+      - mongo
+      - wledb
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_v:/var/lib/mongo
+
+  wledb:
+    image: mariadb
+    restart: always
+    container_name: "wledb"
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: wledb
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - wledb_v:/var/lib/maridb
+
+volumes:
+  wledb_v:
+  mongo_v:
+  node_modules_f:
+  node_modules_b:

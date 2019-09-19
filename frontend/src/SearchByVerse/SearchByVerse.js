@@ -19,8 +19,6 @@ class SearchByVerse extends Component {
     }
 
     setVerse(d) {
-        console.log(d);
-        console.log(this.state.chosenBible);
         this.setState({ chosenVerse: d });
         $.ajax({
             method: "GET",

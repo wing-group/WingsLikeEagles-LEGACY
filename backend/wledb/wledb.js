@@ -3,7 +3,7 @@
 var mysql = require('mysql');
 
 var wledb = mysql.createConnection({
-    host: "localhost",
+    host: "wledb", // hostname is wledb, the mysql db is in the wledb service on our docker network
     user: "root",
     password: "", //TODO: Secure MySQL connection
     database: "wledb"
