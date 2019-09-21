@@ -1,20 +1,16 @@
-version: "3.7"
+version: "3.5"
 
 services:
   frontend:
     build:
       context: ./frontend
       dockerfile: dockerfile
-    image: node
     container_name: "frontend"
-    user: "node"
-    working_dir: /home/node/app
     restart: always
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/home/node/app
-      - node_modules_f:/home/node/app/node_modules
+      - ./frontend:/usr/src/app
     depends_on:
       - backend
 
@@ -22,17 +18,13 @@ services:
     build:
       context: ./backend
       dockerfile: dockerfile
-    image: node
     container_name: "backend"
-    user: "node"
-    working_dir: /home/node/app
     restart: always
-    #env_file: .env # At somepoint we should put passwords and such in a .env file, no in the repo
+    #env_file: .env # At somepoint we should put passwords and such in a .env file, not in the repo
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/home/node/app
-      - node_modules_b:/home/node/app/node_modules
+      - ./backend:/usr/src/app
     depends_on:
       - mongo
       - wledb
