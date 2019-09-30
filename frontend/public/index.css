@@ -1,0 +1,7 @@
+/* Only general CSS that applies to EVERY page should go in this file.
+Component specific CSS should come with respoective components. */
+
+body {
+    padding: 0;
+    margin: 0;
+}

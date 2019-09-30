@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Login from './Login/Login';
-import "./index.css";
+import "./Home.css";
 import SearchByVerse from './SearchByVerse/SearchByVerse';
 
-class Root extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
     }
@@ -19,4 +19,4 @@ class Root extends Component {
     }
 }
 
-export default Root;
+export default Home;
