@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Login from './Login/Login';
+import Login from '../Login/Login';
 import "./Home.css";
-import SearchByVerse from './SearchByVerse/SearchByVerse';
+import SearchByVerse from '../SearchByVerse/SearchByVerse';
 
 class Home extends Component {
     constructor(props) {

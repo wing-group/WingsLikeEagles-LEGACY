@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import Home from './Home';
+import Home from './Home/Home';
 import Header from './Header/Header';
 
 ReactDOM.render(<Home />, document.getElementById('home'));
