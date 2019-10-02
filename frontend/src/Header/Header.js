@@ -4,9 +4,6 @@ import HeaderNav from './HeaderNav/HeaderNav';
 import HeaderStatus from './HeaderStatus/HeaderStatus';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

@@ -5,10 +5,7 @@ import './HeaderStatus.css';
 import SiteSearch from '../../SiteSearch/SiteSearch';
 
 class HeaderStatus extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     render() {
         return (
             <ul class="headerstatus">

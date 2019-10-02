@@ -4,9 +4,7 @@ import "./Home.css";
 import SearchByVerse from '../SearchByVerse/SearchByVerse';
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     render() {
         return (
             <div className="root-container">
