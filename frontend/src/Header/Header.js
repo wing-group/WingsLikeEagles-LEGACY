@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
-import HeaderNav from './HeaderNav';
+import HeaderNav from './HeaderNav/HeaderNav';
+import HeaderStatus from './HeaderStatus/HeaderStatus';
 
 class Header extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Header extends Component {
             <div className="header">
                 <div className="center-width">
                     <HeaderNav></HeaderNav>
+                    <HeaderStatus></HeaderStatus>
                 </div>
             </div>
         );

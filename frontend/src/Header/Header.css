@@ -2,11 +2,12 @@
     background: rgb(121, 72, 17);
     top: 0;
     position: absolute; 
-    padding: 20px 50px;
+    padding: 15px 0px;
     width: 100vw;
     margin: 0;
     display: block;
     color: rgb(255, 255, 255);
+    font-size: 1.25rem;
 }
 
 .center-width {
@@ -16,5 +17,5 @@
 }
 
 #header {
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 }

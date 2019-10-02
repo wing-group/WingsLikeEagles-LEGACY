@@ -7,7 +7,7 @@ class Login extends Component {
     }
 
     loginSubmission(event) {
-        alert("Loged in!");
+        alert("Logged in!");
         event.preventDefault();
         return false;
     }
