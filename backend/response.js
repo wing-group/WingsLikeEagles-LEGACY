@@ -1,14 +1,16 @@
 /**
- * Provides a set of utilities that are useful and accessible throughout the entire project
+ * Handles api responses, send all responses through this
  */
 
 /**
- * Handles sending error responses to the client application
+ * Handles sending responses to the client
+ * When no err is provided, defaults to ERRORS.NONE
  * @param {Object} res The response object to use to send the error
  * @param {Object} content The body of the API response
- * @param {Object} err The APIError to send
+ * @param {Object} err The APIError to send (Generally, use Response.ERRORS enum)
  */
 module.exports.sendAPIResponse = function(res, content, err) {
+    if (typeof err == 'undefined') err = this.ERRORS.NONE;
     let APIResponse = {
         content: content,
         error: err
@@ -40,15 +42,6 @@ module.exports.ERRORS = {
     ERROR_CREATING_USER: new this.APIError(500, 3, "Error while trying to create user"),
     ERROR_DELETING_USER: new this.APIError(500, 4, "Error while trying to delete user"),
     ERROR_GETTING_USERS: new this.APIError(500, 5, "Error getting a list of users"),
-    NOT_LOGGED_IN: new this.APIError(403, 6, "You need to be logged in to do that")
-}
-
-/**
- * Object (Enum) used for storing account status options
- */
-module.exports.ACCOUNT_STATUS = {
-    ACTIVATED: 1,
-    UNACTIVATED: 2,
-    BANNED: 3,
-    DISABLED: 4
+    NOT_LOGGED_IN: new this.APIError(403, 6, "You need to be logged in to do that"),
+    ERROR_GETTING_VERSES: new this.APIError(500, 7, "Failed to retrieve verse(s)")
 }

@@ -3,7 +3,7 @@
  */
 
 var User = require('../models/user');
-var Utils = require('../util')
+var Response = require('../response.js');
 
 /**
  * Responds with a list of all users
@@ -13,10 +13,10 @@ var Utils = require('../util')
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USERS);
+            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USERS);
             return;
         }
-        Utils.sendAPIResponse(res, users, Utils.ERRORS.NONE);
+        Response.sendAPIResponse(res, users);
     });
 } 
 
@@ -33,14 +33,14 @@ exports.create_user = function(req, res) {
         username: req.body.username,
         password: req.body.password,
         denomination: req.body.denomination,
-        account_status: Utils.ACCOUNT_STATUS.ACTIVATED
+        account_status: User.ACCOUNT_STATUS.ACTIVATED
     });
 
     user.save(function(err) {
         if(err) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_CREATING_USER);
+            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_CREATING_USER);
         } else {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
+            Response.sendAPIResponse(res, null);
         }
     });
 }
@@ -53,18 +53,18 @@ exports.create_user = function(req, res) {
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND)
+            Response.sendAPIResponse(res, null, Response.ERRORS.USER_NOT_FOUND)
             return;
         } else if(err) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
+            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USER);
             return;
         }
         user.remove(function(err){ 
             if(err) {
-                Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_DELETING_USER);
+                Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_DELETING_USER);
                 return;
             }
-            Utils.sendAPIResponse(res, null, ERRORS.NONE);
+            Response.sendAPIResponse(res, null);
         });
     });
 }
@@ -77,11 +77,11 @@ exports.delete_user = function(req, res) {
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.USER_NOT_FOUND);
+            Response.sendAPIResponse(res, null, Response.ERRORS.USER_NOT_FOUND);
         } else if (err) {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.ERROR_GETTING_USER);
+            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USER);
         } else {
-            Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
+            Response.sendAPIResponse(res, user);
         }
 
     });
@@ -99,13 +99,13 @@ exports.login_user = function(req, res) {
                 if(isMatch) {
                     req.session.user = user; //Save user object to session for easier access later
                     req.session.save();
-                    Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE)
+                    Response.sendAPIResponse(res, null)
                 } else {
-                    Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+                    Response.sendAPIResponse(res, null, Response.ERRORS.INVALID_EMAIL_OR_PASSWORD);
                 }
             });
         } else {
-            Utils.sendAPIResponse(res, null, Utils.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+            Response.sendAPIResponse(res, null, Response.ERRORS.INVALID_EMAIL_OR_PASSWORD);
         }
     });
 }
@@ -119,8 +119,8 @@ exports.logout_user = function(req, res) {
     if(req.session.user) {
         req.session = null;
         req.session.destroy();
-        Utils.sendAPIResponse(res, null, Utils.ERRORS.NONE);
+        Response.sendAPIResponse(res, null);
     } else {
-        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
+        Response.sendAPIResponse(res, null, Response.ERRORS.NOT_LOGGED_IN);
     }
 }
