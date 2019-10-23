@@ -13,7 +13,7 @@ var Response = require('../response.js');
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USERS);
+            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USERS);
             return;
         }
         Response.sendAPIResponse(res, users);
@@ -38,7 +38,7 @@ exports.create_user = function(req, res) {
 
     user.save(function(err) {
         if(err) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_CREATING_USER);
+            Response.sendAPIResponse(res, null, Response.ERROR.CREATING_USER);
         } else {
             Response.sendAPIResponse(res, null);
         }
@@ -53,15 +53,15 @@ exports.create_user = function(req, res) {
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.USER_NOT_FOUND)
+            Response.sendAPIResponse(res, null, Response.ERROR.USER_NOT_FOUND);
             return;
         } else if(err) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USER);
+            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USER);
             return;
         }
         user.remove(function(err){ 
             if(err) {
-                Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_DELETING_USER);
+                Response.sendAPIResponse(res, null, Response.ERROR.DELETING_USER);
                 return;
             }
             Response.sendAPIResponse(res, null);
@@ -77,9 +77,9 @@ exports.delete_user = function(req, res) {
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.USER_NOT_FOUND);
+            Response.sendAPIResponse(res, null, Response.ERROR.USER_NOT_FOUND);
         } else if (err) {
-            Response.sendAPIResponse(res, null, Response.ERRORS.ERROR_GETTING_USER);
+            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USER);
         } else {
             Response.sendAPIResponse(res, user);
         }
@@ -101,11 +101,11 @@ exports.login_user = function(req, res) {
                     req.session.save();
                     Response.sendAPIResponse(res, null)
                 } else {
-                    Response.sendAPIResponse(res, null, Response.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+                    Response.sendAPIResponse(res, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
                 }
             });
         } else {
-            Response.sendAPIResponse(res, null, Response.ERRORS.INVALID_EMAIL_OR_PASSWORD);
+            Response.sendAPIResponse(res, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
         }
     });
 }
@@ -121,6 +121,6 @@ exports.logout_user = function(req, res) {
         req.session.destroy();
         Response.sendAPIResponse(res, null);
     } else {
-        Response.sendAPIResponse(res, null, Response.ERRORS.NOT_LOGGED_IN);
+        Response.sendAPIResponse(res, null, Response.ERROR.NOT_LOGGED_IN);
     }
 }

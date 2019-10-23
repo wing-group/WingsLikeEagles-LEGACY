@@ -16,6 +16,6 @@ exports.requiresLogin = function(req, res, next) {
     if(req.session.hasOwnProperty('user')) {
         next();
     } else {
-        Response.sendAPIResponse(res, null, Response.ERRORS.NOT_LOGGED_IN);
+        Response.sendAPIResponse(res, null, Response.ERROR.NOT_LOGGED_IN);
     }
 }

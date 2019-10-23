@@ -4,44 +4,63 @@
 
 /**
  * Handles sending responses to the client
- * When no err is provided, defaults to ERRORS.NONE
+ * When no status is provided, defaults to SUCCESS.GENERIC_SUCCESS
  * @param {Object} res The response object to use to send the error
  * @param {Object} content The body of the API response
- * @param {Object} err The APIError to send (Generally, use Response.ERRORS enum)
+ * @param {Object} err The ResponseStatus to send (Generally, use SUCCESS/WARNING/ERROR enum)
  */
-module.exports.sendAPIResponse = function(res, content, err) {
-    if (typeof err == 'undefined') err = this.ERRORS.NONE;
+module.exports.sendAPIResponse = function(res, content, status) {
+    if (typeof status == 'undefined') status = this.SUCCESS.GENERIC_SUCCESS;
     let APIResponse = {
-        content: content,
-        error: err
+        status: status,
+        content: content
     }
-    res.status(err.httpStatus).send(APIResponse);
+    res.status(status.httpCode).send(APIResponse);
 }
 
 /**
- * Constructor for the APIError object, used for sending errors
- * @param {number} httpStatus The HTTP Status Code to send
- * @param {number} errCode The API Error Code to send
- * @param {String} errMsg A plain text message explaining the error
+ * Constructor for the ResponseStatus object, used for sending errors
+ * @param {number} httpCode The HTTP Status Code to send
+ * @param {number} wleCode The WLE Status Code to send
+ * @param {String} message A plain text message explaining the error
  * @constructor
  */
-module.exports.APIError = function(httpStatus, errCode, errMsg) {
-    this.httpStatus = httpStatus;
-    this.errCode = errCode;
-    this.errMsg = errMsg;
+module.exports.ResponseStatus = function(httpCode, wleCode, message) {
+    this.httpCode = httpCode;
+    this.errCode = wleCode;
+    this.errMsg = message;
+}
+
+/**
+ * Object (Enum) used for storing success types
+ */
+module.exports.SUCCESS = {
+    GENERIC_SUCCESS: new this.ResponseStatus(200, 1000, "SUCCESS: Successful operation")
+}
+
+/**
+ * Object (Enum) used for storing warning types
+ */
+module.exports.WARNING = {
+    INVALID_BOOK_REFERENCE: new this.ResponseStatus(200, 2000, "WARNING: Book from verse ID not recognized"),
+    INVALID_CHAPTER_REFERENCE: new this.ResponseStatus(200, 2001, "WARNING: Chapter from verse ID not recognized"),
+    INVALID_VERSE_REFERENCE: new this.ResponseStatus(200, 2002, "WARNING: Verse from verse ID not recognized")
 }
 
 /**
  * Object (Enum) used for storing error types
  */
-module.exports.ERRORS = {
-    NONE: new this.APIError(200, -1, "Success"),
-    USER_NOT_FOUND: new this.APIError(404, 0, "Couldn't find requested user"),
-    ERROR_GETTING_USER: new this.APIError(500, 1, "Error while trying to get user"),
-    INVALID_EMAIL_OR_PASSWORD: new this.APIError(403, 2, "Email or password was invalid"),
-    ERROR_CREATING_USER: new this.APIError(500, 3, "Error while trying to create user"),
-    ERROR_DELETING_USER: new this.APIError(500, 4, "Error while trying to delete user"),
-    ERROR_GETTING_USERS: new this.APIError(500, 5, "Error getting a list of users"),
-    NOT_LOGGED_IN: new this.APIError(403, 6, "You need to be logged in to do that"),
-    ERROR_GETTING_VERSES: new this.APIError(500, 7, "Failed to retrieve verse(s)")
+module.exports.ERROR = {
+    USER_NOT_FOUND: new this.ResponseStatus(404, 3000, "ERROR: Couldn't find requested user"),
+    GETTING_USER: new this.ResponseStatus(500, 3001, "ERROR: Error while trying to get user"),
+    INVALID_EMAIL_OR_PASSWORD: new this.ResponseStatus(403, 3002, "ERROR: Email or password was invalid"),
+    CREATING_USER: new this.ResponseStatus(500, 3003, "ERROR: Error while trying to create user"),
+    DELETING_USER: new this.ResponseStatus(500, 3004, "ERROR: Error while trying to delete user"),
+    GETTING_USERS: new this.ResponseStatus(500, 3005, "ERROR: Error getting a list of users"),
+    NOT_LOGGED_IN: new this.ResponseStatus(403, 3006, "ERROR: You need to be logged in to do that"),
+    GETTING_VERSES: new this.ResponseStatus(500, 3007, "ERROR: Error while trying to retrieve verses from wledb"),
+    VERSES_NOT_FOUND: new this.ResponseStatus(404, 3008, "ERROR: Verses not found in wledb"),
+    INVALID_BOOK_REFERENCE: new this.ResponseStatus(500, 3009, "ERROR: Book from verse ID not recognized"),
+    INVALID_CHAPTER_REFERENCE: new this.ResponseStatus(500, 3010, "ERROR: Chapter from verse ID not recognized"),
+    INVALID_VERSE_REFERENCE: new this.ResponseStatus(500, 3011, "ERROR: Verse from verse ID not recognized")
 }
