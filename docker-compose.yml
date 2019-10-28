@@ -6,7 +6,7 @@ services:
       context: ./frontend
       dockerfile: dockerfile
     container_name: "frontend"
-    restart: always
+    restart: "no"
     ports:
       - "3000:3000"
     volumes:
@@ -19,7 +19,7 @@ services:
       context: ./backend
       dockerfile: dockerfile
     container_name: "backend"
-    restart: always
+    restart: "no"
     #env_file: .env # At somepoint we should put passwords and such in a .env file, not in the repo
     ports:
       - "3001:3001"
@@ -31,7 +31,7 @@ services:
 
   mongo:
     image: mongo
-    restart: always
+    restart: "no"
     container_name: "mongodb"
     ports:
       - 27017:27017
@@ -40,7 +40,7 @@ services:
 
   wledb:
     image: mariadb
-    restart: always
+    restart: "no"
     container_name: "wledb"
     ports:
       - 3306:3306

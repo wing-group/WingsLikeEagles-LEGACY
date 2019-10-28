@@ -12,7 +12,9 @@
     "start": "PORT=3000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "css-build": "node-sass --omit-source-map-url src/sass/index.scss public/index.css",
+    "css-watch": "npm run css-build -- --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,5 +25,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "bulma": "^0.8.0",
+    "node-sass": "^4.13.0"
+  }
 }
