@@ -12,24 +12,43 @@ let VerseBuilder = require('../utilities/verseBuilder.js');
  */
 module.exports.getVerses = function(req, res) {
     let vid = req.params.id;
-    let idCheckResponse = VerseBuilder.isValidID(vid);
+    let idCheckResponse = VerseBuilder.isValidVID(vid);
     if (idCheckResponse != Response.SUCCESS.GENERIC_SUCCESS) {
         Response.sendAPIResponse(res, null, idCheckResponse);
         return;
     }
 
+    let verseRange = {
+        status: null,
+        ids: null
+    };
+
+    let untilVID = req.query.until;
+    if (typeof vidUntil != 'undefined') {
+        verseRange.status = Response.SUCCESS.GENERIC_SUCCESS;
+        verseRange.ids = [vid];
+    } else {
+        verseRange = VerseBuilder.getVerseRange(vid, untilVID);
+    }
+
+    // ?s to take advantage of mysql package's escape (for protection from malicious queries)
     let queryStr = "SELECT * FROM verses WHERE vid = ?";
-    wledb.query(queryStr, [vid], (err, rows, fields) => {
+    let i;
+    for (i = 1; i < verseRange.ids.length; i++) {
+        queryStr += " OR vid = ?";
+    }
+
+    wledb.query(queryStr, verseRange.ids, (err, rows, fields) => {
         if (err) {
             Response.sendAPIResponse(res, null, Response.ERROR.GETTING_VERSES);
             return;
         }
 
         if (typeof rows == 'undefined' || rows.length == 0) {
-            Response.sendAPIResponse(res, null, Response.ERROR.VERSES_NOT_FOUND);
+            Response.sendAPIResponse(res, null, Response.ERROR.NO_VERSES_FOUND);
             return;
         }
 
-        Response.sendAPIResponse(res, rows);
+        Response.sendAPIResponse(res, rows, verseRange.status);
     });
 };

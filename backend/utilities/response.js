@@ -48,7 +48,7 @@ module.exports.WARNING = {
     UNDEFINED_ID: new this.ResponseStatus(200, 2003, "WARNING: Verse ID not defined"),
     INVALID_VERSE_ID_FORMAT: new this.ResponseStatus(200, 2004, "WARNING: Verse ID does not match format"),
     RANGE_END_BEFORE_START: new this.ResponseStatus(200, 2005,"WARNING: End verse ID earlier than start verse ID"),
-    RANGE_TOO_LARGE: new this.ResponseStatus(200, 2006,"WARNING: No verse ranges go to the next chapter")
+    RANGE_TOO_LARGE: new this.ResponseStatus(200, 2006,"WARNING: No verse ranges wrap to the next chapter")
 }
 
 /**
@@ -63,7 +63,7 @@ module.exports.ERROR = {
     GETTING_USERS: new this.ResponseStatus(500, 3005, "ERROR: Error getting a list of users"),
     NOT_LOGGED_IN: new this.ResponseStatus(403, 3006, "ERROR: You need to be logged in to do that"),
     GETTING_VERSES: new this.ResponseStatus(500, 3007, "ERROR: Error while trying to retrieve verses from wledb"),
-    VERSES_NOT_FOUND: new this.ResponseStatus(404, 3008, "ERROR: Verses not found in wledb"),
+    NO_VERSES_FOUND: new this.ResponseStatus(404, 3008, "ERROR: None of the verses were found in wledb"),
     INVALID_BOOK_REFERENCE: new this.ResponseStatus(500, 3009, "ERROR: Book from verse ID not recognized"),
     INVALID_CHAPTER_REFERENCE: new this.ResponseStatus(500, 3010, "ERROR: Chapter from verse ID not recognized"),
     INVALID_VERSE_REFERENCE: new this.ResponseStatus(500, 3011, "ERROR: Verse from verse ID not recognized"),

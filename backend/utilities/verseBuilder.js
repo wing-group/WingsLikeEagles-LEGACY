@@ -10,32 +10,42 @@ let Response = require('../utilities/response.js');
  * (e.g. "Song of Solomon" -> "songo", "1 Timothy" -> "1timo", "Job" -> "job", etc.)
  * @param {String} name book title to convert
  */
-module.exports.bookToID = function(name) {
+module.exports.bookToVID = function(name) {
     return name.replace(" ", "").toLowerCase().slice(0, 5);
 };
+
+module.exports.vidToArray = function(vid) {
+    let splitID = vid.split('.');
+    splitID[1] = parseInt(splitID[1]);
+    splitID[2] = parseInt(splitID[2]);
+    return splitID;
+}
 
 /**
  * returns appropriate Response.SUCCESS/WARNING/ERROR enum
  * @param {String} id the verse id following the "1timo.2.15" format
  * @param {Object} isErr if result not SUCCESS, determines issue severity (undefined/truthy: ERROR, else: WARNING)
  */
-module.exports.isValidVerseID = function(id, isErr) {
+module.exports.isValidVID = function(id, isErr) {
     let responseOptions = (typeof isErr == "undefined" || isErr) ? Response.ERROR : Response.WARNING;
     
     if (typeof id == "undefined" || !id) return responseOptions.UNDEFINED_ID;
 
-    let splitID = id.split('.');
+    matchesFormat = this.matchesVerseIDFormat(id, isErr);
+    if (matchesFormat != Response.SUCCESS.GENERIC_SUCCESS) return matchesFormat;
+
+    let splitID = this.vidToArray(id);
     let validBook = false;
     let validChapter = false;
     let validVerse = false;
 
     Bible.forEach(book => {
         if (!validBook) {
-            validBook = bookToID(book.book) == splitID[0];
+            validBook = this.bookToVID(book.book) == splitID[0];
             if (validBook) {
-               validChapter = book.chapters.length >= splitID[1] && 0 < splitID[1];
+               validChapter = parseInt(book.chapters.length) >= parseInt(splitID[1]) && 0 < splitID[1];
                if (validChapter) {
-                    validVerse = book.chapters[splitID[1] - 1].verses >= splitID[2] && 0 < splitID[2];
+                    validVerse = parseInt(book.chapters[splitID[1] - 1].verses) >= splitID[2] && 0 < splitID[2];
                }
             }
         }
@@ -74,28 +84,32 @@ module.exports.matchesVerseIDFormat = function(id, isErr) {
         ids: []
     }
 
-    let startStatus = this.isValidID(start);
+    let startStatus = this.isValidVID(start);
     if (startStatus != Response.SUCCESS.GENERIC_SUCCESS) {
         verseRange.status = startStatus;
         verseRange.ids = null;
         return verseRange;
     }
 
-    let endStatus = this.isValidID(end, false);
+    let endStatus = this.isValidVID(end, false);
     if (endStatus != Response.SUCCESS.GENERIC_SUCCESS) {
-        verseRange.status = endStatus;
+        if (endStatus == Response.WARNING.UNDEFINED_ID) {
+            verseRange.status = Response.SUCCESS.GENERIC_SUCCESS;
+        } else {
+            verseRange.status = endStatus;
+        }
         verseRange.ids = [start];
         return verseRange;
     }
 
-    let startSplit = start.split('.');
-    let endSplit = end.split('.');
+    let startSplit = this.vidToArray(start);
+    let endSplit = this.vidToArray(end);
     if (startSplit[0] == endSplit[0]) {
         if (startSplit[1] < endSplit[1]) {
             verseRange.status = Response.WARNING.RANGE_TOO_LARGE;
             Bible.forEach(book => {
-                if (this.bookToID(book.book) == startSplit[0]) {
-                    let endVerse = book.chapters[startSplit[1] - 1].verses;
+                if (this.bookToVID(book.book) == startSplit[0]) {
+                    let endVerse = parseInt(book.chapters[startSplit[1] - 1].verses);
                     let i;
                     for (i = startSplit[2]; i <= endVerse; i++){
                         verseRange.ids.push(startSplit[0] + "." + startSplit[1] + "." + i);
@@ -121,14 +135,14 @@ module.exports.matchesVerseIDFormat = function(id, isErr) {
     } else {
         let endBeforeStart = false;
         Bible.forEach(book => {
-            if (this.bookToID(book.book) == endSplit[0]) endBeforeStart = true;
-            if (this.bookToID(book.book) == startSplit[0]) {
+            if (this.bookToVID(book.book) == endSplit[0]) endBeforeStart = true;
+            if (this.bookToVID(book.book) == startSplit[0]) {
                 if (endBeforeStart) {
                     verseRange.status = Response.WARNING.RANGE_END_BEFORE_START;
                     verseRange.ids = [start];
                 } else {
                     verseRange.status = Response.WARNING.RANGE_TOO_LARGE;
-                    let endVerse = book.chapters[startSplit[1] - 1].verses;
+                    let endVerse = parseInt(book.chapters[startSplit[1] - 1].verses);
                     let i;
                     for (i = startSplit[2]; i <= endVerse; i++){
                         verseRange.ids.push(startSplit[0] + "." + startSplit[1] + "." + i);
