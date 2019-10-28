@@ -2,7 +2,7 @@
 
 //USED FOR USER SESSION AUTHENTICATION
 
-var Response = require('../response.js');
+var Response = require('../utilities/response.js/index.js');
 
 /**
  * Middleware for endpoints that require login

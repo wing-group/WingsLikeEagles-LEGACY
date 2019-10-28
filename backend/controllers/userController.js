@@ -3,7 +3,7 @@
  */
 
 var User = require('../models/user');
-var Response = require('../response.js');
+var Response = require('../utilities/response.js/index.js');
 
 /**
  * Responds with a list of all users

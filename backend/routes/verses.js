@@ -1,9 +1,12 @@
-// Copyright (c) 2019 WingGroup
+/**
+ * Handles routing for /verses endpoints
+ */
 
 var express = require('express');
 var router = express.Router();
 var verseController = require('../controllers/verseController');
 
-router.get('/:id', verseController.get_verses);
+// GET /verses/:id
+router.get('/:id', verseController.getVerses);
 
 module.exports = router;
