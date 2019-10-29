@@ -6141,5 +6141,8 @@ a.tag:hover {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+html {
+  overflow-y: auto; }
+
 nav.navbar .navbar-item:hover {
   background: #794811; }

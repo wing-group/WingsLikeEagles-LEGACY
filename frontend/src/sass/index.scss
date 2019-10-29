@@ -33,6 +33,10 @@ $input-shadow: none;
 @import "../../node_modules/bulma/sass/layout/_all.sass";
 
 // Custom styles
+html {
+    overflow-y: auto;
+}
+
 nav.navbar {
     .navbar-item:hover {
         background: $brown;
