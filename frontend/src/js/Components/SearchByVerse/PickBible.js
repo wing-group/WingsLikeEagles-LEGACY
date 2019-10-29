@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from "jquery";
 
 class PickBible extends Component {
     constructor(props) {
@@ -12,22 +11,15 @@ class PickBible extends Component {
 
     /**
      * When the DOM is rendered, get list of available bibles from server
+     * TODO: actually get list from server....
      */
     componentDidMount() {
         // if user has already picked one, then dont reload the list
         if (this.props.selected !== -1) {
             return;
         }
-        $.ajax({
-            method: "GET",
-            url: "/searchBibles",
-            success: (data) => {
-                // set state to list of available bibles
-                this.setState({ bibles: data });
-                // tell parent first is selected
-                this.props.callback(data[0]);
-            }
-        });
+        this.setState({ bibles: ['KJV'] });
+        this.props.callback('KJV');
     }
 
     /**
@@ -43,7 +35,7 @@ class PickBible extends Component {
     render() {
         // if there are none to pick from and user hasnt picked one yet
         if (this.state.bibles === -1 && this.props.selected === -1) {
-            return (<select disabled></select>);
+            return (<div className="select"><select disabled></select></div>);
         }
         //set options as list of <option>
         let options = "";
@@ -51,9 +43,9 @@ class PickBible extends Component {
         let count = 0;
         arr.forEach(element => {
             if (element === this.props.selected) {
-                options += `<option value=${count} selected>${element.abbr}</option>`
+                options += `<option value=${count} selected>${element}</option>`
             } else {
-                options += `<option value=${count}>${element.abbr}</option>`
+                options += `<option value=${count}>${element}</option>`
             }
             count++;
         });
@@ -61,8 +53,8 @@ class PickBible extends Component {
         // not the safest way to set the options
         // they are created here with data from the server 
         return (
-            <div>               
-                <select id="pickBibleSelect" className="round" onChange={this.change} dangerouslySetInnerHTML={{ __html: options }}></select>
+            <div className="select">
+                <select id="pickBibleSelect" onChange={this.change} dangerouslySetInnerHTML={{ __html: options }}></select>
             </div>
         );
     }

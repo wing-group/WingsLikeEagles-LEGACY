@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../Pages/Home';
+import PageHome from '../Pages/PageHome';
 
 var WLELayouts = {
-    HOME: <Home />,
+    HOME: <PageHome />,
     test: <button>abc</button>
 };
 

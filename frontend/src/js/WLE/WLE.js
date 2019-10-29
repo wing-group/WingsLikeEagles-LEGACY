@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import WLELayouts from './WLELayouts'
+import WLELayouts from './WLELayouts';
+import PageError from '../Pages/PageError';
 
 class WLE extends Component {
     constructor(props) {
@@ -14,15 +15,14 @@ class WLE extends Component {
 
     getLayout() {
         var pathname = window.location.pathname;
-        var reg = pathname.match('/([a-zA-Z0-9.-]+)[\?]*.*');
+        var reg = pathname.match('/([a-zA-Z0-9.-]+)[?]*.*');
         var layout = ( (reg == null) ? 'HOME' : reg[1]);
         this.setState({layout: layout});
     }
 
     render(){
-        // Do a try catch here? if error then use a default template (header..404..footer)
         return (
-            WLELayouts[this.state.layout]
+            (WLELayouts[this.state.layout]) ? WLELayouts[this.state.layout] : <PageError></PageError>
         );
     }
 }

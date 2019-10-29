@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header/Header';
-import Login from '../Components/Login/Login';
-import SearchByVerse from '../Components/SearchByVerse/SearchByVerse';
 import Footer from '../Components/Footer/Footer';
 
-class Home extends Component {
+class PageError extends Component {
     render() {
         return (
             <div>
                 <Header></Header>
                 <section className="section">
                     <div className="container">
-                        <Login></Login>
-                        <SearchByVerse></SearchByVerse>
+                        <h1 className="title is-1">Hmm...</h1>
+                        <p>Looks like this page doesn't exist.</p>
                     </div>
                 </section>
                 <Footer></Footer>
@@ -21,4 +19,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default PageError;

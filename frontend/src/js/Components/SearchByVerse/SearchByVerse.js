@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from "jquery";
 import PickBible from './PickBible';
 import PickVerse from './PickVerse';
 
@@ -20,20 +19,20 @@ class SearchByVerse extends Component {
 
     setVerse(d) {
         this.setState({ chosenVerse: d });
-        $.ajax({
-            method: "GET",
-            url: "/verses/path/",
-            data: { path: d, bible: this.state.chosenBible.id },
-            success: (verse) => {
-                $('#verseOut').html(verse);
-            }
-        });
+        // $.ajax({
+        //     method: "GET",
+        //     url: "/verses/path/",
+        //     data: { path: d, bible: this.state.chosenBible.id },
+        //     success: (verse) => {
+        //         $('#verseOut').html(verse);
+        //     }
+        // });
     }
 
     render() {
         return (
-            <div className="container">
-                <div className="horizontal">
+            <div className="">
+                <div className="">
                     <PickBible callback={this.setBible} selected={this.state.chosenBible}></PickBible>
                     <PickVerse callback={this.setVerse}></PickVerse>
                 </div>
