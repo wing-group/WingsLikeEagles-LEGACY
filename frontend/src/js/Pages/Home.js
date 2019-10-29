@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
-import Login from '../Login/Login';
-import SearchByVerse from '../SearchByVerse/SearchByVerse';
+import Header from '../Components/Header/Header';
+import Login from '../Components/Login/Login';
+import SearchByVerse from '../Components/SearchByVerse/SearchByVerse';
+import Footer from '../Components/Footer/Footer';
 
 class Home extends Component {
     render() {
@@ -14,7 +15,7 @@ class Home extends Component {
                         <SearchByVerse></SearchByVerse>
                     </div>
                 </section>
-                <div>WingsLikeEagles &copy;2019</div>
+                <Footer></Footer>
             </div>
         );
     }

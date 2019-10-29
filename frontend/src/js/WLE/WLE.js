@@ -20,8 +20,8 @@ class WLE extends Component {
     }
 
     render(){
+        // Do a try catch here? if error then use a default template (header..404..footer)
         return (
-            // <h1>abc</h1>
             WLELayouts[this.state.layout]
         );
     }
