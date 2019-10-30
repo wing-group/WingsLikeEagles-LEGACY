@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+// Set your brand colors
+$brown: rgb(121, 72, 17);
+$grey-lightest: hsl(0, 0%, 93%);
+$grey-dark: hsl(0, 0%, 29%);
+$yellow: hsl(48, 100%, 67%);
+$cyan: hsl(204, 71%, 53%);
+
+// Update Bulma's global variables
+$dark: $brown;
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $grey-lightest;
+$link: $cyan;
+$text: $grey-dark;
+$widescreen-enabled: true;
+$fullhd-enabled: true;
+
+// Update some of Bulma's component variables
+$body-background-color: #fafafa;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+$column-gap: .75rem;
+
+// Import what we need from Bulma
+@import "../../node_modules/bulma/bulma.sass";
+// @import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules/bulma/sass/base/_all.sass";
+// @import "../../node_modules/bulma/sass/components/_all.sass";
+// @import "../../node_modules/bulma/sass/elements/_all.sass";
+// @import "../../node_modules/bulma/sass/form/_all.sass";
+// @import "../../node_modules/bulma/sass/grid/_all.sass";
+// @import "../../node_modules/bulma/sass/layout/_all.sass";
+
+// Custom styles
+html {
+    overflow-y: auto;
+}
+
+nav.navbar {
+    .navbar-item:hover {
+        background: $brown;
+    }
+    .navbar-item:visited {
+        background: $brown;
+        color: inherit;
+    }
+}
+
+// .button {height: auto;}

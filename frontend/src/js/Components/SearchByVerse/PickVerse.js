@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from "jquery";
 
 class PickVerse extends Component {
     constructor(props) {
@@ -8,7 +7,7 @@ class PickVerse extends Component {
     }
 
     handle(event) {
-        let str = $("#pickVerseInput").val();
+        let str = document.getElementById("#pickVerseInput").nodeValue;
         //handle data here
         this.props.callback(str);
         event.preventDefault();
@@ -19,8 +18,8 @@ class PickVerse extends Component {
         return (
             <div>
                 <form onSubmit={this.handle}>
-                    <input type="text" id="pickVerseInput" className="round" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: Matt.1.1 "></input>
-                    <input type="submit" className="round"></input>
+                    <input type="text" id="pickVerseInput" className="input" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: Matt.1.1 "></input>
+                    <input type="submit" className="input"></input>
                 </form>
             </div>
         );
