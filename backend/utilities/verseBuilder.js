@@ -64,7 +64,7 @@ module.exports.isValidVID = function(id, isErr) {
  * @param {Object} isErr if result not SUCCESS, determines issue severity (undefined/truthy: ERROR, else: WARNING)
  */
 module.exports.matchesVerseIDFormat = function(id, isErr) {
-    if (id.match(/^\w[a-zA-Z]{2,4}\.\d{1,3}\.\d{1,3}$/)) {
+    if (id.match(/^[a-z1-3][a-z]{2,4}\.\d{1,3}\.\d{1,3}$/)) {
         return Response.SUCCESS.GENERIC_SUCCESS;
     } else {
         let responseOptions = (typeof isErr == "undefined" || isErr) ? Response.ERROR : Response.WARNING;

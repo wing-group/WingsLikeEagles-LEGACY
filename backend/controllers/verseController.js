@@ -31,7 +31,7 @@ module.exports.getVerses = function(req, res) {
         verseRange = VerseBuilder.getVerseRange(vid, untilVID);
     }
 
-    // ?s to take advantage of mysql package's escape (for protection from malicious queries)
+    // ?s take advantage of mysql package's escape (for protection from malicious queries)
     let queryStr = "SELECT * FROM verses WHERE vid = ?";
     let i;
     for (i = 1; i < verseRange.ids.length; i++) {
@@ -49,6 +49,22 @@ module.exports.getVerses = function(req, res) {
             return;
         }
 
+        // Call appropriate BibleAPIHandler methods with verse range
+
         Response.sendAPIResponse(res, rows, verseRange.status);
     });
 };
+
+/**
+ * Toggles an individual tag on an individual verse by an individual user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+module.exports.toggleVerseTag = function(req, res) {
+    let vid = req.params.id;
+    let topic = req.body.topic;
+    // need user id and access (guest/user/admin/founder)
+    // check that the user can do this, if not allowed send Response.ERROR
+    // check that all provided values are valid, if invalid send Response.ERROR 
+    // alter wledb; if it went through send Response.SUCCESS, else send Response.ERROR
+}
