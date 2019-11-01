@@ -31,8 +31,8 @@ module.exports.getVerses = function(req, res) {
         verseRange = VerseBuilder.getVerseRange(vid, untilVID);
     }
 
-    // ?s take advantage of mysql package's escape (for protection from malicious queries)
-    let queryStr = "SELECT * FROM verses WHERE vid = ?";
+    let queryStr = "SELECT * FROM verses INNER JOIN chapters ON verses.cid = chapters.cid"
+    queryStr += " WHERE vid = ?"; // ?s use the mysql package's escape() (protects against malicious queries)
     let i;
     for (i = 1; i < verseRange.ids.length; i++) {
         queryStr += " OR vid = ?";

@@ -91,7 +91,7 @@ module.exports.matchesVerseIDFormat = function(id, isErr) {
         return verseRange;
     }
 
-    let endStatus = this.isValidVID(end, false);
+    let endStatus = (end == "end") ? Response.SUCCESS.GENERIC_SUCCESS : this.isValidVID(end, false);
     if (endStatus != Response.SUCCESS.GENERIC_SUCCESS) {
         if (endStatus == Response.WARNING.UNDEFINED_ID) {
             verseRange.status = Response.SUCCESS.GENERIC_SUCCESS;
@@ -103,10 +103,10 @@ module.exports.matchesVerseIDFormat = function(id, isErr) {
     }
 
     let startSplit = this.vidToArray(start);
-    let endSplit = this.vidToArray(end);
-    if (startSplit[0] == endSplit[0]) {
-        if (startSplit[1] < endSplit[1]) {
-            verseRange.status = Response.WARNING.RANGE_TOO_LARGE;
+    let endSplit = (end == "end") ? [] : this.vidToArray(end);
+    if (end == "end" || startSplit[0] == endSplit[0]) {
+        if (end == "end" || startSplit[1] < endSplit[1]) {
+            verseRange.status = (end == "end") ? Response.SUCCESS.GENERIC_SUCCESS : Response.WARNING.RANGE_TOO_LARGE;
             Bible.forEach(book => {
                 if (this.bookToVID(book.book) == startSplit[0]) {
                     let endVerse = parseInt(book.chapters[startSplit[1] - 1].verses);
