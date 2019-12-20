@@ -1,5 +1,5 @@
 /**
- * Handles routing for /user endpoints
+ * Handles routing for /users endpoints
  */
 
 var express = require('express');

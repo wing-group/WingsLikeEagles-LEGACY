@@ -2,7 +2,7 @@
 
 //USED FOR USER SESSION AUTHENTICATION
 
-var Utils = require('../util');
+var Response = require('../utilities/response.js');
 
 /**
  * Middleware for endpoints that require login
@@ -16,6 +16,6 @@ exports.requiresLogin = function(req, res, next) {
     if(req.session.hasOwnProperty('user')) {
         next();
     } else {
-        Utils.sendAPIResponse(res, null, Utils.ERRORS.NOT_LOGGED_IN);
+        Response.sendAPIResponse(res, null, Response.ERROR.NOT_LOGGED_IN);
     }
 }

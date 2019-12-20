@@ -51,7 +51,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - wledb_v:/var/lib/maridb
-      - ./backend/wledb/initial_wledb_structure/wledb.sql:/docker-entrypoint-initdb.d/wledb.sql
+      - ./backend/wledb/wledb.sql:/docker-entrypoint-initdb.d/wledb.sql
 
 volumes:
   wledb_v:

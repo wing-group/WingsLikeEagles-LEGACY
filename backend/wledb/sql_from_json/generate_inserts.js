@@ -1,4 +1,4 @@
-//Running this should generate 132 INSERT statements which will be funneled into the wledb MySQL database
+//Running this should generate a bunch of INSERT statements which will be funneled into the wledb MySQL database
 //This is in git in case we ever have to use this again
 //Ideally to recreate the wledb (with its structure and base data), there should be a sql script in /backend/wledb/
 
