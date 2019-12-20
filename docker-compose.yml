@@ -1,0 +1,60 @@
+version: "3.5"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    container_name: "frontend"
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    container_name: "backend"
+    restart: always
+    #env_file: .env # At somepoint we should put passwords and such in a .env file, not in the repo
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/usr/src/app
+    depends_on:
+      - mongo
+      - wledb
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_v:/var/lib/mongo
+
+  wledb:
+    image: mariadb
+    restart: always
+    container_name: "wledb"
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: wledb
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - wledb_v:/var/lib/maridb
+      - ./backend/wledb/wledb.sql:/docker-entrypoint-initdb.d/wledb.sql
+
+volumes:
+  wledb_v:
+  mongo_v:
+  node_modules_f:
+  node_modules_b:

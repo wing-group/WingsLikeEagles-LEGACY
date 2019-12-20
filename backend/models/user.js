@@ -94,4 +94,14 @@ userSchema.statics.comparePassword = function(password, callback) {
     });
 }
 
+/**
+ * Object (Enum) used for storing account status options
+ */
+module.exports.ACCOUNT_STATUS = {
+    ACTIVATED: 1,
+    UNACTIVATED: 2,
+    BANNED: 3,
+    DISABLED: 4
+}
+
 module.exports = mongoose.model('User', userSchema);
