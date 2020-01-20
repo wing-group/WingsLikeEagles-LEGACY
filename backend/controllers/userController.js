@@ -26,7 +26,7 @@ exports.list_users = function(req, res) {
  * @param {Object} res The expressJS response object
  */
 exports.create_user = function(req, res) {
-    var user = new User({
+    var newUser = new User({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
@@ -36,11 +36,12 @@ exports.create_user = function(req, res) {
         account_status: User.ACCOUNT_STATUS.ACTIVATED
     });
 
-    user.save(function(err) {
+    newUser.save(function(err) {
         if(err) {
-            Response.sendAPIResponse(res, null, Response.ERROR.CREATING_USER);
+            console.log(err)
+            Response.sendAPIResponse(res, null, err, Response.ERROR.CREATING_USER);
         } else {
-            Response.sendAPIResponse(res, null);
+            Response.sendAPIResponse(res);
         }
     });
 }
@@ -53,18 +54,18 @@ exports.create_user = function(req, res) {
 exports.delete_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Response.sendAPIResponse(res, null, Response.ERROR.USER_NOT_FOUND);
+            Response.sendAPIResponse(res, null, null, Response.ERROR.USER_NOT_FOUND);
             return;
         } else if(err) {
-            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USER);
+            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USER);
             return;
         }
         user.remove(function(err){ 
             if(err) {
-                Response.sendAPIResponse(res, null, Response.ERROR.DELETING_USER);
+                Response.sendAPIResponse(res, null, err, Response.ERROR.DELETING_USER);
                 return;
             }
-            Response.sendAPIResponse(res, null);
+            Response.sendAPIResponse(res);
         });
     });
 }
@@ -77,13 +78,12 @@ exports.delete_user = function(req, res) {
 exports.get_user = function(req, res) {
     User.findOne({ username: req.params.id}, function(err, user) { 
         if(user == null) {
-            Response.sendAPIResponse(res, null, Response.ERROR.USER_NOT_FOUND);
+            Response.sendAPIResponse(res, null, err, Response.ERROR.USER_NOT_FOUND);
         } else if (err) {
-            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USER);
+            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USER);
         } else {
             Response.sendAPIResponse(res, user);
         }
-
     });
 }
 
@@ -102,7 +102,7 @@ exports.get_current_user = function(req, res) {
             reputation: req.session.reputation,
             account_status: req.session.account_status   
         }
-        Utils.sendAPIResponse(res, user, Utils.ERRORS.NONE);
+        Response.sendAPIResponse(res, user);
 }
 
 /**
@@ -111,7 +111,7 @@ exports.get_current_user = function(req, res) {
  * @param {Object} res the expressJS response object
  */
 exports.get_tagged_verses = function(req, res) {
-    Utils.sendAPIResponse(res, req.session.user.tagged_verses, Utils.ERRORS.NONE);
+    Response.sendAPIResponse(res, req.session.user.tagged_verses, null, Utils.ERRORS.NONE);
 }
 
 /**
@@ -120,19 +120,19 @@ exports.get_tagged_verses = function(req, res) {
  * @param {Object} res The expressJS response object
  */
 exports.login_user = function(req, res) {
-    User.findOne({username : req.body.email}, function(err, user) {
+    Response.findOne({username : req.body.email}, function(err, user) {
         if(user) {
             user.comparePassword(req.body.password, function(err, isMatch) {
                 if(isMatch) {
                     req.session.user = user; //Save user object to session for easier access later
                     req.session.save();
-                    Response.sendAPIResponse(res, null)
+                    Response.sendAPIResponse(res);
                 } else {
-                    Response.sendAPIResponse(res, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+                    Response.sendAPIResponse(res, null, err, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
                 }
             });
         } else {
-            Response.sendAPIResponse(res, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+            Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
         }
     });
 }
@@ -146,8 +146,8 @@ exports.logout_user = function(req, res) {
     if(req.session.user) {
         req.session = null;
         req.session.destroy();
-        Response.sendAPIResponse(res, null);
+        Response.sendAPIResponse(res);
     } else {
-        Response.sendAPIResponse(res, null, Response.ERROR.NOT_LOGGED_IN);
+        Response.sendAPIResponse(res, null, null, Response.ERROR.NOT_LOGGED_IN);
     }
 }
