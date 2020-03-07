@@ -8,12 +8,16 @@
  * @param {Object} res The response object to use to send the error
  * @param {Object} content The body of the API response
  * @param {Object} err The ResponseStatus to send (Generally, use SUCCESS/WARNING/ERROR enum)
+ * @param {Object} debug Used only for development, contains detailed error/debugging information
  */
-module.exports.sendAPIResponse = function(res, content, status) {
+module.exports.sendAPIResponse = function(res, content, debug, status) {
+    if (typeof debug == 'undefined') debug = null;
+    if (typeof content ==  'undefined') content = null;
     if (typeof status == 'undefined') status = this.SUCCESS.GENERIC_SUCCESS;
     let APIResponse = {
         status: status,
-        content: content
+        content: content,
+        debug: debug
     }
     res.status(status.httpCode).send(APIResponse);
 }

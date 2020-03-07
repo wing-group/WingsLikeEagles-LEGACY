@@ -1,37 +1,41 @@
 import React, { Component } from 'react';
-import Header from '../Components/Header/Header';
-import Login from '../Components/Login/Login';
-import SearchByVerse from '../Components/SearchByVerse/SearchByVerse';
-import Footer from '../Components/Footer/Footer';
+import { Login } from '../Components/Login/Login';
+import { SearchByVerse } from '../Components/SearchByVerse/SearchByVerse';
+import { Jumbotron, Button, Container, Row, Col } from 'reactstrap';
+import './PageHome.css';
 
-class PageHome extends Component {
+export class PageHome extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
     render() {
         return (
             <div>
-                <Header></Header>
-                <section className="section">
-                    <div className="container">
-                        <div className="tile is-ancestor">
-                            <div className="tile is-parent is-7">
-                                <article className="tile is-child box has-text-right">
-                                    <h2 className="title is-2">Wings Like Eagles</h2>
-                                    <p className="content">1 or 2 sentence slogan or summary.</p>
-                                </article>
-                            </div>
-                            <div className="tile is-parent">
-                                <article className="tile is-child box notification">
-                                    <Login></Login>
-                                </article>
-                            </div>
-                        </div>
-                        <hr></hr>
-                        <SearchByVerse></SearchByVerse>
-                    </div>
-                </section>
-                <Footer></Footer>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Jumbotron className="jumbotron-no-background" fluid>
+                                <h2>Wings Like Eagles</h2>
+                                <p>1 or 2 sentence slogan or summary.</p>
+                                <Button color="primary" onClick={learnMore}>Learn More</Button>
+                                </Jumbotron>
+                        </Col>
+                        <Col>
+                            <Jumbotron>
+                                <Login />
+                            </Jumbotron>
+                        </Col>
+                    </Row>
+                    <hr></hr>
+                    <SearchByVerse></SearchByVerse>
+                </Container>
             </div>
         );
     }
 }
 
-export default PageHome;
+function learnMore() {
+    window.location = '/about'
+}

@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
+import { Input, Button, Row, Col } from 'reactstrap';
 
-class PickVerse extends Component {
+export class PickVerse extends Component {
     constructor(props) {
-        super(props);
-        this.handle = this.handle.bind(this);
+        super(props)
+        this.state = { verseText: '' }
+        this.handle = this.handle.bind(this)
+        this.change = this.change.bind(this)
     }
 
     handle(event) {
-        let str = document.getElementById("#pickVerseInput").nodeValue;
-        //handle data here
-        this.props.callback(str);
         event.preventDefault();
-        return false;
+        //handle data here
+        this.props.callback(this.state.verseText)
+        return false
+    }
+
+    change(event) {
+        this.setState({ verseText: event.target.value })
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handle}>
-                    <input type="text" id="pickVerseInput" className="input" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: Matt.1.1 "></input>
-                    <input type="submit" className="input"></input>
+                    <Row>
+                        <Col>
+                            <Input type="text" id="pickVerseInput" placeholder="Enter Verse in BookAbbr.Chapter.Verse Ex: Matt.1.1" onChange={this.change} value={this.state.verseText} /></Col>
+                        <Col xs="3">
+                            <Button color="primary" onClick={this.handle}>Search</Button></Col>
+                    </Row>
                 </form>
             </div>
         );
     }
 }
-
-export default PickVerse;

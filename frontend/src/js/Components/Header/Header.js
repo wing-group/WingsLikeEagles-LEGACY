@@ -1,75 +1,55 @@
-import React, { Component } from 'react';
-import SiteSearch from '../SiteSearch/SiteSearch';
+import React, { Component, useState } from 'react';
+import { SiteSearch } from '../SiteSearch/SiteSearch';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink
+} from 'reactstrap';
+import './header.css';
 
-class Header extends Component {
+export class Header extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {isOpen: false}
+        this.toggleOpen = this.toggleOpen.bind(this)
+    }
+
+
+    toggleOpen() {
+        this.setState({isOpen: !this.state.isOpen})
+    }
 
     render() {
         return (
-            <nav className="navbar has-background-dark" role="navigation" aria-label="main navigation">
-                <div className="container">
-                    <div className="navbar-brand has-text-white">
-                        <a href="/" className="navbar-item"><img src="/white-winggroup.png" alt="winggroup logo" width="60" height="28" style={wleImgScale}></img></a>
-                        <button className="navbar-burger has-text-white" aria-label="menu" aria-expanded="false">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div className="navbar-menu has-text-white">
-                        <div className="navbar-start has-text-white">
-                            <a href="/verses" className="navbar-item has-text-white">Verses</a>
-                            <a href="/themes" className="navbar-item has-text-white">Themes</a>
-                            <a href="/about" className="navbar-item has-text-white">About</a>
-                        </div>
-
-                        <div className="navbar-end has-text-white">
-                            <div className="navbar-item">
-                                <SiteSearch></SiteSearch>
-                            </div>
-                            <a href="/signin" className="navbar-item has-text-white">Sign In</a>
-                            <a href="/signup" className="navbar-item has-text-white" style={wleRegister}>Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <div>
+                <Navbar dark expand="md" className="header">
+                    <NavbarBrand href="/"><img src="/white-winggroup.png" alt="winggroup logo" width="60" height="28"></img></NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="mr-auto" navbar>
+                            <NavItem>
+                                <NavLink href="/verses">Verses</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/themes">Themes</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/about">About</NavLink>
+                            </NavItem>
+                        </Nav>
+                        <Nav>
+                            <SiteSearch></SiteSearch>
+                            <NavLink className="link-white" href="/signin">Sign In</NavLink>
+                            <NavLink className="link-white bold" href="/register">Sign Up</NavLink>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+            </div>
         );
     }
 
 }
-
-const wleImgScale = {
-    transform: 'scale(1.5)'
-};
-
-const wleRegister = {
-    fontWeight: 'bolder'
-};
-
-// JS for mobile menu
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
-
-                // Get the target from the "data-target" attribute
-                const target = el.dataset.target;
-                const $target = document.getElementById(target);
-
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-
-            });
-        });
-    }
-
-});
-
-export default Header;
