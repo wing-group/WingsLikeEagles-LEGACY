@@ -1,0 +1,11 @@
+.link-white {
+    color: #fff;
+}
+
+.link-white:hover {
+    color: #e0e0e0;
+}
+
+.bold {
+    font-weight: bold;
+}

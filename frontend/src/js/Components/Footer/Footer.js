@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
-class Footer extends Component {
+export class Footer extends Component {
     render() {
         return (
-            <footer className="footer">
+            <footer>
                 <hr></hr>
-                <div className="content has-text-centered">
-                    WingsLikeEagles &copy;2019
-                </div>
+                <Container>
+                    <Row xs="3">
+                        <Col></Col>
+                        <Col><div style={centerStyle}>WingsLikeEagles &copy;2020</div></Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
             </footer>
         )
     }
 }
 
-export default Footer;
+const centerStyle = {
+    textAlign: 'center'
+}

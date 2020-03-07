@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { PickBible } from './PickBible';
-import { PickVerse } from './PickVerse';
-import { Row, Col } from 'reactstrap';
+import PickBible from './PickBible';
+import PickVerse from './PickVerse';
 
-export class SearchByVerse extends Component {
+class SearchByVerse extends Component {
     constructor(props) {
         super(props);
         this.state = {
             chosenBible: -1,
-            chosenVerse: -1,
-            verse: ''
+            chosenVerse: -1
         };
         this.setBible = this.setBible.bind(this);
         this.setVerse = this.setVerse.bind(this);
@@ -33,17 +31,15 @@ export class SearchByVerse extends Component {
 
     render() {
         return (
-            <div>
-                <Row>
-                    <Col xs="3">
-                        <PickBible callback={this.setBible} selected={this.state.chosenBible} />
-                    </Col>
-                    <Col>
-                        <PickVerse callback={this.setVerse} />
-                    </Col>
-                </Row>
-                <p>{this.state.verse}</p>
+            <div className="">
+                <div className="">
+                    <PickBible callback={this.setBible} selected={this.state.chosenBible}></PickBible>
+                    <PickVerse callback={this.setVerse}></PickVerse>
+                </div>
+                <p id='verseOut'></p>
             </div>
         );
     }
 }
+
+export default SearchByVerse;

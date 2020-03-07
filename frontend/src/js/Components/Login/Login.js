@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { InputGroup, Label, Form, FormGroup, Input, Button } from 'reactstrap';
 
-class Login extends Component {
+export class Login extends Component {
     constructor(props) {
         super(props);
+        this.state = { username: '', password: '' }
         this.loginSubmission = this.loginSubmission.bind(this);
+        this.changeUser = this.changeUser.bind(this)
+        this.changePass = this.changePass.bind(this)
     }
 
     loginSubmission(event) {
@@ -12,25 +16,30 @@ class Login extends Component {
         return false;
     }
 
+    changeUser(ev) {
+        this.setState({ username: ev.target.value })
+    }
+
+    changePass(ev) {
+        this.setState({ password: ev.target.value })
+    }
+
     render() {
         return (
             <div>
-                <form onSubmit={this.loginSubmission}>
-                    <p>Username</p>
-                    <input type="text" name="username" id="username-field" placeholder="JohnSmith123" className="input"/>
-                    <p>Password</p>
-                    <input type="password" name="password" id="password-field" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" className="input"/>
-                    
-                    <input type="submit" value="Login" className="button notification is-info" style={submitBtn}/>
+                <form onSubmit={this.loginSubmission} action="/signin" method="post">
+                    <FormGroup>
+                        <Label for="email-field">Email</Label>
+                        <Input type="text" name="username" id="email-field" placeholder="JohnSmith123@gmail.com" value={this.state.username} onChange={this.changeUser} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="password-field">Password</Label>
+                        <Input type="password" name="password" id="password-field" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" value={this.state.password} onChange={this.changePass} />
+                    </FormGroup>
+                    <Button color="primary" onClick={this.loginSubmission}>Log In</Button>
                 </form>
             </div>
         );
     }
 }
 
-const submitBtn = {
-    padding: '.3rem .8rem',
-    marginTop: '1rem'
-};
-
-export default Login;

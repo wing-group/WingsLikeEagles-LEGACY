@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
-import WLELayouts from './WLELayouts';
-import PageError from '../Pages/PageError';
+import { Layout } from './Layout';
+import { PageHome } from '../Pages/PageHome';
+import { PageError } from '../Pages/PageError';
+import { Route, Switch } from 'react-router-dom';
 
-class WLE extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {layout: 'HOME'};
-        this.getLayout = this.getLayout.bind(this);
-    }
-
-    componentDidMount(){
-        this.getLayout();
-      }
-
-    getLayout() {
-        var pathname = window.location.pathname;
-        var reg = pathname.match('/([a-zA-Z0-9.-]+)[?]*.*');
-        var layout = ( (reg == null) ? 'HOME' : reg[1]);
-        this.setState({layout: layout});
-    }
-
-    render(){
+export class WLE extends Component {
+    render() {
         return (
-            (WLELayouts[this.state.layout]) ? WLELayouts[this.state.layout] : <PageError></PageError>
+            <Layout>
+                <Switch>
+                    <Route exact path='/' component={PageHome} />
+                    <Route component={PageError}></Route>
+                </Switch>
+            </Layout>
+
         );
     }
 }
 
-export default WLE;
