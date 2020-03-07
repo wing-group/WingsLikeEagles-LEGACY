@@ -38,6 +38,7 @@ exports.create_user = function(req, res) {
 
     newUser.save(function(err) {
         if(err) {
+            console.log(err);
             Response.sendAPIResponse(res, null, err, Response.ERROR.CREATING_USER);
         } else {
             Response.sendAPIResponse(res);
