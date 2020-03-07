@@ -30,8 +30,8 @@ var userSchema = new Schema({
         required: true
         },
     denomination: {
-        type: String,
-        required: true
+        type: Object,
+        required: false
         },
     reputation: {
         type: Number,
@@ -95,3 +95,13 @@ userSchema.statics.comparePassword = function(password, callback) {
 }
 
 module.exports = mongoose.model('User', userSchema);
+
+/**
+ * Object (Enum) used for storing account status options
+ */
+module.exports.ACCOUNT_STATUS = {
+    ACTIVATED: 1,
+    UNACTIVATED: 2,
+    BANNED: 3,
+    DISABLED: 4
+}
