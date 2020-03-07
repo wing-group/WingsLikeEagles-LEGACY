@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InputGroup, Label, Form, FormGroup, Input, Button } from 'reactstrap';
+import { Label, FormGroup, Input, Button } from 'reactstrap';
 
 export class Login extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export class Login extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.loginSubmission} action="/signin" method="post">
+                <form onSubmit={this.loginSubmission}>
                     <FormGroup>
                         <Label for="email-field">Email</Label>
                         <Input type="text" name="username" id="email-field" placeholder="JohnSmith123@gmail.com" value={this.state.username} onChange={this.changeUser} />

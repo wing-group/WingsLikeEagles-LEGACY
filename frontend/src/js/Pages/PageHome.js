@@ -8,7 +8,6 @@ export class PageHome extends Component {
     constructor(props) {
         super(props)
         this.state = {}
-        // this.learnMore = this.learnMore.bind(this)
     }
 
     render() {
