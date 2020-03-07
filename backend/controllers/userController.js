@@ -13,10 +13,10 @@ var Response = require('../utilities/response.js');
 exports.list_users = function(req, res) {
     User.find({}, function(err, users) {
         if(err) {
-            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_USERS);
-            return;
+            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USERS);
+        } else {
+            Response.sendAPIResponse(res, users);
         }
-        Response.sendAPIResponse(res, users);
     });
 } 
 
@@ -38,12 +38,15 @@ exports.create_user = function(req, res) {
 
     newUser.save(function(err) {
         if(err) {
-            console.log(err)
             Response.sendAPIResponse(res, null, err, Response.ERROR.CREATING_USER);
         } else {
             Response.sendAPIResponse(res);
         }
     });
+}
+
+exports.reset_user_password = function(req, res) {
+
 }
 
 /**
@@ -132,7 +135,7 @@ exports.login_user = function(req, res) {
                 }
             });
         } else {
-            Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+            Response.sendAPIResponse(res, null, err, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
         }
     });
 }

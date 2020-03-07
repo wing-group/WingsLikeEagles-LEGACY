@@ -30,8 +30,8 @@ var userSchema = new Schema({
         required: true
         },
     denomination: {
-        type: String,
-        required: true
+        type: Object,
+        required: false
         },
     reputation: {
         type: Number,
