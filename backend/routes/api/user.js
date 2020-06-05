@@ -12,10 +12,10 @@ router.get('/', userController.list_users);
 // POST /users/
 router.post('/', userController.create_user);
 
-// GET /users/:id
-router.get('/:id', userController.get_user);
+// GET /users/:username
+router.get('/:username', userController.get_user);
 
-// DELETE /users/:id
-router.delete('/:id', userController.delete_user);
+// DELETE /users/:username
+router.delete('/:username', userController.delete_user);
 
 module.exports = router;

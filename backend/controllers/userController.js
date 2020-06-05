@@ -7,23 +7,23 @@ var Response = require('../utilities/response.js');
 
 /**
  * Responds with a list of all users
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.list_users = function(req, res) {
-    User.find({}, function(err, users) {
-        if(err) {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USERS);
-        } else {
-            Response.sendAPIResponse(res, users);
-        }
-    });
+    User.find({})
+    .then((users) => {
+        Response.sendAPIResponse(res, users);
+    })
+    .catch((error) => {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USERS);
+    })
 } 
 
 /**
  * Creates a new user
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.create_user = function(req, res) {
     var newUser = new User({
@@ -36,56 +36,52 @@ exports.create_user = function(req, res) {
         account_status: User.ACCOUNT_STATUS.ACTIVATED
     });
 
-    newUser.save(function(err) {
-        if(err) {
-            console.log(err);
-            Response.sendAPIResponse(res, null, err, Response.ERROR.CREATING_USER);
-        } else {
-            Response.sendAPIResponse(res);
-        }
+    newUser.save()
+    .then(() => {
+        Response.sendAPIResponse(res, null);
+    })
+    .catch((error) => {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
     });
-}
-
-exports.reset_user_password = function(req, res) {
-    Response.sendAPIResponse(res, null, err)
 }
 
 /**
  * Deletes a user by querying the database for a user with the ID specified and removing it
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.delete_user = function(req, res) {
-    User.findOne({ username: req.params.id}, function(err, user) { 
-        if(user == null) {
+    User.findOne({ username: req.params.username})
+    .then((user) => {
+        if(user) {
+            user.remove()
+            .then(() => {
+                Response.sendAPIResponse(res, null);
+            })
+            .catch((error) => {
+                Response.sendAPIResponse(res, null, error, Response.ERROR.DELETING_USER);
+            });
+        } else {
             Response.sendAPIResponse(res, null, null, Response.ERROR.USER_NOT_FOUND);
-            return;
-        } else if(err) {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USER);
-            return;
         }
-        user.remove(function(err){ 
-            if(err) {
-                Response.sendAPIResponse(res, null, err, Response.ERROR.DELETING_USER);
-                return;
-            }
-            Response.sendAPIResponse(res);
-        });
+    })
+    .catch((error) => {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USER);
     });
 }
 
 /**
  * Gets a specific user object by the ID specified
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.get_user = function(req, res) {
-    User.findOne({ username: req.params.id})
+    User.findOne({ username: req.params.username})
     .then((user) => {
         if(user) {
             Response.sendAPIResponse(res, user);
         } else {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.USER_NOT_FOUND);
+            Response.sendAPIResponse(res, null, null, Response.ERROR.USER_NOT_FOUND);
         }
     })
     .catch((error) => {
@@ -94,59 +90,40 @@ exports.get_user = function(req, res) {
 }
 
 /**
- * Gets the currently logged in user's profile information
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
- */
-exports.get_current_user = function(req, res) {
-        var user = {
-            first_name: req.session.first_name,
-            last_name: req.session.last_name,
-            email: req.session.email,
-            username: req.session.username,
-            denomination: req.session.denomination,
-            reputation: req.session.reputation,
-            account_status: req.session.account_status   
-        }
-        Response.sendAPIResponse(res, user);
-}
-
-/**
- * Gets the list of verses the user has tagged and what they tagged them with
- * @param {Object} req the expressJS request object
- * @param {Object} res the expressJS response object
- */
-exports.get_tagged_verses = function(req, res) {
-    Response.sendAPIResponse(res, req.session.user.tagged_verses, null, Utils.ERRORS.NONE);
-}
-
-/**
  * Authenticates a login request and creates a user session if valid credentials are given
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.login_user = function(req, res) {
-    User.findOne({username : req.body.email}, function(err, user) {
+    User.findOne({username: req.body.username})
+    .then((user) => {
         if(user) {
-            user.comparePassword(req.body.password, function(err, isMatch) {
+            user.comparePassword(req.body.password)
+            .then((isMatch) => {
                 if(isMatch) {
-                    req.session.user = user; //Save user object to session for easier access later
+                    req.session.user = user;
                     req.session.save();
-                    Response.sendAPIResponse(res);
+                    Response.sendAPIResponse(res)
                 } else {
-                    Response.sendAPIResponse(res, null, err, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+                    Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
                 }
-            });
+            })
+            .catch((error) => {
+                Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN);
+            })
         } else {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+            Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
         }
-    });
+    })
+    .catch((error) => {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN) 
+    })
 }
 
 /**
  * Deauthenticates a logged in user
- * @param {Object} req The expressJS request object
- * @param {Object} res The expressJS response object
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
  */
 exports.logout_user = function(req, res) {
     if(req.session.user) {

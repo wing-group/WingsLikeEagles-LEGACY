@@ -17,7 +17,7 @@ module.exports.sendAPIResponse = function(res, content, debug, status) {
     let APIResponse = {
         status: status,
         content: content,
-        debug: JSON.stringify(debug)
+        debug: debug
     }
     res.status(status.httpCode).send(APIResponse);
 }
@@ -72,5 +72,6 @@ module.exports.ERROR = {
     INVALID_CHAPTER_REFERENCE: new this.ResponseStatus(500, 3010, "ERROR: Chapter from verse ID not recognized"),
     INVALID_VERSE_REFERENCE: new this.ResponseStatus(500, 3011, "ERROR: Verse from verse ID not recognized"),
     UNDEFINED_ID: new this.ResponseStatus(500, 3012, "ERROR: Verse ID not defined"),
-    INVALID_VERSE_ID_FORMAT: new this.ResponseStatus(500, 3013, "ERROR: Verse ID does not match format")
+    INVALID_VERSE_ID_FORMAT: new this.ResponseStatus(500, 3013, "ERROR: Verse ID does not match format"),
+    LOGGING_IN: new this.ResponseStatus(500, 3014, "ERROR: Error while trying to login")
 }
