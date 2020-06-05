@@ -51,7 +51,7 @@ exports.create_user = function(req, res) {
         }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error.message, Response.ERROR.CREATING_USER);
+        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
     })
 }
 
