@@ -5,23 +5,27 @@
 /**
  * Handles sending responses to the client
  * When no status is provided, defaults to SUCCESS.GENERIC_SUCCESS
- * @param {Object} res The response object to use to send the error
+ * @param {Response} res The response object to use to send the error
  * @param {Object} content The body of the API response
  * @param {Object} err The ResponseStatus to send (Generally, use SUCCESS/WARNING/ERROR enum)
+ * @param {Error} debug Used only for development, contains detailed error/debugging information
  */
-module.exports.sendAPIResponse = function(res, content, status) {
+module.exports.sendAPIResponse = function(res, content, debug, status) {
+    if (typeof debug == 'undefined') debug = null;
+    if (typeof content ==  'undefined') content = null;
     if (typeof status == 'undefined') status = this.SUCCESS.GENERIC_SUCCESS;
     let APIResponse = {
         status: status,
-        content: content
+        content: content,
+        debug: debug
     }
     res.status(status.httpCode).send(APIResponse);
 }
 
 /**
  * Constructor for the ResponseStatus object, used for sending errors
- * @param {number} httpCode The HTTP Status Code to send
- * @param {number} wleCode The WLE Status Code to send
+ * @param {Number} httpCode The HTTP Status Code to send
+ * @param {Number} wleCode The WLE Status Code to send
  * @param {String} message A plain text message explaining the error
  * @constructor
  */
@@ -68,5 +72,7 @@ module.exports.ERROR = {
     INVALID_CHAPTER_REFERENCE: new this.ResponseStatus(500, 3010, "ERROR: Chapter from verse ID not recognized"),
     INVALID_VERSE_REFERENCE: new this.ResponseStatus(500, 3011, "ERROR: Verse from verse ID not recognized"),
     UNDEFINED_ID: new this.ResponseStatus(500, 3012, "ERROR: Verse ID not defined"),
-    INVALID_VERSE_ID_FORMAT: new this.ResponseStatus(500, 3013, "ERROR: Verse ID does not match format")
+    INVALID_VERSE_ID_FORMAT: new this.ResponseStatus(500, 3013, "ERROR: Verse ID does not match format"),
+    LOGGING_IN: new this.ResponseStatus(500, 3014, "ERROR: Error while trying to login"),
+    USERNAME_TAKEN: new this.ResponseStatus(400, 3015, "ERROR: Error that username is already taken")
 }

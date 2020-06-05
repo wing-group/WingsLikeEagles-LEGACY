@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var verseController = require('../controllers/verseController');
+var verseController = require('../../controllers/verseController');
 
 // GET /verses/:id
 router.get('/:id', verseController.getVerses);
