@@ -36,13 +36,23 @@ exports.create_user = function(req, res) {
         account_status: User.ACCOUNT_STATUS.ACTIVATED
     });
 
-    newUser.save()
-    .then(() => {
-        Response.sendAPIResponse(res, null);
+    User.findOne({ username: req.body.username})
+    .then((user) => {
+        if(user) {
+            Response.sendAPIResponse(res, null, null, Response.ERROR.USERNAME_TAKEN);
+        } else {
+            newUser.save()
+            .then(() => {
+                Response.sendAPIResponse(res, null);
+            })
+            .catch((error) => {
+                Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
+            }) 
+        }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
-    });
+        Response.sendAPIResponse(res, null, error.message, Response.ERROR.CREATING_USER);
+    })
 }
 
 /**
