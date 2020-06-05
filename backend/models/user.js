@@ -3,6 +3,7 @@
  */
 
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 var Schema = mongoose.Schema;
 
 /**
@@ -86,13 +87,18 @@ userSchema.pre('save', function(next) {
 /**
  * Checks the given password of a user against the one in the database
  * @param {String} password The password to check
- * @param {comparePasswordCallback} callback Called after checking the password
  */
-userSchema.statics.comparePassword = function(password, callback) {
-    bcrypt.compare(password, user.password, function (err, result) {
-        return callback(err, isMatch);
-    });
-}
+userSchema.methods.comparePassword = function(candidatePassword) {
+    return new Promise((resolve, reject) => {
+        bcrypt.compare(candidatePassword, this.password, function(error, isMatch) {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(isMatch);
+            }
+        });
+    })
+};
 
 module.exports = mongoose.model('User', userSchema);
 

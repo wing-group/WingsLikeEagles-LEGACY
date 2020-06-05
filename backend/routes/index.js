@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var apiRouter = require('./api/index.js');
+var apiRouter = require('./api');
 
 
 // API Routing
