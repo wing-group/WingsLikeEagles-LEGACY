@@ -47,7 +47,7 @@ exports.create_user = function(req, res) {
 }
 
 exports.reset_user_password = function(req, res) {
-
+    Response.sendAPIResponse(res, null, err)
 }
 
 /**
@@ -80,15 +80,17 @@ exports.delete_user = function(req, res) {
  * @param {Object} res The expressJS response object
  */
 exports.get_user = function(req, res) {
-    User.findOne({ username: req.params.id}, function(err, user) { 
-        if(user == null) {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.USER_NOT_FOUND);
-        } else if (err) {
-            Response.sendAPIResponse(res, null, err, Response.ERROR.GETTING_USER);
-        } else {
+    User.findOne({ username: req.params.id})
+    .then((user) => {
+        if(user) {
             Response.sendAPIResponse(res, user);
+        } else {
+            Response.sendAPIResponse(res, null, err, Response.ERROR.USER_NOT_FOUND);
         }
-    });
+    })
+    .catch((error) => {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USER);
+    })
 }
 
 /**
@@ -124,7 +126,7 @@ exports.get_tagged_verses = function(req, res) {
  * @param {Object} res The expressJS response object
  */
 exports.login_user = function(req, res) {
-    Response.findOne({username : req.body.email}, function(err, user) {
+    User.findOne({username : req.body.email}, function(err, user) {
         if(user) {
             user.comparePassword(req.body.password, function(err, isMatch) {
                 if(isMatch) {

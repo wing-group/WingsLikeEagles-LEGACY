@@ -5,10 +5,10 @@
 /**
  * Handles sending responses to the client
  * When no status is provided, defaults to SUCCESS.GENERIC_SUCCESS
- * @param {Object} res The response object to use to send the error
+ * @param {Response} res The response object to use to send the error
  * @param {Object} content The body of the API response
  * @param {Object} err The ResponseStatus to send (Generally, use SUCCESS/WARNING/ERROR enum)
- * @param {Object} debug Used only for development, contains detailed error/debugging information
+ * @param {Error} debug Used only for development, contains detailed error/debugging information
  */
 module.exports.sendAPIResponse = function(res, content, debug, status) {
     if (typeof debug == 'undefined') debug = null;
@@ -17,15 +17,15 @@ module.exports.sendAPIResponse = function(res, content, debug, status) {
     let APIResponse = {
         status: status,
         content: content,
-        debug: debug
+        debug: JSON.stringify(debug)
     }
     res.status(status.httpCode).send(APIResponse);
 }
 
 /**
  * Constructor for the ResponseStatus object, used for sending errors
- * @param {number} httpCode The HTTP Status Code to send
- * @param {number} wleCode The WLE Status Code to send
+ * @param {Number} httpCode The HTTP Status Code to send
+ * @param {Number} wleCode The WLE Status Code to send
  * @param {String} message A plain text message explaining the error
  * @constructor
  */
