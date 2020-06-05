@@ -6,16 +6,16 @@ var express = require('express');
 var router = express.Router();
 var userController = require('../../controllers/userController');
 
-// GET /users/
+// GET /user/
 router.get('/', userController.list_users);
 
-// POST /users/
+// POST /user/
 router.post('/', userController.create_user);
 
-// GET /users/:username
+// GET /user/:username
 router.get('/:username', userController.get_user);
 
-// DELETE /users/:username
+// DELETE /user/:username
 router.delete('/:username', userController.delete_user);
 
 module.exports = router;
