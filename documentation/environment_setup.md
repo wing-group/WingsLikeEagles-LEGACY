@@ -1,6 +1,6 @@
 # WingsLikeEagles
 
-THe WingsLikeEagles project makes use of containers to provide a runtime environment.
+The WingsLikeEagles project makes use of containers to provide a runtime environment.
 
 You will need the following to run the application:
 - [docker](https://www.docker.com/)
@@ -11,7 +11,7 @@ You will need the following to run the application:
 ## Running in Docker
 1. Navigate to the `backend` directory
 2. Run `npm install`
-3. Navigate to the `frontent` directory
+3. Navigate to the `frontend` directory
 4. Run `npm install`
 5. In root directory of the repo, run `docker-compose build` to build images
 6. In root directory of the repo, run `docker-compose up` to deploy
