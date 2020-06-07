@@ -40,10 +40,15 @@ var userSchema = new Schema({
         default: 0
         },
     account_status: {
-        type: String,
+        type: Number,
         required: false,
-        default: "ACTIVE"
+        default: ACCOUNT_STATUS.ACTIVATED
         },
+    type: {
+        type: Number,
+        required: true,
+        default: this.ACCOUNT_TYPE.NORMAL
+    },
     tagged_verses: [{
         verse: {
             type: Schema.Types.ObjectId,
@@ -106,4 +111,14 @@ module.exports.ACCOUNT_STATUS = {
     UNACTIVATED: 2,
     BANNED: 3,
     DISABLED: 4
+}
+
+/**
+ * Object (Enum) used for account type
+ */
+module.exports.ACCOUNT_TYPE = {
+    GUEST: 1,
+    NORMAL: 2,
+    MODERATOR: 3,
+    ADMIN: 4
 }

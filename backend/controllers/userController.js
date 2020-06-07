@@ -34,7 +34,8 @@ exports.create_user = function(req, res) {
         username: req.body.username,
         password: req.body.password,
         denomination: req.body.denomination,
-        account_status: User.ACCOUNT_STATUS.ACTIVATED
+        account_status: User.ACCOUNT_STATUS.ACTIVATED,
+        type: User.ACCOUNT_TYPE.NORMAL
     });
 
     User.findOne({ username: req.body.username})
