@@ -3,14 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jquery": "^3.3.1",
+    "bootstrap": "^4.4.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "2.1.5",
+    "reactstrap": "^8.4.1",
+    "tailwindcss": "^1.4.6"
   },
   "scripts": {
     "start": "PORT=3000 react-scripts start",
     "build": "react-scripts build",
+    "build:css": "tailwind build src/index.css -o public/pStyle.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -23,5 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3001"
+  "proxy": "http://backend:3001"
 }

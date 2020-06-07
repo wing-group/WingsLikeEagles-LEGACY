@@ -1,17 +1,70 @@
-// Copyright (c) 2019 WingGroup
-
+/**
+ * Controller for all verse retrieval
+ */
 let wledb = require('../wledb/wledb.js');
+let Response = require('../utilities/response.js');
+let VerseBuilder = require('../utilities/verseBuilder.js');
 
-exports.get_verses = function(req, res) {
-    let queryStr = "SELECT * FROM verses WHERE vid = ?";
-    wledb.query(queryStr, [req.params.id], (err, rows, fields) => {
+/**
+ * Responds with the requested set of verses, or null with a Response.ERROR
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+module.exports.getVerses = function(req, res) {
+    let vid = req.params.id;
+    let idCheckResponse = VerseBuilder.isValidVID(vid);
+    if (idCheckResponse != Response.SUCCESS.GENERIC_SUCCESS) {
+        Response.sendAPIResponse(res, null, idCheckResponse);
+        return;
+    }
+
+    let verseRange = {
+        status: null,
+        ids: null
+    };
+
+    let untilVID = req.query.until;
+    if (typeof vidUntil != 'undefined') {
+        verseRange.status = Response.SUCCESS.GENERIC_SUCCESS;
+        verseRange.ids = [vid];
+    } else {
+        verseRange = VerseBuilder.getVerseRange(vid, untilVID);
+    }
+
+    let queryStr = "SELECT * FROM verses INNER JOIN chapters ON verses.cid = chapters.cid"
+    queryStr += " WHERE vid = ?"; // ?s use the mysql package's escape() (protects against malicious queries)
+    let i;
+    for (i = 1; i < verseRange.ids.length; i++) {
+        queryStr += " OR vid = ?";
+    }
+
+    wledb.query(queryStr, verseRange.ids, (err, rows, fields) => {
         if (err) {
-            console.log("Failed to retrieve verse");
-            res.sendStatus(500);
-            return
+            Response.sendAPIResponse(res, null, Response.ERROR.GETTING_VERSES);
+            return;
         }
 
-        console.log("Verse retrieved");
-        res.json(rows);
+        if (typeof rows == 'undefined' || rows.length == 0) {
+            Response.sendAPIResponse(res, null, Response.ERROR.NO_VERSES_FOUND);
+            return;
+        }
+
+        // Call appropriate BibleAPIHandler methods with verse range
+
+        Response.sendAPIResponse(res, rows, verseRange.status);
     });
 };
+
+/**
+ * Toggles an individual tag on an individual verse by an individual user
+ * @param {Object} req The expressJS request object
+ * @param {Object} res The expressJS response object
+ */
+module.exports.toggleVerseTag = function(req, res) {
+    let vid = req.params.id;
+    let topic = req.body.topic;
+    // need user id and access (guest/user/admin/founder)
+    // check that the user can do this, if not allowed send Response.ERROR
+    // check that all provided values are valid, if invalid send Response.ERROR 
+    // alter wledb; if it went through send Response.SUCCESS, else send Response.ERROR
+}

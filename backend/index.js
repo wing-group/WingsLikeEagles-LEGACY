@@ -31,8 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-
-mongoose.connect('mongodb://localhost:27017/devDB', { useNewUrlParser: true});
+// hostname is mongo, we are accessing the mongodb running in the mongo service on our docker network
+mongoose.connect('mongodb://mongo:27017/devDB', { useNewUrlParser: true});
 var mongodb = mongoose.connection;
 mongodb.on('error', console.error.bind(console, 'MongoDB Error: '));
 
