@@ -42,12 +42,12 @@ var userSchema = new Schema({
     account_status: {
         type: Number,
         required: false,
-        default: ACCOUNT_STATUS.ACTIVATED
+        default: 1
         },
     type: {
         type: Number,
         required: true,
-        default: this.ACCOUNT_TYPE.NORMAL
+        default: 2
     },
     tagged_verses: [{
         verse: {

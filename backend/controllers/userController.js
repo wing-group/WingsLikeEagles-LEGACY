@@ -118,7 +118,7 @@ exports.get_user = function(req, res) {
 exports.login_user = function(req, res) {
     try {   
         if(req.body.username == 'guest') {
-            res.session.user = new User({
+            req.session.user = new User({
                 first_name: "",
                 last_name: "",
                 email: "",
@@ -128,11 +128,13 @@ exports.login_user = function(req, res) {
                 account_status: User.ACCOUNT_STATUS.ACTIVATED,
                 type: User.ACCOUNT_TYPE.GUEST
             });
+            req.session.save();
             Response.sendAPIResponse(res);
             return;
         }
     }catch(error) {
         Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN)
+        console.log(error);
         return;
     }
     User.findOne({username: req.body.username})
