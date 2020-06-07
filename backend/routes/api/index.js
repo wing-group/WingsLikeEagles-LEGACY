@@ -7,6 +7,7 @@ var router = express.Router();
 var userRouter = require('./user');
 var verseRouter = require('./verses');
 var authRouter = require('./auth');
+var authMiddleware = require('../../middleware/auth');
 
 // / Endpoint
 router.get('/', function(req, res) {
