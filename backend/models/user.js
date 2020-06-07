@@ -1,5 +1,6 @@
 /**
- * Outlines the structure of the User Model
+ * @file Describes the user model
+ * @copyright 2019 WingGroup
  */
 
 var mongoose = require('mongoose');
@@ -79,14 +80,9 @@ userSchema.pre('save', function(next) {
 });
 
 /**
- * @callback comparePasswordCallback
- * @param {Error} err Any errors encountered while checking the 
- * @param {Boolean} isMatch Whether or not the passwords match 
- */
-
-/**
  * Checks the given password of a user against the one in the database
  * @param {String} password The password to check
+ * @returns {Promise.<Boolean>} Whether or not the passwords match
  */
 userSchema.methods.comparePassword = function(candidatePassword) {
     return new Promise((resolve, reject) => {

@@ -1,5 +1,6 @@
 /**
- * Controller for updating and retreiving data relating to the User model.
+ * @file Controller for updating and retreiving data relating to the User model
+ * @copyright 2020 WingGroup
  */
 
 var User = require('../models/user');

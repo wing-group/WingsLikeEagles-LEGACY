@@ -1,6 +1,7 @@
-// Copyright (c) 2019 WingGroup
-
-//USED FOR USER SESSION AUTHENTICATION
+/**
+ * @file Handles API authorization checks
+ * @copyright 2019 WingGroup
+ */
 
 var Response = require('../utilities/response.js');
 
