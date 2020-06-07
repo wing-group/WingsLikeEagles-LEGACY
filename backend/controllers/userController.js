@@ -27,6 +27,15 @@ exports.list_users = function(req, res) {
  * @param {Response} res The expressJS response object
  */
 exports.create_user = function(req, res) {
+    try {   
+        if(req.body.username == 'guest') {
+            Response.sendAPIResponse(res, null, null, Response.ERROR.USERNAME_TAKEN);
+            return;
+        }
+    }catch(error) {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER)
+        return;
+    }
     var newUser = new User({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -107,6 +116,25 @@ exports.get_user = function(req, res) {
  * @param {Response} res The expressJS response object
  */
 exports.login_user = function(req, res) {
+    try {   
+        if(req.body.username == 'guest') {
+            res.session.user = new User({
+                first_name: "",
+                last_name: "",
+                email: "",
+                username: "guest",
+                password: "",
+                denomination: "",
+                account_status: User.ACCOUNT_STATUS.ACTIVATED,
+                type: User.ACCOUNT_TYPE.GUEST
+            });
+            Response.sendAPIResponse(res);
+            return;
+        }
+    }catch(error) {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN)
+        return;
+    }
     User.findOne({username: req.body.username})
     .then((user) => {
         if(user) {
