@@ -3,8 +3,8 @@ import { Container } from 'reactstrap';
 import { Header } from '../Components/Header/Header'
 import { Footer } from '../Components/Footer/Footer';
 
-export class Layout extends Component {
-    static displayName = Layout.name;
+export class Page extends Component {
+    static displayName = Page.name;
 
     render() {
         return (

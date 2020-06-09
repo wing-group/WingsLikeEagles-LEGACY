@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Page } from './Page';
 import { Login } from '../Components/Login/Login';
 import { SearchByVerse } from '../Components/SearchByVerse/SearchByVerse';
 import { Jumbotron, Button, Container, Row, Col } from 'reactstrap';
@@ -12,7 +13,7 @@ export class PageHome extends Component {
 
     render() {
         return (
-            <div>
+            <Page>
                 <Container>
                     <Row>
                         <Col>
@@ -31,7 +32,7 @@ export class PageHome extends Component {
                     <hr></hr>
                     <SearchByVerse></SearchByVerse>
                 </Container>
-            </div>
+            </Page>
         );
     }
 }
