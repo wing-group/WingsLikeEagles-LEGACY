@@ -1,5 +1,6 @@
 /**
- * Controller for updating and retreiving data relating to the User model.
+ * @file Controller for updating and retreiving data relating to the User model
+ * @copyright 2020 WingGroup
  */
 
 var User = require('../models/user');
@@ -26,6 +27,15 @@ exports.list_users = function(req, res) {
  * @param {Response} res The expressJS response object
  */
 exports.create_user = function(req, res) {
+    try {   
+        if(req.body.username == 'guest') {
+            Response.sendAPIResponse(res, null, null, Response.ERROR.USERNAME_TAKEN);
+            return;
+        }
+    }catch(error) {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER)
+        return;
+    }
     var newUser = new User({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -33,7 +43,8 @@ exports.create_user = function(req, res) {
         username: req.body.username,
         password: req.body.password,
         denomination: req.body.denomination,
-        account_status: User.ACCOUNT_STATUS.ACTIVATED
+        account_status: User.ACCOUNT_STATUS.ACTIVATED,
+        type: User.ACCOUNT_TYPE.NORMAL
     });
 
     User.findOne({ username: req.body.username})
@@ -105,6 +116,27 @@ exports.get_user = function(req, res) {
  * @param {Response} res The expressJS response object
  */
 exports.login_user = function(req, res) {
+    try {   
+        if(req.body.username == 'guest') {
+            req.session.user = new User({
+                first_name: "",
+                last_name: "",
+                email: "",
+                username: "guest",
+                password: "",
+                denomination: "",
+                account_status: User.ACCOUNT_STATUS.ACTIVATED,
+                type: User.ACCOUNT_TYPE.GUEST
+            });
+            req.session.save();
+            Response.sendAPIResponse(res);
+            return;
+        }
+    }catch(error) {
+        Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN)
+        console.log(error);
+        return;
+    }
     User.findOne({username: req.body.username})
     .then((user) => {
         if(user) {

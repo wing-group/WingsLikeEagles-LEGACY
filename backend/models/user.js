@@ -1,5 +1,6 @@
 /**
- * Outlines the structure of the User Model
+ * @file Describes the user model
+ * @copyright 2019 WingGroup
  */
 
 var mongoose = require('mongoose');
@@ -39,10 +40,15 @@ var userSchema = new Schema({
         default: 0
         },
     account_status: {
-        type: String,
+        type: Number,
         required: false,
-        default: "ACTIVE"
+        default: 1
         },
+    type: {
+        type: Number,
+        required: true,
+        default: 2
+    },
     tagged_verses: [{
         verse: {
             type: Schema.Types.ObjectId,
@@ -79,14 +85,9 @@ userSchema.pre('save', function(next) {
 });
 
 /**
- * @callback comparePasswordCallback
- * @param {Error} err Any errors encountered while checking the 
- * @param {Boolean} isMatch Whether or not the passwords match 
- */
-
-/**
  * Checks the given password of a user against the one in the database
  * @param {String} password The password to check
+ * @returns {Promise.<Boolean>} Whether or not the passwords match
  */
 userSchema.methods.comparePassword = function(candidatePassword) {
     return new Promise((resolve, reject) => {
@@ -110,4 +111,14 @@ module.exports.ACCOUNT_STATUS = {
     UNACTIVATED: 2,
     BANNED: 3,
     DISABLED: 4
+}
+
+/**
+ * Object (Enum) used for account type
+ */
+module.exports.ACCOUNT_TYPE = {
+    GUEST: 1,
+    NORMAL: 2,
+    MODERATOR: 3,
+    ADMIN: 4
 }

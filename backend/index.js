@@ -7,6 +7,7 @@ var app = express();
 var http = require('http').Server(app);
 var indexRouter = require('./routes');
 var mongoose = require('mongoose');
+var authMiddleware = require('./middleware/auth');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -17,6 +18,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {}
 }));
+app.use(authMiddleware.checkAuth);
 
 // Allow CORS
 app.use(function(req, res, next) {
