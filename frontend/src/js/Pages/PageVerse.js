@@ -18,6 +18,8 @@ export class PageVerse extends Component {
         //             this.strId(this.state.query);
         //         }
         //     });
+
+        // temp until bibleBreakdown is implemented
         if (this.state.query) {
             this.strId(this.state.query);
         }
@@ -26,16 +28,15 @@ export class PageVerse extends Component {
     strId = (str) => {
         // use this.state.bibleBreakdown to find closest match
         // for now i'll use john 3:16
-        var id = 'john.3.16'
+        var id = 'john.3.16';
         this.setState({ verseId: id });
     }
 
     render() {
-        var verseDisplay = this.state.verseId ? <VerseDisplay id={this.state.verseId} /> : null
         return (
             <Page>
                 {/* modified <Search /> here to specify verse type */}
-                { verseDisplay }
+                <VerseDisplay vid={this.state.verseId} />
             </Page>
         );
     }

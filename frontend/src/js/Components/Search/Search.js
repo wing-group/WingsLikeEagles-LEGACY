@@ -4,32 +4,30 @@ import { Redirect } from "react-router-dom";
 export class Search extends Component {
     constructor(props) {
         super(props);
-        this.state = { path: '', redirect: false, savestate: {}, searchValue: '' }
+        this.state = { path: '', redirect: false, savestate: {}, searchValue: '' };
     }
 
     handleChange = (ev) => {
-        this.setState({ searchValue: ev.target.value })
+        this.setState({ searchValue: ev.target.value });
     }
 
     submit = (ev) => {
-        ev.preventDefault()
-        var savestate = { query: this.state.searchValue }
-        var searchType = this.discoverSearchType()
+        ev.preventDefault();
+        var savestate = { query: this.state.searchValue };
+        var searchType = this.discoverSearchType();
 
         switch (searchType) {
             case 'VERSE':
-                this.setState({ path: '/verses', redirect: true, savestate: savestate })       
+                this.setState({ path: '/verses', redirect: true, savestate: savestate });  
         }
 
-        console.log(window.location)
-
-        return false
+        return false;
     }
 
     discoverSearchType = () => {
         // defaulting to verse for now
         // use this.state.searchValue in the future
-        return 'VERSE'
+        return 'VERSE';
     }
 
     render() {
