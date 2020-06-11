@@ -43,9 +43,9 @@ export class VerseDisplay extends Component {
         if (this.props.vid === null) return null;
         return (
             <div>
-                <div className="flex">
+                <div>
                     <TranslationOverride selected={this.state.translation} changeTranslation={this.changeTranslation} />
-                    <span className="inline-block font-bold text-2xl ml-3">{this.props.vid}</span>
+                    <span className="block lg:inline-block font-bold text-2xl ml-3">{this.props.vid}</span>
                 </div>
                 <p>{this.state.text}</p>
             </div>
