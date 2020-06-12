@@ -176,3 +176,12 @@ exports.logout_user = function(req, res) {
         Response.sendAPIResponse(res, null, null, Response.ERROR.NOT_LOGGED_IN);
     }
 }
+
+/**
+ * Reset User Password
+ * @param {Request} req The expressJS request object
+ * @param {Response} res The expressJS response object
+ */
+exports.change_password = function(req, res) {
+    
+}
