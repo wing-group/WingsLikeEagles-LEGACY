@@ -12,11 +12,7 @@ export class TranslationOverride extends Component {
      * When the DOM is rendered, get list of available bibles from server
      */
     componentDidMount() {
-        // // if user has already picked one, then dont reload the list
-        // if (this.props.selected !== -1) {
-        //     return;
-        // }
-
+        // CORY-TODO get list of translations
         // fetch('/api/translations')
         //     .then(resp => resp.json())
         //     .then(data => {
@@ -25,7 +21,6 @@ export class TranslationOverride extends Component {
         //     })
         //     .catch(err => console.error(err));
         this.setState({ bibles: ['KJV', 'NIV'] });
-        // this.props.callback('KJV');
     }
 
     /**

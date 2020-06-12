@@ -7,17 +7,25 @@ export class VerseDisplay extends Component {
         this.state = { text: '', translation: '' }
     }
 
+    componentDidMount() {
+        var translation = this.getDefaultTranslation();
+        this.fetchText(translation);
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.vid !== this.props.vid) {
-            var translation = this.getDefaultTranslation();
-            fetch(`/api/verses/${this.props.vid}?translation=${translation}`)
-                .then(resp => resp.json())
-                .then(data => {
-                    // will need to test this json
-                    this.setState({ text: data.content[0].book  + translation});
-                })
-                .catch(err => console.error(err));
+            this.fetchText(this.state.translation);
         }
+    }
+
+    fetchText = (translation) => {
+        fetch(`/api/verses/${this.props.vid}?translation=${translation}`)
+            .then(resp => resp.json())
+            .then(data => {
+                // CORY-TODO actually get the verse text here...
+                this.setState({ text: data.content[0].book + translation });
+            })
+            .catch(err => console.error(err));
     }
 
     // Will look at a users profile to get the default translation...
@@ -28,15 +36,8 @@ export class VerseDisplay extends Component {
     }
 
     changeTranslation = (tr) => {
-        this.setState({ translation: tr, text: '' })
-
-        fetch(`/api/verses/${this.props.vid}?translation=${tr}`)
-            .then(resp => resp.json())
-            .then(data => {
-                // will need to test this json
-                this.setState({ text: data.content[0].book + tr, translation: tr });
-            })
-            .catch(err => console.error(err));
+        this.setState({ translation: tr, text: '' });
+        this.fetchText(tr);
     }
 
     render() {

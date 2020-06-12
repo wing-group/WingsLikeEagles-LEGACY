@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Page } from './Page';
 import { SearchDisplay } from '../Components/SearchDisplay/SearchDisplay';
-import { Search } from '../Components/Search/Search';
+import { Redirect } from 'react-router-dom';
 
 export class PageSearch extends Component {
     constructor(props) {
@@ -12,11 +12,16 @@ export class PageSearch extends Component {
     }
 
     render() {
+        // must have been a manual navigation to /search... send them home!
         if (this.state.query === undefined) {
             return (
                 <Page>
-                    <h1>Search For Something!</h1>
-                    <Search />
+                    <Redirect
+                        to={{
+                            pathname: '/',
+                            state: {}
+                        }}
+                    />
                 </Page>
             );
         } else {

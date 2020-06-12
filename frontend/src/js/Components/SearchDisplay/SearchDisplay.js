@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Search } from '../Search/Search';
+import { SearchResultTile } from './SearchResultTile';
 
 export class SearchDisplay extends Component {
     static propTypes = {
@@ -20,6 +20,7 @@ export class SearchDisplay extends Component {
 
     componentDidMount() {
         // get verses
+        // CORY-TODO actually run through verses
         // fetch('/api/bibleBreakdown/')
         //     .then(resp => resp.json())
         //     .then(data => {
@@ -52,7 +53,7 @@ export class SearchDisplay extends Component {
                 <SearchSection title="Verses">
                     {this.state.relevantVerses && this.state.relevantVerses.map((val, i) => {
                         return (
-                            <div className="block" key={i}>{val}</div>
+                            <SearchResultTile key={i} target="/verses" id={val} text={"display text"} />
                         );
                     })}
                 </SearchSection>
