@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from "react-router-dom";
 
+/**
+ *  <Search />
+ *  Reusable site search component.
+ */
 export class Search extends Component {
+    static propTypes = {
+        // specify if this searchbar should search verses, topics, etc...
+        // values: 'verse' 'topic'
+        type: PropTypes.string
+    };
+
     constructor(props) {
         super(props);
         this.state = { path: '', redirect: false, savestate: {}, searchValue: '' };
@@ -13,21 +24,9 @@ export class Search extends Component {
 
     submit = (ev) => {
         ev.preventDefault();
-        var savestate = { query: this.state.searchValue };
-        var searchType = this.discoverSearchType();
-
-        switch (searchType) {
-            case 'VERSE':
-                this.setState({ path: '/verses', redirect: true, savestate: savestate });  
-        }
-
+        let savestate = { query: this.state.searchValue };
+        this.setState({ path: '/search', redirect: true, savestate: savestate });  
         return false;
-    }
-
-    discoverSearchType = () => {
-        // defaulting to verse for now
-        // use this.state.searchValue in the future
-        return 'VERSE';
     }
 
     render() {
@@ -39,17 +38,17 @@ export class Search extends Component {
             <Redirect
                 push
                 to={{
-                    pathname: "/verses",
+                    pathname: this.state.path,
                     state: this.state.savestate
                 }}
             />
         ) : (null)
         return (
             <div>
-                {redirect}
+                {redirect} {/* TODO make Redirect its own component instead of doing this conditional rendering here... */}
                 <form onSubmit={this.submit} action="/search" method="get" className="m-0 w-full">
                     <input type="text" placeholder="Search" value={this.state.searchValue} onChange={this.handleChange}
-                        className="m-0 w-full h-full rounded p-2 outline-none" />
+                        className="m-0 w-full h-full rounded p-2 outline-none border-solid border border-gray-600" />
                 </form>
             </div>
         );
