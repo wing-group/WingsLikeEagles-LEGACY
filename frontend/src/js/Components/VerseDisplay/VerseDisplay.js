@@ -23,7 +23,7 @@ export class VerseDisplay extends Component {
             .then(resp => resp.json())
             .then(data => {
                 // CORY-TODO actually get the verse text here...
-                this.setState({ text: data.content[0].book + translation });
+                this.setState({ text: data.content[0].book + ' ' + translation + ' ' + this.props.vid });
             })
             .catch(err => console.error(err));
     }
@@ -46,7 +46,7 @@ export class VerseDisplay extends Component {
             <div>
                 <div>
                     <TranslationOverride selected={this.state.translation} changeTranslation={this.changeTranslation} />
-                    <span className="block lg:inline-block font-bold text-2xl ml-3">{this.props.vid}</span>
+                    <span className="block lg:inline-block font-bold text-2xl ml-3">{this.props.display}</span>
                 </div>
                 <p>{this.state.text}</p>
             </div>

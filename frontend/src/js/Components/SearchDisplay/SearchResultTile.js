@@ -6,7 +6,7 @@ export class SearchResultTile extends Component {
     static propTypes = {
         // internal id
         id: PropTypes.string,
-        text: PropTypes.string,
+        display: PropTypes.string,
         target: PropTypes.string
     };
 
@@ -26,15 +26,15 @@ export class SearchResultTile extends Component {
                     push
                     to={{
                         pathname: this.props.target,
-                        state: { id: this.props.id }
+                        state: { id: this.props.id, display: this.props.display }
                     }}
                 />
             );
         }
         return (
             <div className="inline-block bg-gray-100 rounded-md p-4 m-2" onClick={this.clicked}>
-                <span>{this.props.id}</span>
-                <span>{this.props.text}</span>
+                <p className="font-semibold">{this.props.display}</p>
+                <p>{this.props.id}</p>
             </div>
         );
 

@@ -13,7 +13,7 @@ export class PageVerse extends Component {
         return (
             <Page>
                 {/* back / forward arrows to traverse? */}
-                <VerseDisplay vid={this.state.id} />
+                <VerseDisplay vid={this.state.id} display={this.state.display} />
                 {/* show related verses here...? */}
             </Page>
         );

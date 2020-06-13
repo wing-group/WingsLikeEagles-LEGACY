@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { SearchResultTile } from './SearchResultTile';
+import { searchVerses as staticSearchVerses } from '../../Static/StringSimilarity';
 
+// temp
+var bible = require('./bible.json');
 export class SearchDisplay extends Component {
     static propTypes = {
         // the query to show results for
@@ -30,7 +33,7 @@ export class SearchDisplay extends Component {
         //         }
         //     });
         // temp
-        let verses = [{ "abbr": "John", "book": "John", "chapters": [{ "chapter": "1", "verses": "51" }, { "chapter": "2", "verses": "25" }, { "chapter": "3", "verses": "36" }] }];
+        let verses = bible;
         this.searchVerses(verses);
 
         // get topics
@@ -39,7 +42,8 @@ export class SearchDisplay extends Component {
     }
 
     searchVerses = (verses) => {
-        this.setState({ bibleBreakdown: verses, relevantVerses: ['john.1.1', 'john.1.11'] })
+        let results = staticSearchVerses(this.props.query, verses)
+        this.setState({ bibleBreakdown: verses, relevantVerses: results })
     }
 
     searchTopics = (topics) => {
@@ -50,20 +54,22 @@ export class SearchDisplay extends Component {
         return (
             <React.Fragment>
                 <div>Results for: <span className="font-semibold">{this.props.query}</span></div>
-                <SearchSection title="Verses">
-                    {this.state.relevantVerses && this.state.relevantVerses.map((val, i) => {
-                        return (
-                            <SearchResultTile key={i} target="/verses" id={val} text={"display text"} />
-                        );
-                    })}
-                </SearchSection>
-                <SearchSection title="Topics">
-                    {this.state.relevantTopics && this.state.relevantTopics.map((val, i) => {
-                        return (
-                            <div className="block" key={i}>{val.name}</div>
-                        );
-                    })}
-                </SearchSection>
+                <div className="flex flex-col lg:flex-row">
+                    <SearchSection title="Verses">
+                        {this.state.relevantVerses && this.state.relevantVerses.map((val, i) => {
+                            return (
+                                <SearchResultTile key={i} target="/verses" id={val.vid} display={val.text} />
+                            );
+                        })}
+                    </SearchSection>
+                    <SearchSection title="Topics">
+                        {this.state.relevantTopics && this.state.relevantTopics.map((val, i) => {
+                            return (
+                                <SearchResultTile key={i} target="/topics" id={i} display={val.name} />
+                            );
+                        })}
+                    </SearchSection>
+                </div>
             </React.Fragment>
         );
 
@@ -73,10 +79,12 @@ export class SearchDisplay extends Component {
 class SearchSection extends Component {
     render() {
         return (
-            <div className="block mb-12">
+            <div className="block mb-12 flex-grow">
                 <h1 className="text-2xl text-center">{this.props.title}</h1>
                 <hr />
-                {this.props.children}
+                <div className="flex flex-col p-3">
+                    {this.props.children}
+                </div>
             </div>
         );
     }
