@@ -191,10 +191,10 @@ exports.change_password = function(req, res) {
             Response.sendAPIResponse(res);
         })
         .catch((error) => {
-            Response.sendAPIResponse(res, null, error, Response.ERROR.NOT_LOGGED_IN); // TODO Create new error code
+            Response.sendAPIResponse(res, null, error, Response.ERROR.CHANGING_PASSWORD); 
         })
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.NOT_LOGGED_IN) // TODO Create new error code
+        Response.sendAPIResponse(res, null, error, Response.ERROR.NOT_LOGGED_IN) 
     })
 }
