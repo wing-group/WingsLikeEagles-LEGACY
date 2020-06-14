@@ -188,10 +188,10 @@ exports.change_password = function(req, res) {
         user.password = req.body.password;
         user.save()
         .then(() => {
-            Response.sendAPIResponse();
+            Response.sendAPIResponse(res);
         })
         .catch((error) => {
-            //TODO Send error
+            Response.sendAPIResponse(res, null, error, Response.ERROR.NOT_LOGGED_IN); // TODO Create new error code
         })
     })
     .catch((error) => {
