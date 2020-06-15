@@ -56,5 +56,3 @@ services:
 volumes:
   wledb_v:
   mongo_v:
-  node_modules_f:
-  node_modules_b:

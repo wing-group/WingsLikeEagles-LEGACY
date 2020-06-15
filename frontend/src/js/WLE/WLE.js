@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Layout } from './Layout';
 import { PageHome } from '../Pages/PageHome';
+import { PageVerse } from '../Pages/PageVerse';
+import { PageSearch } from '../Pages/PageSearch';
 import { PageError } from '../Pages/PageError';
 import { Route, Switch } from 'react-router-dom';
 import { SignUp } from '../Components/SignUp/SignUp';
@@ -8,14 +9,13 @@ import { SignUp } from '../Components/SignUp/SignUp';
 export class WLE extends Component {
     render() {
         return (
-            <Layout>
-                <Switch>
-                    <Route exact path='/' component={PageHome} />
-                    <Route exact path='/register' component={SignUp} />
-                    <Route component={PageError} />
-                </Switch>
-            </Layout>
-
+            <Switch>
+                <Route exact path='/' component={PageHome} />
+                <Route exact path='/verses' component={PageVerse} />
+                <Route exact path='/register' component={SignUp} />
+                <Route exact path='/search' component={PageSearch} />
+                <Route component={PageError} />
+            </Switch>
         );
     }
 }
