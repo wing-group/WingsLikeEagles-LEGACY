@@ -5,12 +5,15 @@ services:
     build:
       context: ./frontend
       dockerfile: dockerfile
+      target: development
+    command: npm start
     container_name: "frontend"
     restart: "no"
     ports:
       - "3000:3000"
     volumes:
       - ./frontend:/usr/src/app
+      - frontend_dependencies:/usr/src/app/node_modules
     depends_on:
       - backend
 
@@ -18,13 +21,16 @@ services:
     build:
       context: ./backend
       dockerfile: dockerfile
+      target: development
+    command: npx nodemon index.js
     container_name: "backend"
     restart: "no"
-    #env_file: .env # At somepoint we should put passwords and such in a .env file, not in the repo
+    # env_file: .env # At somepoint we should put passwords and such in a .env file
     ports:
       - "3001:3001"
     volumes:
       - ./backend:/usr/src/app
+      - backend_dependencies:/usr/src/app/node_modules
     depends_on:
       - mongo
       - wledb
@@ -54,5 +60,7 @@ services:
       - ./backend/wledb/wledb.sql:/docker-entrypoint-initdb.d/wledb.sql
 
 volumes:
+  frontend_dependencies:
+  backend_dependencies:
   wledb_v:
   mongo_v:

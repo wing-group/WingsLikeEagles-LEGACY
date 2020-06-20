@@ -1,14 +1,23 @@
+FROM node:10.16.3 AS development
 
-FROM node:10
+RUN mkdir /usr/src/app && chown node:node /usr/src/app
 
-RUN mkdir -p /usr/src/app/ 
+USER node
 
 WORKDIR /usr/src/app
 
-COPY package.json .
+COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm install -g react-scripts
+RUN npm install --quiet
+
+FROM node:10.16.3-slim AS production
+
+USER node
+
+WORKDIR /usr/src/app
+
+COPY --from=development --chown=root:root /usr/src/app/node_modules ./node_modules
 
 COPY . .
 
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
