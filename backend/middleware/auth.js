@@ -15,7 +15,7 @@ var Response = require('../utilities/response.js');
  * @param {Functon} next The route requring user login excepting /auth/
 */
 exports.checkAuth = function(req, res, next) {
-    if(req.session.user || req.path == '/api/auth') {
+    if(req.session.user || req.path == '/api/auth' || (req.path == '/api/users' && req.method == 'POST')) {
         next();
     } else {
         Response.sendAPIResponse(res, null, null, Response.ERROR.NOT_LOGGED_IN);

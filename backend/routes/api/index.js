@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var userRouter = require('./user');
+var userRouter = require('./users');
 var verseRouter = require('./verses');
 var authRouter = require('./auth');
 var authMiddleware = require('../../middleware/auth');
@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 });
 
 // /user/ Endpoint
-router.use('/user', userRouter);
+router.use('/users', userRouter);
 
 // /verses/ endpoint
 router.use('/verses', verseRouter);
