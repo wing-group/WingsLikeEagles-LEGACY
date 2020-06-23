@@ -22,6 +22,19 @@ module.exports.sendAPIResponse = function(res, content, debug, status) {
     res.status(status.httpCode).send(APIResponse);
 }
 
+module.exports.generate = function(content, debug, status) {
+    if (typeof debug == 'undefined') debug = null;
+    if (typeof content ==  'undefined') content = null;
+    if (typeof status == 'undefined') status = this.SUCCESS.GENERIC_SUCCESS;
+    let APIResponse = {
+        status: status,
+        content: content,
+        debug: debug
+    }
+
+    return APIResponse;
+}
+
 /**
  * Constructor for the ResponseStatus object, used for sending errors
  * @param {Number} httpCode The HTTP Status Code to send
