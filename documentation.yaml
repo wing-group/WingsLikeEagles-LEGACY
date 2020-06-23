@@ -1,0 +1,483 @@
+openapi: 3.0.0
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: 'https://virtserver.swaggerhub.com/Wing-Group/Wings-Like-Eagles/1.0.0'
+info:
+  description: 'All of the following routes begin with `[base]/api/1.0.0/`'
+  version: 1.0.0
+  title: Wings Like Eagles API
+tags:
+  - name: Users
+    description: 'Create, Read, Update, and Delete Users'
+  - name: Auth
+    description: Authenticate And Deauthenticate Users
+  - name: Me
+    description: Get information on user associated with your session
+  - name: Verses
+    description: Retrieve verse text and information
+  - name: Search
+    description: Retrieve verse references based on search terms
+  - name: Tag
+    description: Tag (or untag) a verse with a topic
+  - name: Topics
+    description: A list of all actively supported topics
+  - name: Bible Breakdown
+    description: "A simple breakdown of the bible's structure"
+  - name: Translations
+    description: A list of all actively supported translations
+paths:
+  /auth:
+    post:
+      tags:
+        - Auth
+      summary: Authenticate User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: johndoe27
+                password:
+                  type: string
+                  example: pass123
+      responses:
+        '200':
+          description: Authenticated User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 200
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+    delete:
+      tags:
+        - Auth
+      summary: Deauthenticate User
+      responses:
+        '200':
+          description: Deauthenticated User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 200
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+  /users:
+    get:
+      tags:
+        - Users
+      summary: Get All Users
+      responses:
+        '200':
+          description: Created User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 2000
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+                  content:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+                  debug:
+                    type: object
+                    example: null
+    post:
+      tags:
+        - Users
+      summary: Create New User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  example: John
+                last_name:
+                  type: string
+                  example: Doe
+                email:
+                  type: string
+                  example: jdoe@email.com
+                username:
+                  type: string
+                  example: johndoe27
+                password:
+                  type: string
+                  example: pass123
+                denomination:
+                  type: string
+                  example: UNDECIDED FORMAT
+      responses:
+        '200':
+          description: Created User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 2000
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+                  content:
+                    type: object
+                    example: null
+                  debug:
+                    type: object
+                    example: null
+  '/users/{username}':
+    get:
+      tags:
+        - Users
+      summary: Get A Specific User By ID
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: johndoe27
+          required: true
+          description: The username of the user to get
+      responses:
+        '200':
+          description: Got User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 2000
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+                  content:
+                    $ref: '#/components/schemas/User'
+                  debug:
+                    type: object
+                    example: null
+    delete:
+      tags:
+        - Users
+      summary: Delete A Specific User By ID
+      parameters:
+        - in: path
+          name: username
+          schema:
+            type: string
+            example: johndoe27
+          required: true
+          description: The username of the user to delete
+      responses:
+        '200':
+          description: Deleted User Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    properties:
+                      httpCode:
+                        type: integer
+                        example: 200
+                      errCode:
+                        type: integer
+                        example: 2000
+                      errMsg:
+                        type: string
+                        example: 'SUCCESS: Successful operation'
+                  content:
+                    type: object
+                    example: null
+                  debug:
+                    type: object
+                    example: null
+  /me:
+    get:
+      tags:
+        - Me
+      summary: Get information on user associated with current session
+      responses:
+        '200':
+          description: TODO
+  '/verses/{id}':
+    get:
+      tags:
+        - Verses
+      summary: 'Gets verse text and information - [COMING SOON]'
+      description: 'Gets the text and information for a specified verse. You may also get a range of verses using the optional `until` query parameter, and you may specify a translation for those verses using the optional `translation` query parameter. The anticipated format used in verse identification for `id` and for `until` is defined in WLE as a Verse ID. To get a Verse ID from a traditional single-verse reference you simply remove all whitespace and non-alphanumeric characters, convert to lowercase, truncate the book name after 5 characters, and use periods as a delimeter between the book, chapter, and verse. For instance, Jonah 2:2 becomes `jonah.2.2`, Job 42:3 becomes `job.42.3`, Song of Solomon 3:5 becomes `songo.3.5`, 2 Timothy 2:15 becomes `2timo.2.15`, and Isaiah 53:6 becomes `isaia.53.6`.'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: 'Verse ID for desired verse (e.g. `1pete.2.9` for 1 Peter 2:9)'
+        - in: query
+          name: until
+          schema:
+            type: string
+          required: false
+          description: 'Verse ID for last verse of desired range - inclusive (e.g. `1pete.2.10` to get 1 Peter 2:9-10). You can also set `until` to `end`,  which will set the verse range to go until the end of the chapter (in this case, `end` would return 1 Peter 2:9-25). No range will extend beyond one chapter (e.g. `1pete.3.9`  would return 1 Peter 2:9-25). If no `until` is defined, then only the singular verse specified in place of `id` will be returned.'
+        - in: query
+          name: translation
+          schema:
+            type: string
+          required: false
+          description: "Determines which translation to use for verse text. An up-to-date list of active translations can be retrieved from `GET /translations`. If no translation is defined, then the user's preferred translation will be used, and if the user's preferred translation is not defined then `kjv` will be used."
+      responses:
+        '200':
+          description: TODO
+  /topics:
+    get:
+      tags:
+        - Topics
+      summary: 'Gets all actively supported topics - [COMING SOON]'
+      description: Gets every actively supported topic used in WLE
+      responses:
+        '200':
+          description: TODO
+  '/topics/{id}':
+    get:
+      tags:
+        - Topics
+      summary: 'Gets information on a specific topic - [COMING SOON]'
+      description: Gets information on a specific actively supported topic used in WLE
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: identifies the topic for which information is requested
+      responses:
+        '200':
+          description: TODO
+  /bibleBreakdown:
+    get:
+      tags:
+        - Bible Breakdown
+      summary: "Gets the bible's structure and our WLE-specific book abbreviations - [COMING SOON]"
+      description: "This endpoint provides a breakdown of how the books of the bible are organized. It also provides each book's WLE abbreviation along with that info (e.g. Song of Solomon -> `songo`, or 1 Chronicles -> `1chro`)"
+      responses:
+        '200':
+          description: TODO
+  /translations:
+    get:
+      tags:
+        - Translations
+      summary: 'Gets all translations - [COMING SOON]'
+      description: Gets every actively supported translation used in WLE
+      responses:
+        '200':
+          description: TODO
+  '/translations/{id}':
+    get:
+      tags:
+        - Translations
+      summary: 'Gets information on a specific translation - [COMING SOON]'
+      description: Gets information on a specific actively supported translation used in WLE
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: identifies the translation for which information is requested
+      responses:
+        '200':
+          description: TODO
+  /tag:
+    post:
+      tags:
+        - Tag
+      summary: 'Creates a tag - [COMING SOON]'
+      description: Creates a tag relationship for a User with a specified verse and topic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: johndoe27
+                vid:
+                  type: string
+                  example: isaia.53.6
+                topic:
+                  type: string
+                  example: compassion
+      responses:
+        '200':
+          description: TODO
+    delete:
+      tags:
+        - Tag
+      summary: 'Deletes a tag - [COMING SOON]'
+      description: Deletes a tag relationship for a User with a specified verse and topic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: johndoe27
+                vid:
+                  type: string
+                  example: isaia.53.6
+                topic:
+                  type: string
+                  example: compassion
+      responses:
+        '200':
+          description: TODO
+  /search:
+    get:
+      tags:
+        - Search
+      summary: 'Search for verses by various descriptors - [COMING SOON]'
+      description: "Search for verses by topics, books, book categories, and users. Searches are based on intersection of defined query parameters, and are ordered based on tag prevalence. Returns verse references; to retrieve the verse's text, call `GET /verses/{id}` accordingly. Undefined query parameters will not limit the breadth of a search, whereas defined query parameters will. Consequently, if no query parameters are provided, then this endpoint will retrieve an ordered list of the most-tagged verses across all of WLE."
+      parameters:
+        - in: query
+          name: topics
+          schema:
+            type: string
+          required: false
+          description: "If defined, this will do one of two things. 1) It limit search results to verses which have been tagged with the provided topics. 2) it will order the search results according to the total number of tags they've recieved for the provided topics. To search by multiple topics, simply delimit your list with commas (e.g., `/search?topics=compassion,love`)"
+        - in: query
+          name: books
+          schema:
+            type: string
+          required: false
+          description: 'If defined, this will limit search results to verses which are found in the provided books. To search by multiple books, simply delimit your list with commas (e.g., `/search?books=isaia,1chro,job,songo`)'
+        - in: query
+          name: bookCategories
+          schema:
+            type: string
+          required: false
+          description: 'If defined, this will limit search results to verses which are found in books categroized under the provided book categories. To search by multiple book categories, simply delimit your list with commas (e.g., `/search?bookCategories=history,epistles`)'
+        - in: query
+          name: users
+          schema:
+            type: string
+          required: false
+          description: 'If defined, this will limit search results to verses that have been tagged by the provided users. Moreover, it will provide the tag breakdown from each listed user. To search by multiple book categories, simply delimit your list with commas (e.g., `/search?users=johndoe27,dunnsterf1r3,maxeatskittens`)'
+        - in: query
+          name: start
+          schema:
+            type: string
+          required: false
+          description: 'Search results are ordered by relevance. If defined, this will determine which rank the returned verses will start with - inclusive. If undefined, the default value of `start` is `1`.'
+        - in: query
+          name: end
+          schema:
+            type: string
+          required: false
+          description: 'Search results are ordered by relevance. If defined, this will determine which rank the returned verses will end with - inclusive. If undefined, the default value of `end` is the `start` value plus 24 (meaning there will automatically be 25 returned verses or less, depending on how many total results there are).'
+      responses:
+        '200':
+          description: TODO
+components:
+  schemas:
+    User:
+      properties:
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        email:
+          type: string
+          example: jdoe@email.com
+        username:
+          type: string
+          example: johndoe27
+        password:
+          type: string
+          example: $2b$04$CbeQeOuplaa/PvQ5iTuecOzlQd8U/fXCD27GBUEJ5JMSryIGDPaLC
+        denomination:
+          type: string
+          example: UNDECIDED FORMAT
+        reputaton:
+          type: integer
+          example: 1200
+        account_status:
+          type: integer
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+        tagged_verses:
+          type: array
+          items:
+            type: object
+            example: Verse Refs
+        created_at:
+          type: string
+          example: '2020-06-05T17:08:39.174Z'
