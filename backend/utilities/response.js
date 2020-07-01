@@ -31,8 +31,8 @@ module.exports.sendAPIResponse = function(res, content, debug, status) {
  */
 module.exports.ResponseStatus = function(httpCode, wleCode, message) {
     this.httpCode = httpCode;
-    this.errCode = wleCode;
-    this.errMsg = message;
+    this.wleCode = wleCode;
+    this.message = message;
 }
 
 /**
