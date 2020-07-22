@@ -7,6 +7,7 @@ var app = express();
 var http = require('http').Server(app);
 var indexRouter = require('./routes');
 var mongoose = require('mongoose');
+var responseMiddleware = require('./middleware/response');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -30,6 +31,9 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+//Needs to be last in the chain to properly intercept outgoing responses
+app.use(responseMiddleware);
 
 // hostname is mongo, we are accessing the mongodb running in the mongo service on our docker network
 mongoose.connect('mongodb://mongo:27017/devDB', { useNewUrlParser: true});
