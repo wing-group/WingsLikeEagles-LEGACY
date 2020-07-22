@@ -10,14 +10,15 @@ var Response = require('../utilities/response.js');
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.list_users = function(req, res) {
+exports.list_users = function(req, res, next) {
     User.find({})
     .then((users) => {
-        Response.sendAPIResponse(res, users);
+        Response.generate(users);
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USERS);
+        Response.generate(null, error, Response.ERROR.GETTING_USERS);
     })
+    next();
 } 
 
 /**
@@ -25,7 +26,7 @@ exports.list_users = function(req, res) {
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.create_user = function(req, res) {
+exports.create_user = function(req, res, next) {
     var newUser = new User({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -39,20 +40,21 @@ exports.create_user = function(req, res) {
     User.findOne({ username: req.body.username})
     .then((user) => {
         if(user) {
-            Response.sendAPIResponse(res, null, null, Response.ERROR.USERNAME_TAKEN);
+            Response.sendAPIResponse(null, null, Response.ERROR.USERNAME_TAKEN);
         } else {
             newUser.save()
             .then(() => {
-                Response.sendAPIResponse(res, null);
+                Response.generate(null);
             })
             .catch((error) => {
-                Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
+                Response.generate(null, error, Response.ERROR.CREATING_USER);
             }) 
         }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.CREATING_USER);
+        Response.gernerate(null, error, Response.ERROR.CREATING_USER);
     })
+    next();
 }
 
 /**
@@ -60,24 +62,25 @@ exports.create_user = function(req, res) {
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.delete_user = function(req, res) {
+exports.delete_user = function(req, res, next) {
     User.findOne({ username: req.params.username})
     .then((user) => {
         if(user) {
             user.remove()
             .then(() => {
-                Response.sendAPIResponse(res, null);
+                Response.generate(null);
             })
             .catch((error) => {
-                Response.sendAPIResponse(res, null, error, Response.ERROR.DELETING_USER);
+                Response.generate(null, error, Response.ERROR.DELETING_USER);
             });
         } else {
-            Response.sendAPIResponse(res, null, null, Response.ERROR.USER_NOT_FOUND);
+            Response.generate(null, null, Response.ERROR.USER_NOT_FOUND);
         }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USER);
+        Response.generate(null, error, Response.ERROR.GETTING_USER);
     });
+    next();
 }
 
 /**
@@ -85,18 +88,19 @@ exports.delete_user = function(req, res) {
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.get_user = function(req, res) {
+exports.get_user = function(req, res, next) {
     User.findOne({ username: req.params.username})
     .then((user) => {
         if(user) {
-            Response.sendAPIResponse(res, user);
+            Response.generate(user);
         } else {
-            Response.sendAPIResponse(res, null, null, Response.ERROR.USER_NOT_FOUND);
+            Response.generate(null, null, Response.ERROR.USER_NOT_FOUND);
         }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.GETTING_USER);
+        Response.generate(null, error, Response.ERROR.GETTING_USER);
     })
+    next();
 }
 
 /**
@@ -104,7 +108,7 @@ exports.get_user = function(req, res) {
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.login_user = function(req, res) {
+exports.login_user = function(req, res, next) {
     User.findOne({username: req.body.username})
     .then((user) => {
         if(user) {
@@ -113,21 +117,22 @@ exports.login_user = function(req, res) {
                 if(isMatch) {
                     req.session.user = user;
                     req.session.save();
-                    Response.sendAPIResponse(res)
+                    Response.generate(null);
                 } else {
-                    Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+                    Response.generate(null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
                 }
             })
             .catch((error) => {
-                Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN);
+                Response.generate(null, error, Response.ERROR.LOGGING_IN);
             })
         } else {
-            Response.sendAPIResponse(res, null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
+            Response.generate(null, null, Response.ERROR.INVALID_EMAIL_OR_PASSWORD);
         }
     })
     .catch((error) => {
-        Response.sendAPIResponse(res, null, error, Response.ERROR.LOGGING_IN) 
-    })
+        Response.generate(null, error, Response.ERROR.LOGGING_IN) 
+    });
+    next();
 }
 
 /**
@@ -135,12 +140,13 @@ exports.login_user = function(req, res) {
  * @param {Request} req The expressJS request object
  * @param {Response} res The expressJS response object
  */
-exports.logout_user = function(req, res) {
+exports.logout_user = function(req, res, next) {
     if(req.session.user) {
         req.session = null;
         req.session.destroy();
-        Response.sendAPIResponse(res);
+        Response.generate(null);
     } else {
-        Response.sendAPIResponse(res, null, null, Response.ERROR.NOT_LOGGED_IN);
+        Response.generate(null, null, Response.ERROR.NOT_LOGGED_IN);
     }
+    next();
 }
